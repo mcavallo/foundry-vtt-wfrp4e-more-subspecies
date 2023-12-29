@@ -1,0 +1,136 @@
+$module: 'wfrp4e-more-subspecies';
+
+$color-subspecies-select: #790000;
+$color-warning-box: #835a05;
+
+.app.wfrp4e.chargen {
+  .select-subspecies {
+    ul {
+      padding: 0;
+    }
+
+    li {
+      list-style-type: none;
+      position: relative;
+
+      &::before {
+        content: '\f013';
+        color: inherit;
+        font-family: var(--fa-style-family, 'Font Awesome 6 Pro');
+        font-weight: var(--fa-style, 900);
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        display: inline-block;
+        position: absolute;
+        font-size: 12px;
+        left: 0;
+        width: 12px;
+        margin-left: 4px;
+        pointer-events: none;
+      }
+
+      a {
+        padding: 0 0 0 1.5em;
+
+        &::after {
+          content: 'RAW';
+          position: absolute;
+          background: rgba(black, 0.75);
+          color: white;
+          padding: 4px 4px 3px 4px;
+          font-size: 13px;
+          border-radius: 3px;
+          margin-top: -1px;
+          margin-left: 0.5em;
+          top: 50%;
+          transform: translateY(-50%);
+          font-weight: 300;
+          opacity: 0;
+          line-height: 1;
+          pointer-events: none;
+          transition: all 150ms ease-in-out;
+          box-shadow: 0 0 10px rgba(black, 0.5);
+        }
+
+        &:hover::after {
+          opacity: 1;
+        }
+      }
+
+      &:has([data-subspecies^='ms_']) {
+        color: $color-subspecies-select;
+
+        &::before {
+          content: '\f0c3';
+          color: $color-subspecies-select;
+        }
+
+        a {
+          &::after {
+            content: 'Homebrew';
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes blinking-warning {
+  0% {
+    background: $color-warning-box;
+  }
+  50% {
+    background: lighten($color-warning-box, 5%);
+  }
+  100% {
+    background: $color-warning-box;
+  }
+}
+
+##{$module}-enabled-datasets-setting {
+  .warning {
+    background: $color-warning-box;
+    padding: 0.5em;
+    margin: 0.5em 0 1em;
+    box-shadow: inset 0 0 0 2px lighten($color-warning-box, 15%);
+    animation: blinking-warning 1s infinite;
+  }
+
+  .item-list {
+    margin-bottom: 12px;
+
+    .item {
+      display: flex;
+      align-items: center;
+      padding: 4px 0;
+      cursor: pointer;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .item-details {
+        margin-left: 4px;
+        flex: 1;
+
+        .label {
+          font-size: 14px;
+          color: var(--color-text-dark-primary);
+        }
+
+        .description {
+          font-size: 13px;
+          color: var(--color-text-dark-6);
+        }
+      }
+    }
+  }
+}
+
+// Foundry settings style overrides
+
+#client-settings section.category[data-tab='#{$module}'] .form-group .form-fields {
+  flex: 0;
+}

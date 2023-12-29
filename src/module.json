@@ -1,0 +1,32 @@
+{
+  "name": "__MODULE_NAME__",
+  "title": "__MODULE_TITLE__",
+  "description": "__MODULE_DESCRIPTION__",
+  "version": "__VERSION__",
+  "author": "__AUTHOR__",
+  "authors": [],
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11.315"
+  },
+  "minimumCoreVersion": 11,
+  "compatibleCoreVersion": 11,
+  "license": "__LICENSE__",
+  "relationships": {
+    "systems": [
+      {
+        "id": "wfrp4e",
+        "type": "system",
+        "manifest": "https://github.com/moo-man/WFRP4e-FoundryVTT/releases/latest/download/system.json"
+      }
+    ]
+  },
+  "esmodules": [],
+  "scripts": [],
+  "styles": [],
+  "packs": [],
+  "media": [],
+  "url": "__REPO_URL__",
+  "manifest": "__REPO_URL__/releases/latest/download/module.json",
+  "download": "__REPO_URL__/releases/download/__RELEASE__/__MODULE_NAME_____RELEASE__.zip"
+}

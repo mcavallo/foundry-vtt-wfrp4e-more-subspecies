@@ -1,0 +1,1007 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formatDatasetFilename case 0 1`] = `"undefined-undefined"`;
+
+exports[`parseRawContent parses bretonnian-humans correctly 1`] = `
+Array [
+  "Aquitaine
+Animal Care, Cool, Gossip, Intimidate, Leadership, Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ranged (Bow), Ride (Horse), Sail (Any), Swim
+Noble Blood or Beneath Notice, Coolheaded or Relentless, 3 Random Talents",
+  "Artois
+Animal Care, Cool, Endurance, Evaluate, Intuition, Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Outdoor Survival, Perception, Ride (Horse), Track
+Noble Blood or Beneath Notice, Sharp or Strider (Forests), 3 Random Talents",
+  "Bastonne
+Animal Care, Cool, Endurance, Gossip, Leadership, Lore (Bretonnia), Lore (Genealogy), Melee (Basic), Melee (Cavalry), Outdoor Survival, Perception, Ride (Horse)
+Noble Blood or Beneath Notice, Luck or Stout-Hearted, 3 Random Talents",
+  "Bordeleaux
+Animal Care, Consume Alcohol, Gossip, Haggle, Intuition, Melee (Basic), Melee (Cavalry), Ride (Horse), Ranged (Bow), Row, Swim, Sail (Any)
+Noble Blood or Beneath Notice, Carouser or Sea Legs, 3 Random Talents",
+  "Brionne
+Animal Care, Art (Poetry), Charm, Cool, Entertain (Storytelling), Gossip, Language (Estalian), Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ride (Horse), Swim
+Noble Blood or Beneath Notice, Suave or Blather, 3 Random Talents",
+  "Carcassonne
+Animal Care, Charm, Cool, Evaluate, Gossip, Intuition, Language (Estalian), Leadership, Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ride (Horse)
+Noble Blood or Beneath Notice, Birth Sword or Warrior Born, 3 Random Talents",
+  "Couronne
+Animal Care, Animal Training (Horse), Charm, Charm Animal, Gossip, Language (Reikspiel), Language (Wastelander), Leadership, Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ride (Horse)
+Noble Blood or Beneath Notice, Suave or Trick Rider, 3 Random Talents",
+  "Gisoreux
+Animal Care, Charm, Climb, Gossip, Language (Reikspiel), Language (Wastelander), Leadership, Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Outdoor Survival, Ride (Horse), Track
+Noble Blood or Beneath Notice, Gregarious or Sharp, 3 Random Talents",
+  "L'Anguille
+Animal Care, Charm, Evaluate, Gossip, Language (Reikspiel), Language (Wastelander), Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ride (Horse), Sail (Any), Swim
+Noble Blood or Beneath Notice, Coolheaded or Sea Legs, 3 Random Talents",
+  "Lyonesse
+Animal Care, Bribery, Charm, Gossip, Haggle, Intuition, Lore (Bretonnia), Lore (Mousillon), Melee (Basic), Melee (Cavalry), Ride (Horse), Sail (Any)
+Noble Blood or Beneath Notice, Schemer or Savvy, 3 Random Talents",
+  "Montfort
+Animal Care, Charm, Consume Alcohol, Climb, Endurance, Evaluate, Gossip, Language (Reikspiel) or (Wastelander), Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ride (Horse)
+Noble Blood or Beneath Notice, Very Resilient or Strider (Mountains), 3 Random Talents",
+  "Mousillon
+Animal Care, Consume Alcohol, Endurance, Gossip, Intimidate, Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Outdoor Survival, Perception, Ride (Horse), Stealth (Urban)
+Noble Blood or Beneath Notice, Strong-Minded or Very Resilient, 3 Random Talents",
+  "Parravon
+Animal Care, Climb, Consume Alcohol, Cool, Gossip, Language (Reikspiel), Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Outdoor Survival, Perception, Ride
+Noble Blood or Beneath Notice, Seasoned Traveller or Sixth Sense, 3 Random Talents",
+  "Quenelles
+Animal Care, Climb, Cool, Consume Alcohol, Endurance, Gossip, Intimidate, Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Perception, Ride (Horse)
+Noble Blood or Beneath Notice, Hatred (Greenskins), 3 Random Talents ",
+]
+`;
+
+exports[`parseRawContent parses imperial-humans correctly 1`] = `
+Array [
+  "Altdorf
+Bribery, Charm, Cool, Evaluate, Gamble, Gossip, Haggle, Leadership, Lore (Altdorf), Melee (Basic), Perform (Any), Sleight of Hand
+Doomed, Savvy or Suave, 3 Random Talents",
+  "Averland
+Animal Care, Animal Training (Horse), Cool, Evaluate, Gossip, Haggle, Lore (Averland), Melee (Basic), Navigation, Ranged (Bow), Ride (Horse), Trade (Miner)
+Doomed, Animal Affinity or Coolheaded, 3 Random Talents",
+  "Drakenwald
+Athletics, Charm Animal, Climb, Cool, Endurance, Gossip, Intuition, Lore (Drakenwald), Melee (Basic), Navigation, Ranged (Bow), Track
+Doomed or Additional Random Talent, Very Strong or Very Resilient, 3 Random Talents",
+  "Hochland
+Athletics, Climb, Cool, Endurance, Intuition, Lore (Hochland), Melee (Basic), Navigation, Ranged (Bow), Set Traps, Stealth, Trade (Lumberjack)
+Doomed or Additional Random Talent, Marksman or Sharp, 3 Random Talents",
+  "Middenheim
+Bribery, Charm, Cool, Entertain (Any), Evaluate, Gossip, Haggle, Leadership, Lore (Middenheim), Melee (Basic), Ranged (Bow), Trade (Any)
+Doomed, Etiquette or Strong Back, 3 Random Talents",
+  "Middenland
+Animal Care, Cool, Evaluate, Gossip, Haggle, Intimidate, Language (Wastelander), Leadership, Lore (Middenland), Melee (Basic), Outdoor Survival, Ranged (Bow)
+Doomed or Additional Random Talent, Menacing or Warrior Born, 3 Random Talents",
+  "Nordland
+Consume Alcohol, Evaluate, Gossip, Haggle, Language (Norse), Language (Wastelander), Lore (Nordland), Melee (Basic), Ranged (Bow), Sail, Swim, Trade (Any)
+Doomed or Additional Random Talent, Fisherman or Rover, Stout-hearted or Very Resilient, 2 Random Talents",
+  "Nuln
+Bribery, Charm, Cool, Evaluate, Gamble, Gossip, Haggle, Leadership, Lore (Nuln), Melee (Basic), Perform (Any), Trade (Any)
+Doomed, Savvy or Suave, 3 Random Talents",
+  "Ostland
+Consume Alcohol, Cool, Endurance, Intuition, Language (Kislevite), Lore (Kislev) or (Ostland), Melee (Basic), Navigation, Outdoor Survival, Ranged (Bow), Sail (Any), Swim
+Doomed, Coolheaded or Very Resilient, 3 Random Talents",
+  "Ostmark
+Consume Alcohol, Cool, Endurance, Intuition, Language (Kislevite), Lore (Ostmark), Melee (Basic), Navigation, Outdoor Survival, Ranged (Bow), Set Traps, Track
+Doomed, Coolheaded or Warrior Born, 3 Random Talents",
+  "Reikland
+Charm, Cool, Evaluate, Gossip, Intuition, Haggle, Language (Bretonnian), Language (Wastelander), Lore (Reikland), Melee (Basic), Ranged (Bow), Trade (Farmer)
+Doomed, Sharp or Suave, 3 Random Talents",
+  "Solland
+Animal Care, Animal Training (Horse), Cool, Gossip, Haggle, Lore (Solland), Melee (Basic), Outdoor Survival, Ranged (Bow), Ride (Horse), Trade (Farmer), Trade (Miner)
+Doomed, Coolheaded or Marksman, 3 Random Talents",
+  "Stirland
+Animal Care, Animal Training (Horse), Cool, Drive, Evaluate, Gossip, Haggle, Lore (Stirland), Melee (Basic), Navigation, Ranged (Bow), Ride (Horse)
+Doomed, Sharp or Lighting Reflexes, 3 Random Talents",
+  "Strigany
+Animal Care, Consume Alcohol, Cool, Drive, Gossip, Haggle, Language (Reikspiel), Lore (Strigany), Melee (Basic), Ranged (Bow), Sail (Barge), Swim
+Doomed or Fast Hands, Seasoned Traveller or Nimble Fingered, 3 Random Talents",
+  "Sylvania
+Cool, Endurance, Intimidate, Intuition, Language (Reikspiel), Language (Sylvanian), Lore (Stirland), Lore (Sylvania), Lore (Vampires), Melee (Basic), Navigation, Outdoor Surival, Perception
+Doomed or Fearless (Undead), Coolheaded or Very Resilient, 3 Random Talents",
+  "Talabecland
+Animal Care, Animal Training (Horse), Athletics, Cool, Endurance, Lore (Talabecland), Melee (Basic), Ranged (Bow), Ride (Horse), Set Traps, Stealth, Track
+Doomed, Marksman or Sharp, 3 Random Talents",
+  "Talabheim
+Animal Care, Animal Training (Horse), Bribery, Cool, Evaluate, Gossip, Haggle, Leadership, Lore (Talabheim), Melee (Basic), Ride (Horse), Track
+Doomed, Sharp or Very Resilient, 3 Random Talents",
+  "Wasteland
+Bribery, Gamble, Gossip, Haggle, Language (Reikspiel), Language (Bretonnian), Lore (Wasteland), Melee (Basic), Row, Sail (Any), Swim, Trade (Merchant)
+Doomed or Additional Random Talent, Savvy or Sharp, 3 Random Talents",
+  "Wissenland
+Climb, Consume Alcohol, Cool, Endurance, Lore (Dwarfs), Lore (Wissenland), Melee (Basic), Melee (Polearm), Navigation, Ranged (Bow), Track, Trade (Miner)
+Doomed, Lighting Reflexes or Marksman, 3 Random Talents ",
+]
+`;
+
+exports[`parseRawContent parses kislevite-humans correctly 1`] = `
+Array [
+  "Gospodar
+Animal Care, Consume Alcohol, Cool, Endurance, Gossip, Haggle, Language (Reikspiel), Lore (Kislev), Melee (Basic), Outdoor Survival, Ranged (Bow), Ride (Horse)
+Coolheaded or Carouser, Dealmaker or Embezzle, 3 Random Talents",
+  "Ropsmenn
+Athletics, Climb, Cool, Consume Alcohol, Endurance, Language (Kislevite), Language (Ungol), Lore (Trolllands), Melee (Basic), Outdoor Survival, Ranged (Bow), Stealth (Rural)
+Fearless (Trolls) or Strider (Tundra), Very Resilient or Very Strong, 3 Random Talents",
+  "Ungol
+Animal Care, Cool, Endurance, Gossip, Haggle, Language (Kislevite), Language (Ropsmenn), Lore (Ungol), Melee (Basic), Outdoor Survival, Ranged (Bow), Ride (Horse)
+Iron Will or Trick Riding, Very Strong or Roughrider, 3 Random Talents ",
+]
+`;
+
+exports[`prepareDatasetPayload case 0 1`] = `
+Object {
+  "entries": Array [
+    Object {
+      "id": "ms_aquitainian",
+      "name": "*Aquitainian",
+      "skills": Array [
+        "Animal Care",
+        "Cool",
+        "Gossip",
+        "Intimidate",
+        "Leadership",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+        "Sail (Any)",
+        "Swim",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Coolheaded, Relentless",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_artoin",
+      "name": "*Artoin",
+      "skills": Array [
+        "Animal Care",
+        "Cool",
+        "Endurance",
+        "Evaluate",
+        "Intuition",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Outdoor Survival",
+        "Perception",
+        "Ride (Horse)",
+        "Track",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Sharp, Strider (Forests)",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_bastonnian",
+      "name": "*Bastonnian",
+      "skills": Array [
+        "Animal Care",
+        "Cool",
+        "Endurance",
+        "Gossip",
+        "Leadership",
+        "Lore (Bretonnia)",
+        "Lore (Genealogy)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Outdoor Survival",
+        "Perception",
+        "Ride (Horse)",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Luck, Stout-Hearted",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_bordelen",
+      "name": "*Bordelen",
+      "skills": Array [
+        "Animal Care",
+        "Consume Alcohol",
+        "Gossip",
+        "Haggle",
+        "Intuition",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+        "Row",
+        "Sail (Any)",
+        "Swim",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Carouser, Sea Legs",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_brionnian",
+      "name": "*Brionnian",
+      "skills": Array [
+        "Animal Care",
+        "Art (Poetry)",
+        "Charm",
+        "Cool",
+        "Entertain (Storytelling)",
+        "Gossip",
+        "Language (Estalian)",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Ride (Horse)",
+        "Swim",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Suave, Blather",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_carcassonnian",
+      "name": "*Carcassonnian",
+      "skills": Array [
+        "Animal Care",
+        "Charm",
+        "Cool",
+        "Evaluate",
+        "Gossip",
+        "Intuition",
+        "Language (Estalian)",
+        "Leadership",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Ride (Horse)",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Birth Sword, Warrior Born",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_couronnian",
+      "name": "*Couronnian",
+      "skills": Array [
+        "Animal Care",
+        "Animal Training (Horse)",
+        "Charm",
+        "Charm Animal",
+        "Gossip",
+        "Language (Reikspiel)",
+        "Language (Wastelander)",
+        "Leadership",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Ride (Horse)",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Suave, Trick Rider",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_gisoren",
+      "name": "*Gisoren",
+      "skills": Array [
+        "Animal Care",
+        "Charm",
+        "Climb",
+        "Gossip",
+        "Language (Reikspiel)",
+        "Language (Wastelander)",
+        "Leadership",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Outdoor Survival",
+        "Ride (Horse)",
+        "Track",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Gregarious, Sharp",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_languillian",
+      "name": "*L'Anguillian",
+      "skills": Array [
+        "Animal Care",
+        "Charm",
+        "Evaluate",
+        "Gossip",
+        "Language (Reikspiel)",
+        "Language (Wastelander)",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Ride (Horse)",
+        "Sail (Any)",
+        "Swim",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Coolheaded, Sea Legs",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_lyonen",
+      "name": "*Lyonen",
+      "skills": Array [
+        "Animal Care",
+        "Bribery",
+        "Charm",
+        "Gossip",
+        "Haggle",
+        "Intuition",
+        "Lore (Bretonnia)",
+        "Lore (Mousillon)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Ride (Horse)",
+        "Sail (Any)",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Schemer, Savvy",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_montfortian",
+      "name": "*Montfortian",
+      "skills": Array [
+        "Animal Care",
+        "Charm",
+        "Climb",
+        "Consume Alcohol",
+        "Endurance",
+        "Evaluate",
+        "Gossip",
+        "Language (Reikspiel) or (Wastelander)",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Ride (Horse)",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Very Resilient, Strider (Mountains)",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_mousillonian",
+      "name": "*Mousillonian",
+      "skills": Array [
+        "Animal Care",
+        "Consume Alcohol",
+        "Endurance",
+        "Gossip",
+        "Intimidate",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Outdoor Survival",
+        "Perception",
+        "Ride (Horse)",
+        "Stealth (Urban)",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Strong-Minded, Very Resilient",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_parravonese",
+      "name": "*Parravonese",
+      "skills": Array [
+        "Animal Care",
+        "Climb",
+        "Consume Alcohol",
+        "Cool",
+        "Gossip",
+        "Language (Reikspiel)",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Outdoor Survival",
+        "Perception",
+        "Ride",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Seasoned Traveller, Sixth Sense",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_queneller",
+      "name": "*Queneller",
+      "skills": Array [
+        "Animal Care",
+        "Climb",
+        "Consume Alcohol",
+        "Cool",
+        "Endurance",
+        "Gossip",
+        "Intimidate",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Perception",
+        "Ride (Horse)",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Hatred (Greenskins)",
+        3,
+      ],
+    },
+  ],
+  "hash": "adf1ad730e6a",
+  "id": "bretonnian-humans",
+}
+`;
+
+exports[`prepareDatasetPayload case 1 1`] = `
+Object {
+  "entries": Array [
+    Object {
+      "id": "ms_altdorfer",
+      "name": "*Altdorfer",
+      "skills": Array [
+        "Bribery",
+        "Charm",
+        "Cool",
+        "Evaluate",
+        "Gamble",
+        "Gossip",
+        "Haggle",
+        "Leadership",
+        "Lore (Altdorf)",
+        "Melee (Basic)",
+        "Perform (Any)",
+        "Sleight of Hand",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Savvy, Suave",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_averlander",
+      "name": "*Averlander",
+      "skills": Array [
+        "Animal Care",
+        "Animal Training (Horse)",
+        "Cool",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Lore (Averland)",
+        "Melee (Basic)",
+        "Navigation",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+        "Trade (Miner)",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Animal Affinity, Coolheaded",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_drakenwalder",
+      "name": "*Drakenwalder",
+      "skills": Array [
+        "Athletics",
+        "Charm Animal",
+        "Climb",
+        "Cool",
+        "Endurance",
+        "Gossip",
+        "Intuition",
+        "Lore (Drakenwald)",
+        "Melee (Basic)",
+        "Navigation",
+        "Ranged (Bow)",
+        "Track",
+      ],
+      "talents": Array [
+        "Doomed, random[1]",
+        "Very Strong, Very Resilient",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_hochlander",
+      "name": "*Hochlander",
+      "skills": Array [
+        "Athletics",
+        "Climb",
+        "Cool",
+        "Endurance",
+        "Intuition",
+        "Lore (Hochland)",
+        "Melee (Basic)",
+        "Navigation",
+        "Ranged (Bow)",
+        "Set Traps",
+        "Stealth",
+        "Trade (Lumberjack)",
+      ],
+      "talents": Array [
+        "Doomed, random[1]",
+        "Marksman, Sharp",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_middenheimer",
+      "name": "*Middenheimer",
+      "skills": Array [
+        "Bribery",
+        "Charm",
+        "Cool",
+        "Entertain (Any)",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Leadership",
+        "Lore (Middenheim)",
+        "Melee (Basic)",
+        "Ranged (Bow)",
+        "Trade (Any)",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Etiquette, Strong Back",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_middenlander",
+      "name": "*Middenlander",
+      "skills": Array [
+        "Animal Care",
+        "Cool",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Intimidate",
+        "Language (Wastelander)",
+        "Leadership",
+        "Lore (Middenland)",
+        "Melee (Basic)",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+      ],
+      "talents": Array [
+        "Doomed, random[1]",
+        "Menacing, Warrior Born",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_nordlander",
+      "name": "*Nordlander",
+      "skills": Array [
+        "Consume Alcohol",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Language (Norse)",
+        "Language (Wastelander)",
+        "Lore (Nordland)",
+        "Melee (Basic)",
+        "Ranged (Bow)",
+        "Sail",
+        "Swim",
+        "Trade (Any)",
+      ],
+      "talents": Array [
+        "Doomed, random[1]",
+        "Fisherman, Rover",
+        "Stout-hearted, Very Resilient",
+        2,
+      ],
+    },
+    Object {
+      "id": "ms_nulner",
+      "name": "*Nulner",
+      "skills": Array [
+        "Bribery",
+        "Charm",
+        "Cool",
+        "Evaluate",
+        "Gamble",
+        "Gossip",
+        "Haggle",
+        "Leadership",
+        "Lore (Nuln)",
+        "Melee (Basic)",
+        "Perform (Any)",
+        "Trade (Any)",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Savvy, Suave",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_ostlander",
+      "name": "*Ostlander",
+      "skills": Array [
+        "Consume Alcohol",
+        "Cool",
+        "Endurance",
+        "Intuition",
+        "Language (Kislevite)",
+        "Lore (Kislev) or (Ostland)",
+        "Melee (Basic)",
+        "Navigation",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+        "Sail (Any)",
+        "Swim",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Coolheaded, Very Resilient",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_ostmarker",
+      "name": "*Ostmarker",
+      "skills": Array [
+        "Consume Alcohol",
+        "Cool",
+        "Endurance",
+        "Intuition",
+        "Language (Kislevite)",
+        "Lore (Ostmark)",
+        "Melee (Basic)",
+        "Navigation",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+        "Set Traps",
+        "Track",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Coolheaded, Warrior Born",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_reiklander",
+      "name": "*Reiklander",
+      "skills": Array [
+        "Charm",
+        "Cool",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Intuition",
+        "Language (Bretonnian)",
+        "Language (Wastelander)",
+        "Lore (Reikland)",
+        "Melee (Basic)",
+        "Ranged (Bow)",
+        "Trade (Farmer)",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Sharp, Suave",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_sollander",
+      "name": "*Sollander",
+      "skills": Array [
+        "Animal Care",
+        "Animal Training (Horse)",
+        "Cool",
+        "Gossip",
+        "Haggle",
+        "Lore (Solland)",
+        "Melee (Basic)",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+        "Trade (Farmer)",
+        "Trade (Miner)",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Coolheaded, Marksman",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_stirlander",
+      "name": "*Stirlander",
+      "skills": Array [
+        "Animal Care",
+        "Animal Training (Horse)",
+        "Cool",
+        "Drive",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Lore (Stirland)",
+        "Melee (Basic)",
+        "Navigation",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Sharp, Lighting Reflexes",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_strigany",
+      "name": "*Strigany",
+      "skills": Array [
+        "Animal Care",
+        "Consume Alcohol",
+        "Cool",
+        "Drive",
+        "Gossip",
+        "Haggle",
+        "Language (Reikspiel)",
+        "Lore (Strigany)",
+        "Melee (Basic)",
+        "Ranged (Bow)",
+        "Sail (Barge)",
+        "Swim",
+      ],
+      "talents": Array [
+        "Doomed, Fast Hands",
+        "Seasoned Traveller, Nimble Fingered",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_sylvanian",
+      "name": "*Sylvanian",
+      "skills": Array [
+        "Cool",
+        "Endurance",
+        "Intimidate",
+        "Intuition",
+        "Language (Reikspiel)",
+        "Language (Sylvanian)",
+        "Lore (Stirland)",
+        "Lore (Sylvania)",
+        "Lore (Vampires)",
+        "Melee (Basic)",
+        "Navigation",
+        "Outdoor Surival",
+        "Perception",
+      ],
+      "talents": Array [
+        "Doomed, Fearless (Undead)",
+        "Coolheaded, Very Resilient",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_talabeclander",
+      "name": "*Talabeclander",
+      "skills": Array [
+        "Animal Care",
+        "Animal Training (Horse)",
+        "Athletics",
+        "Cool",
+        "Endurance",
+        "Lore (Talabecland)",
+        "Melee (Basic)",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+        "Set Traps",
+        "Stealth",
+        "Track",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Marksman, Sharp",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_talabheimer",
+      "name": "*Talabheimer",
+      "skills": Array [
+        "Animal Care",
+        "Animal Training (Horse)",
+        "Bribery",
+        "Cool",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Leadership",
+        "Lore (Talabheim)",
+        "Melee (Basic)",
+        "Ride (Horse)",
+        "Track",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Sharp, Very Resilient",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_wastelander",
+      "name": "*Wastelander",
+      "skills": Array [
+        "Bribery",
+        "Gamble",
+        "Gossip",
+        "Haggle",
+        "Language (Bretonnian)",
+        "Language (Reikspiel)",
+        "Lore (Wasteland)",
+        "Melee (Basic)",
+        "Row",
+        "Sail (Any)",
+        "Swim",
+        "Trade (Merchant)",
+      ],
+      "talents": Array [
+        "Doomed, random[1]",
+        "Savvy, Sharp",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_wissenlander",
+      "name": "*Wissenlander",
+      "skills": Array [
+        "Climb",
+        "Consume Alcohol",
+        "Cool",
+        "Endurance",
+        "Lore (Dwarfs)",
+        "Lore (Wissenland)",
+        "Melee (Basic)",
+        "Melee (Polearm)",
+        "Navigation",
+        "Ranged (Bow)",
+        "Track",
+        "Trade (Miner)",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Lighting Reflexes, Marksman",
+        3,
+      ],
+    },
+  ],
+  "hash": "a5d1d1452437",
+  "id": "imperial-humans",
+}
+`;
+
+exports[`prepareDatasetPayload case 2 1`] = `
+Object {
+  "entries": Array [
+    Object {
+      "id": "ms_gospodar",
+      "name": "*Gospodar",
+      "skills": Array [
+        "Animal Care",
+        "Consume Alcohol",
+        "Cool",
+        "Endurance",
+        "Gossip",
+        "Haggle",
+        "Language (Reikspiel)",
+        "Lore (Kislev)",
+        "Melee (Basic)",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+      ],
+      "talents": Array [
+        "Coolheaded, Carouser",
+        "Dealmaker, Embezzle",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_ropsmenn",
+      "name": "*Ropsmenn",
+      "skills": Array [
+        "Athletics",
+        "Climb",
+        "Consume Alcohol",
+        "Cool",
+        "Endurance",
+        "Language (Kislevite)",
+        "Language (Ungol)",
+        "Lore (Trolllands)",
+        "Melee (Basic)",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+        "Stealth (Rural)",
+      ],
+      "talents": Array [
+        "Fearless (Trolls), Strider (Tundra)",
+        "Very Resilient, Very Strong",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_ungol",
+      "name": "*Ungol",
+      "skills": Array [
+        "Animal Care",
+        "Cool",
+        "Endurance",
+        "Gossip",
+        "Haggle",
+        "Language (Kislevite)",
+        "Language (Ropsmenn)",
+        "Lore (Ungol)",
+        "Melee (Basic)",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+      ],
+      "talents": Array [
+        "Iron Will, Trick Riding",
+        "Very Strong, Roughrider",
+        3,
+      ],
+    },
+  ],
+  "hash": "dea0e1364aa8",
+  "id": "kislevite-humans",
+}
+`;
+
+exports[`prepareManifestPayload case 0 1`] = `
+Object {
+  "entries": Array [],
+}
+`;
+
+exports[`prepareManifestPayload case 1 1`] = `
+Object {
+  "entries": Array [
+    Object {
+      "filename": "first-hash",
+      "hash": "hash",
+      "id": "first",
+    },
+    Object {
+      "filename": "second-hash",
+      "hash": "hash",
+      "id": "second",
+    },
+  ],
+}
+`;
