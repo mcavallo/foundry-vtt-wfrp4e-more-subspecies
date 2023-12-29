@@ -1,0 +1,30 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/eslintrc.json",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "node": true,
+    "es6": true,
+    "jest/globals": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "jquery",
+    "@typhonjs-fvtt/eslint-config-foundry.js/0.8.0",
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended"
+  ],
+  "plugins": ["jest"],
+  "rules": {
+    "dot-notation": "off",
+    "jest/no-focused-tests": "off",
+    "jest/valid-expect-in-promise": "off"
+  },
+  "globals": {
+    "deepCopy": true
+  }
+}
