@@ -4,111 +4,98 @@
 	• Aquitaine •																					
 																						
 	Skills:																					
-		Animal Care, Cool, Gossip, Intimidate, Leadership, Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ranged (Bow), Ride (Horse), Sail (Any), Swim																				
+		Animal Care, Cool, Gossip, Intimidate, Leadership, Lore (Aquitaine), Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ranged (Bow), Ride (Horse), Sail (Any), Swim																				
 	Talents:																					
 		Noble Blood or Beneath Notice, Coolheaded or Relentless, 3 Random Talents																				
 																						
 	• Artois •																					
 																						
 	Skills:																					
-		Animal Care, Cool, Endurance, Evaluate, Intuition, Lore (Bretonnia), Melee (Basic), Melee (Cavalry),																				
-		Outdoor Survival, Perception, Ride (Horse), Track																				
+		Animal Care, Cool, Endurance, Evaluate, Intuition, Lore (Artois), Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Outdoor Survival, Perception, Ride (Horse), Track																				
 	Talents:																					
 		Noble Blood or Beneath Notice, Sharp or Strider (Forests), 3 Random Talents																				
 																						
 	• Bastonne •																					
 																						
 	Skills:																					
-		Animal Care, Cool, Endurance, Gossip, Leadership, Lore (Bretonnia), Lore (Genealogy),																				
-		Melee (Basic), Melee (Cavalry), Outdoor Survival, Perception, Ride (Horse)																				
+		Animal Care, Cool, Endurance, Gossip, Leadership, Lore (Bastonne), Lore (Bretonnia), Lore (Genealogy), Melee (Basic), Melee (Cavalry), Outdoor Survival, Perception, Ride (Horse)																				
 	Talents:																					
 		Noble Blood or Beneath Notice, Luck or Stout-hearted, 3 Random Talents																				
 																						
 	• Bordeleaux •																					
 																						
 	Skills:																					
-		Animal Care, Consume Alcohol, Gossip, Haggle, Intuition, Melee (Basic), Melee (Cavalry),																				
-		Ride (Horse), Ranged (Bow), Row, Swim, Sail (Any)																				
+		Animal Care, Consume Alcohol, Gossip, Haggle, Intuition, Lore (Bordeleaux), Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ride (Horse), Ranged (Bow), Row, Swim, Sail (Any)																				
 	Talents:																					
 		Noble Blood or Beneath Notice, Carouser or Sea Legs, 3 Random Talents																				
 																						
 	• Brionne •																					
 																						
 	Skills:																					
-		Animal Care, Art (Poetry), Charm, Cool, Entertain (Storytelling), Gossip, Language (Estalian),																				
-		Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ride (Horse), Swim																				
+		Animal Care, Art (Poetry), Charm, Cool, Entertain (Storytelling), Gossip, Language (Estalian), Lore (Bretonnia), Lore (Brionne), Melee (Basic), Melee (Cavalry), Ride (Horse), Swim																				
 	Talents:																					
 		Noble Blood or Beneath Notice, Suave or Blather, 3 Random Talents																				
 																						
 	• Carcassonne •																					
 																						
 	Skills:																					
-		Animal Care, Charm, Cool, Evaluate, Gossip, Intuition, Language (Estalian), Leadership,																				
-		Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ride (Horse)																				
+		Animal Care, Charm, Cool, Evaluate, Gossip, Intuition, Language (Estalian), Leadership, Lore (Bretonnia), Lore (Carcassonne), Melee (Basic), Melee (Cavalry), Ride (Horse)																				
 	Talents:																					
-		Noble Blood or Beneath Notice, Birth Sword or Warrior Born, 3 Random Talents																				
+		Noble Blood or Beneath Notice, Warrior Born, 3 Random Talents																				
 																						
 	• Couronne •																					
 																						
 	Skills:																					
-		Animal Care, Animal Training (Horse), Charm, Charm Animal, Gossip, Language (Reikspiel),																				
-		Language (Wastelander), Leadership, Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ride (Horse)																				
+		Animal Care, Animal Training (Horse), Charm, Charm Animal, Gossip, Language (Reikspiel), Language (Wastelander), Leadership, Lore (Bretonnia), Lore (Couronne), Melee (Basic), Melee (Cavalry), Ride (Horse)																				
 	Talents:																					
 		Noble Blood or Beneath Notice, Suave or Trick Rider, 3 Random Talents																				
 																						
 	• Gisoreux •																					
 																						
 	Skills:																					
-		Animal Care, Charm, Climb, Gossip, Language (Reikspiel), Language (Wastelander), Leadership,																				
-		Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Outdoor Survival, Ride (Horse), Track																				
+		Animal Care, Charm, Climb, Gossip, Language (Reikspiel), Language (Wastelander), Leadership, Lore (Bretonnia), Lore (Gisoreux), Melee (Basic), Melee (Cavalry), Outdoor Survival, Ride (Horse), Track																				
 	Talents:																					
 		Noble Blood or Beneath Notice, Gregarious or Sharp, 3 Random Talents																				
 																						
 	• L'Anguille •																					
 																						
 	Skills:																					
-		Animal Care, Charm, Evaluate, Gossip, Language (Reikspiel), Language (Wastelander),																				
-		Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ride (Horse), Sail (Any), Swim																				
+		Animal Care, Charm, Evaluate, Gossip, Language (Reikspiel), Language (Wastelander), Lore (Bretonnia), Lore (L'Anguille), Melee (Basic), Melee (Cavalry), Ride (Horse), Sail (Any), Swim																				
 	Talents:																					
 		Noble Blood or Beneath Notice, Coolheaded or Sea Legs, 3 Random Talents																				
 																						
 	• Lyonesse •																					
 																						
 	Skills:																					
-		Animal Care, Bribery, Charm, Gossip, Haggle, Intuition, Lore (Bretonnia), Lore (Mousillon),																				
-		Melee (Basic), Melee (Cavalry), Ride (Horse), Sail (Any)																				
+		Animal Care, Bribery, Charm, Gossip, Haggle, Intuition, Lore (Bretonnia), Lore (Lyonesse), Melee (Basic), Melee (Cavalry), Ride (Horse), Sail (Any)																				
 	Talents:																					
 		Noble Blood or Beneath Notice, Schemer or Savvy, 3 Random Talents																				
 																						
 	• Montfort •																					
 																						
 	Skills:																					
-		Animal Care, Charm, Consume Alcohol, Climb, Endurance, Evaluate, Gossip,																				
-		Language (Reikspiel) or (Wastelander), Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ride (Horse)																				
+		Animal Care, Charm, Consume Alcohol, Climb, Endurance, Evaluate, Gossip, Language (Reikspiel), Language (Wastelander), Lore (Bretonnia), Lore (Montfort), Melee (Basic), Melee (Cavalry), Ride (Horse)																				
 	Talents:																					
 		Noble Blood or Beneath Notice, Very Resilient or Strider (Mountains), 3 Random Talents																				
 																						
 	• Mousillon •																					
 																						
 	Skills:																					
-		Animal Care, Consume Alcohol, Endurance, Gossip, Intimidate, Lore (Bretonnia), Melee (Basic),																				
-		Melee (Cavalry), Outdoor Survival, Perception, Ride (Horse), Stealth (Urban)																				
+		Animal Care, Consume Alcohol, Endurance, Gossip, Intimidate, Lore (Bretonnia), Lore (Mousillon), Melee (Basic), Melee (Cavalry), Outdoor Survival, Perception, Ride (Horse), Stealth (Urban)																				
 	Talents:																					
 		Noble Blood or Beneath Notice, Strong-Minded or Very Resilient, 3 Random Talents																				
 																						
 	• Parravon •																					
 																						
 	Skills:																					
-		Animal Care, Climb, Consume Alcohol, Cool, Gossip, Language (Reikspiel), Lore (Bretonnia),																				
-		Melee (Basic), Melee (Cavalry), Outdoor Survival, Perception, Ride																				
+		Animal Care, Climb, Consume Alcohol, Cool, Gossip, Language (Reikspiel), Lore (Bretonnia), Lore (Parravon), Melee (Basic), Melee (Cavalry), Outdoor Survival, Perception, Ride																				
 	Talents:																					
 		Noble Blood or Beneath Notice, Seasoned Traveller or Sixth Sense, 3 Random Talents																				
 																						
 	• Quenelles •																					
 																						
 	Skills:																					
-		Animal Care, Climb, Cool, Consume Alcohol, Endurance, Gossip, Intimidate, Lore (Bretonnia),																				
-		Melee (Basic), Melee (Cavalry), Perception, Ride (Horse)																				
+		Animal Care, Climb, Cool, Consume Alcohol, Endurance, Gossip, Intimidate, Lore (Bretonnia), Lore (Greenskins), Lore (Quenelles), Melee (Basic), Melee (Cavalry), Perception, Ride (Horse)																				
 	Talents:																					
 		Noble Blood or Beneath Notice, Hatred (Greenskins), 3 Random Talents																				
 																						
