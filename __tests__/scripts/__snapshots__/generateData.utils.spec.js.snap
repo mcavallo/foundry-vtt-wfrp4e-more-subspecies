@@ -70,7 +70,7 @@ Doomed, Etiquette or Strong Back, 3 Random Talents",
 Animal Care, Cool, Evaluate, Gossip, Haggle, Intimidate, Language (Wastelander), Leadership, Lore (Middenland), Melee (Basic), Outdoor Survival, Ranged (Bow)
 Doomed or Additional Random Talent, Menacing or Warrior Born, 3 Random Talents",
   "Nordland
-Consume Alcohol, Evaluate, Gossip, Haggle, Language (Norse), Language (Wastelander), Lore (Nordland), Melee (Basic), Ranged (Bow), Sail, Swim, Trade (Any)
+Consume Alcohol, Evaluate, Gossip, Haggle, Language (Norscan), Language (Wastelander), Lore (Nordland), Melee (Basic), Ranged (Bow), Sail (Any), Swim, Trade (Any)
 Doomed or Additional Random Talent, Fisherman or Rover, Stout-hearted or Very Resilient, 2 Random Talents",
   "Nuln
 Bribery, Charm, Cool, Evaluate, Gamble, Gossip, Haggle, Leadership, Lore (Nuln), Melee (Basic), Perform (Any), Trade (Any)
@@ -84,12 +84,15 @@ Doomed, Coolheaded or Warrior Born, 3 Random Talents",
   "Reikland
 Charm, Cool, Evaluate, Gossip, Intuition, Haggle, Language (Bretonnian), Language (Wastelander), Lore (Reikland), Melee (Basic), Ranged (Bow), Trade (Farmer)
 Doomed, Sharp or Suave, 3 Random Talents",
+  "Salzenmund
+Charm, Cool, Entertain (Storytelling), Evaluate, Gossip, Haggle, Language (Norscan), Leadership, Lore (Nordland), Melee (Basic), Ranged (Bow), Trade (Any)
+Doomed, Savvy or Suave, 3 Random Talents",
   "Solland
 Animal Care, Animal Training (Horse), Cool, Gossip, Haggle, Lore (Solland), Melee (Basic), Outdoor Survival, Ranged (Bow), Ride (Horse), Trade (Farmer), Trade (Miner)
 Doomed, Coolheaded or Marksman, 3 Random Talents",
   "Stirland
 Animal Care, Animal Training (Horse), Cool, Drive, Evaluate, Gossip, Haggle, Lore (Stirland), Melee (Basic), Navigation, Ranged (Bow), Ride (Horse)
-Doomed, Sharp or Lighting Reflexes, 3 Random Talents",
+Doomed, Sharp or Lightning Reflexes, 3 Random Talents",
   "Strigany
 Animal Care, Consume Alcohol, Cool, Drive, Gossip, Haggle, Language (Reikspiel), Lore (Strigany), Melee (Basic), Ranged (Bow), Sail (Barge), Swim
 Doomed or Fast Hands, Seasoned Traveller or Nimble Fingered, 3 Random Talents",
@@ -107,7 +110,7 @@ Bribery, Gamble, Gossip, Haggle, Language (Reikspiel), Language (Bretonnian), Lo
 Doomed or Additional Random Talent, Savvy or Sharp, 3 Random Talents",
   "Wissenland
 Climb, Consume Alcohol, Cool, Endurance, Lore (Dwarfs), Lore (Wissenland), Melee (Basic), Melee (Polearm), Navigation, Ranged (Bow), Track, Trade (Miner)
-Doomed, Lighting Reflexes or Marksman, 3 Random Talents ",
+Doomed, Lightning Reflexes or Marksman, 3 Random Talents ",
 ]
 `;
 
@@ -606,12 +609,12 @@ Object {
         "Evaluate",
         "Gossip",
         "Haggle",
-        "Language (Norse)",
+        "Language (Norscan)",
         "Language (Wastelander)",
         "Lore (Nordland)",
         "Melee (Basic)",
         "Ranged (Bow)",
-        "Sail",
+        "Sail (Any)",
         "Swim",
         "Trade (Any)",
       ],
@@ -715,6 +718,29 @@ Object {
       ],
     },
     Object {
+      "id": "ms_salzenmunder",
+      "name": "*Salzenmunder",
+      "skills": Array [
+        "Charm",
+        "Cool",
+        "Entertain (Storytelling)",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Language (Norscan)",
+        "Leadership",
+        "Lore (Nordland)",
+        "Melee (Basic)",
+        "Ranged (Bow)",
+        "Trade (Any)",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Savvy, Suave",
+        3,
+      ],
+    },
+    Object {
       "id": "ms_sollander",
       "name": "*Sollander",
       "skills": Array [
@@ -756,7 +782,7 @@ Object {
       ],
       "talents": Array [
         "Doomed",
-        "Sharp, Lighting Reflexes",
+        "Sharp, Lightning Reflexes",
         3,
       ],
     },
@@ -895,12 +921,12 @@ Object {
       ],
       "talents": Array [
         "Doomed",
-        "Lighting Reflexes, Marksman",
+        "Lightning Reflexes, Marksman",
         3,
       ],
     },
   ],
-  "hash": "30374d43f92b",
+  "hash": "320fa49c5045",
   "id": "imperial-humans",
 }
 `;
