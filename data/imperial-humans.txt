@@ -118,7 +118,7 @@
 																						
 	Skills:																					
 		Cool, Endurance, Intimidate, Intuition, Language (Reikspiel), Language (Sylvanian), Lore (Stirland),																				
-		Lore (Sylvania), Lore (Vampires), Melee (Basic), Navigation, Outdoor Surival, Perception																				
+		Lore (Sylvania), Lore (Vampires), Melee (Basic), Navigation, Outdoor Survival, Perception																				
 	Talents:																					
 		Doomed or Fearless (Undead), Coolheaded or Very Resilient, 3 Random Talents																				
 																						
