@@ -1,9 +1,9 @@
 import fs from 'fs-extra';
 import path from 'path';
 import {
-  filterTxtFiles,
   formatDatasetFilename,
   formatJsonContent,
+  keepRelevantDataFiles,
   log,
   parseRawContent,
   prepareDatasetPayload,
@@ -14,7 +14,7 @@ const SRC_DIR = './data/';
 const DEST_DIR = './src/data/';
 
 const sourceFiles = await fs.readdir(SRC_DIR);
-const textFiles = sourceFiles.filter(filterTxtFiles);
+const textFiles = sourceFiles.filter(keepRelevantDataFiles);
 const datasets = [];
 
 log(`Preparing...`, true);

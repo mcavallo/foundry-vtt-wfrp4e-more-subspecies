@@ -55,7 +55,8 @@
     "rollup-plugin-styles": "^4.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-watch": "^1.0.4",
-    "sass": "^1.69.5"
+    "sass": "^1.69.5",
+    "spellchecker-cli": "^6.1.1"
   },
   "dependencies": {
     "deepmerge": "^4.3.1"
@@ -71,6 +72,7 @@
     "lint": "yarn run eslint rollup scripts src",
     "lint-ci": "yarn lint --quiet",
     "test": "jest --config .jest.config.mjs",
-    "test-ci": "yarn test --ci --runInBand --bail --silent"
+    "test-ci": "yarn test --ci --runInBand --bail --silent",
+    "spellcheck": "yarn run spellchecker"
   }
 }

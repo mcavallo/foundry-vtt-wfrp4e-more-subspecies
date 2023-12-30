@@ -22,7 +22,7 @@
 		Animal Care, Cool, Endurance, Gossip, Leadership, Lore (Bretonnia), Lore (Genealogy),																				
 		Melee (Basic), Melee (Cavalry), Outdoor Survival, Perception, Ride (Horse)																				
 	Talents:																					
-		Noble Blood or Beneath Notice, Luck or Stout-Hearted, 3 Random Talents																				
+		Noble Blood or Beneath Notice, Luck or Stout-hearted, 3 Random Talents																				
 																						
 	• Bordeleaux •																					
 																						
