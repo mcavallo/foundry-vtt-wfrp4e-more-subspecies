@@ -2,8 +2,6 @@ import chalk from 'chalk';
 import fs from 'fs-extra';
 import path from 'path';
 
-export const MODULE_CONFIG_FILE = 'module.json';
-
 export const blue = chalk.blueBright;
 
 export function assertFoundryDataPath() {
@@ -31,11 +29,11 @@ export function assertModuleConfigPath(moduleConfigPath) {
   }
 }
 
-export function readModuleConfig() {
-  const moduleConfigPath = path.resolve(process.cwd(), 'src', MODULE_CONFIG_FILE);
-  assertModuleConfigPath(moduleConfigPath);
-
-  return fs.readJSONSync(moduleConfigPath);
+export function assertPackageJson(filePath) {
+  if (!fs.existsSync(filePath)) {
+    console.log(`The package file '%s' is missing.`, blue(filePath));
+    process.exit(0);
+  }
 }
 
 export function assertValidModuleName(name) {
@@ -45,16 +43,27 @@ export function assertValidModuleName(name) {
   }
 }
 
+export function readModuleName() {
+  const packageJsonPath = path.resolve(process.cwd(), 'package.json');
+  assertPackageJson(packageJsonPath);
+
+  const packageJson = fs.readJSONSync(packageJsonPath);
+  assertValidModuleName(packageJson.foundryModule.name);
+
+  return packageJson.foundryModule.name;
+}
+
 export function getLinkDir() {
   assertFoundryDataPath();
 
   const foundryModulesPath = path.join(process.env.FOUNDRY_DATA_PATH, 'modules');
   assertFoundryModulesPath(foundryModulesPath);
 
-  const moduleConfig = readModuleConfig();
-  assertValidModuleName(moduleConfig.name);
+  const moduleConfigPath = path.resolve(process.cwd(), 'src/module.json');
+  assertModuleConfigPath(moduleConfigPath);
 
-  return path.resolve(path.join(foundryModulesPath, moduleConfig.name));
+  const moduleName = readModuleName();
+  return path.resolve(path.join(foundryModulesPath, moduleName));
 }
 
 export function getSymlinkType() {
@@ -63,24 +72,24 @@ export function getSymlinkType() {
     : 'dir';
 }
 
-export function dirExists(dirPath) {
+export function dirOrSymlinkExists(dirPath) {
   try {
     const stats = fs.lstatSync(dirPath);
-    return stats.isSymbolicLink() || stats.isFile() || stats.isDirectory();
+    return stats.isSymbolicLink() || stats.isDirectory();
   } catch {
     return false;
   }
 }
 
 export function ensureLinked(linkDir) {
-  if (!dirExists(linkDir)) {
+  if (!dirOrSymlinkExists(linkDir)) {
     console.log(`The directory '%s' is not linked.`, blue(linkDir));
     process.exit(0);
   }
 }
 
 export function ensureUnlinked(linkDir) {
-  if (dirExists(linkDir)) {
+  if (dirOrSymlinkExists(linkDir)) {
     console.log(`The directory '%s' is already linked.`, blue(linkDir));
     process.exit(0);
   }
