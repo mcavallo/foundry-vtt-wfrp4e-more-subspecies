@@ -24,8 +24,9 @@ export function log(content, newLine = false) {
   process.stdout.write(content + (newLine ? '\n' : ''));
 }
 
-export function filterTxtFiles(fileName) {
-  return path.extname(fileName).toLowerCase() === '.txt';
+export function keepRelevantDataFiles(fileName) {
+  const lowerCase = fileName.toLowerCase();
+  return !path.basename(lowerCase).startsWith('_') && path.extname(lowerCase) === '.txt';
 }
 
 export async function formatJsonContent(raw) {

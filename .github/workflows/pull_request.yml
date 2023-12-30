@@ -27,6 +27,22 @@ jobs:
           node-version: "16.x"
       - uses: ./.github/local-actions/yarn-install-and-cache
 
+  spellcheck:
+    name: Spellcheck
+    runs-on: ubuntu-latest
+    needs:
+      - prepare
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "16.x"
+      - uses: ./.github/local-actions/yarn-install-and-cache
+      - name: Spellcheck
+        shell: bash
+        run: |
+          yarn spellcheck
+
   lint:
     name: Lint
     runs-on: ubuntu-latest

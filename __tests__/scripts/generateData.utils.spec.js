@@ -3,12 +3,12 @@ import bretonnianHumans from '../../data/bretonnian-humans.txt';
 import imperialHumans from '../../data/imperial-humans.txt';
 import kisleviteHumans from '../../data/kislevite-humans.txt';
 import {
-  filterTxtFiles,
   formatDatasetFilename,
   formatEntryId,
   formatEntryName,
   formatJsonContent,
   formatTalent,
+  keepRelevantDataFiles,
   log,
   parseRandomTalentValue,
   parseRawContent,
@@ -35,14 +35,18 @@ describe('log', () => {
   });
 });
 
-describe('filterTxtFiles', () => {
+describe('keepRelevantDataFiles', () => {
   const cases = [
     [true, 'path/to/file.txt'],
+    [false, 'path/to/_file.txt'],
     [false, 'path/to/file.json'],
+    [false, 'path/to/_file.json'],
+    [false, 'path/to/file'],
+    [false, 'path/to/_file'],
   ];
 
   test.each(cases)('case %#', (expected, input) => {
-    expect(filterTxtFiles(input)).toEqual(expected);
+    expect(keepRelevantDataFiles(input)).toEqual(expected);
   });
 });
 

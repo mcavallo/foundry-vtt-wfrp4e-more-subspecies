@@ -1,0 +1,5 @@
+language: en-GB
+files:
+  - data/*.txt
+dictionaries:
+  - data/_dictionary.txt
