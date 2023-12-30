@@ -92,7 +92,7 @@ Animal Care, Animal Training (Horse), Cool, Gossip, Haggle, Lore (Solland), Mele
 Doomed, Coolheaded or Marksman, 3 Random Talents",
   "Stirland
 Animal Care, Animal Training (Horse), Cool, Drive, Evaluate, Gossip, Haggle, Lore (Stirland), Melee (Basic), Navigation, Ranged (Bow), Ride (Horse)
-Doomed, Sharp or Lighting Reflexes, 3 Random Talents",
+Doomed, Sharp or Lightning Reflexes, 3 Random Talents",
   "Strigany
 Animal Care, Consume Alcohol, Cool, Drive, Gossip, Haggle, Language (Reikspiel), Lore (Strigany), Melee (Basic), Ranged (Bow), Sail (Barge), Swim
 Doomed or Fast Hands, Seasoned Traveller or Nimble Fingered, 3 Random Talents",
@@ -110,7 +110,7 @@ Bribery, Gamble, Gossip, Haggle, Language (Reikspiel), Language (Bretonnian), Lo
 Doomed or Additional Random Talent, Savvy or Sharp, 3 Random Talents",
   "Wissenland
 Climb, Consume Alcohol, Cool, Endurance, Lore (Dwarfs), Lore (Wissenland), Melee (Basic), Melee (Polearm), Navigation, Ranged (Bow), Track, Trade (Miner)
-Doomed, Lighting Reflexes or Marksman, 3 Random Talents ",
+Doomed, Lightning Reflexes or Marksman, 3 Random Talents ",
 ]
 `;
 
@@ -782,7 +782,7 @@ Object {
       ],
       "talents": Array [
         "Doomed",
-        "Sharp, Lighting Reflexes",
+        "Sharp, Lightning Reflexes",
         3,
       ],
     },
@@ -921,12 +921,12 @@ Object {
       ],
       "talents": Array [
         "Doomed",
-        "Lighting Reflexes, Marksman",
+        "Lightning Reflexes, Marksman",
         3,
       ],
     },
   ],
-  "hash": "7737e9ef75db",
+  "hash": "320fa49c5045",
   "id": "imperial-humans",
 }
 `;

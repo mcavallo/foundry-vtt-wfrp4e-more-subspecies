@@ -112,7 +112,7 @@
 		Animal Care, Animal Training (Horse), Cool, Drive, Evaluate, Gossip, Haggle, Lore (Stirland),																				
 		Melee (Basic), Navigation, Ranged (Bow), Ride (Horse)																				
 	Talents:																					
-		Doomed, Sharp or Lighting Reflexes, 3 Random Talents																				
+		Doomed, Sharp or Lightning Reflexes, 3 Random Talents																				
 																						
 	• Strigany •																					
 																						
@@ -160,5 +160,5 @@
 		Climb, Consume Alcohol, Cool, Endurance, Lore (Dwarfs), Lore (Wissenland), Melee (Basic),																				
 		Melee (Polearm), Navigation, Ranged (Bow), Track, Trade (Miner)																				
 	Talents:																					
-		Doomed, Lighting Reflexes or Marksman, 3 Random Talents																				
+		Doomed, Lightning Reflexes or Marksman, 3 Random Talents																				
 																						
