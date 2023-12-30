@@ -70,7 +70,7 @@ Doomed, Etiquette or Strong Back, 3 Random Talents",
 Animal Care, Cool, Evaluate, Gossip, Haggle, Intimidate, Language (Wastelander), Leadership, Lore (Middenland), Melee (Basic), Outdoor Survival, Ranged (Bow)
 Doomed or Additional Random Talent, Menacing or Warrior Born, 3 Random Talents",
   "Nordland
-Consume Alcohol, Evaluate, Gossip, Haggle, Language (Norse), Language (Wastelander), Lore (Nordland), Melee (Basic), Ranged (Bow), Sail, Swim, Trade (Any)
+Consume Alcohol, Evaluate, Gossip, Haggle, Language (Norscan), Language (Wastelander), Lore (Nordland), Melee (Basic), Ranged (Bow), Sail (Any), Swim, Trade (Any)
 Doomed or Additional Random Talent, Fisherman or Rover, Stout-hearted or Very Resilient, 2 Random Talents",
   "Nuln
 Bribery, Charm, Cool, Evaluate, Gamble, Gossip, Haggle, Leadership, Lore (Nuln), Melee (Basic), Perform (Any), Trade (Any)
@@ -84,6 +84,9 @@ Doomed, Coolheaded or Warrior Born, 3 Random Talents",
   "Reikland
 Charm, Cool, Evaluate, Gossip, Intuition, Haggle, Language (Bretonnian), Language (Wastelander), Lore (Reikland), Melee (Basic), Ranged (Bow), Trade (Farmer)
 Doomed, Sharp or Suave, 3 Random Talents",
+  "Salzenmund
+Charm, Cool, Entertain (Storytelling), Evaluate, Gossip, Haggle, Language (Norscan), Leadership, Lore (Nordland), Melee (Basic), Ranged (Bow), Trade (Any)
+Doomed, Savvy or Suave, 3 Random Talents",
   "Solland
 Animal Care, Animal Training (Horse), Cool, Gossip, Haggle, Lore (Solland), Melee (Basic), Outdoor Survival, Ranged (Bow), Ride (Horse), Trade (Farmer), Trade (Miner)
 Doomed, Coolheaded or Marksman, 3 Random Talents",
@@ -606,12 +609,12 @@ Object {
         "Evaluate",
         "Gossip",
         "Haggle",
-        "Language (Norse)",
+        "Language (Norscan)",
         "Language (Wastelander)",
         "Lore (Nordland)",
         "Melee (Basic)",
         "Ranged (Bow)",
-        "Sail",
+        "Sail (Any)",
         "Swim",
         "Trade (Any)",
       ],
@@ -711,6 +714,29 @@ Object {
       "talents": Array [
         "Doomed",
         "Sharp, Suave",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_salzenmunder",
+      "name": "*Salzenmunder",
+      "skills": Array [
+        "Charm",
+        "Cool",
+        "Entertain (Storytelling)",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Language (Norscan)",
+        "Leadership",
+        "Lore (Nordland)",
+        "Melee (Basic)",
+        "Ranged (Bow)",
+        "Trade (Any)",
+      ],
+      "talents": Array [
+        "Doomed",
+        "Savvy, Suave",
         3,
       ],
     },
@@ -900,7 +926,7 @@ Object {
       ],
     },
   ],
-  "hash": "30374d43f92b",
+  "hash": "7737e9ef75db",
   "id": "imperial-humans",
 }
 `;

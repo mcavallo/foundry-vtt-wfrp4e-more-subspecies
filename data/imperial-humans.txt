@@ -52,8 +52,8 @@
 	• Nordland •																					
 																						
 	Skills:																					
-		Consume Alcohol, Evaluate, Gossip, Haggle, Language (Norse), Language (Wastelander),																				
-		Lore (Nordland), Melee (Basic), Ranged (Bow), Sail, Swim, Trade (Any)																				
+		Consume Alcohol, Evaluate, Gossip, Haggle, Language (Norscan), Language (Wastelander),																				
+		Lore (Nordland), Melee (Basic), Ranged (Bow), Sail (Any), Swim, Trade (Any)																				
 	Talents:																					
 		Doomed or Additional Random Talent, Fisherman or Rover, Stout-hearted or Very																				
 		Resilient, 2 Random Talents																				
@@ -89,6 +89,14 @@
 		Lore (Reikland), Melee (Basic), Ranged (Bow), Trade (Farmer)																				
 	Talents:																					
 		Doomed, Sharp or Suave, 3 Random Talents																				
+																						
+	• Salzenmund •																					
+																						
+	Skills:																					
+		Charm, Cool, Entertain (Storytelling), Evaluate, Gossip, Haggle, Language (Norscan),																				
+		Leadership, Lore (Nordland), Melee (Basic), Ranged (Bow), Trade (Any)																				
+	Talents:																					
+		Doomed, Savvy or Suave, 3 Random Talents																				
 																						
 	• Solland •																					
 																						
