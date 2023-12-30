@@ -4,161 +4,140 @@
 	• Altdorf •																					
 																						
 	Skills:																					
-		Bribery, Charm, Cool, Evaluate, Gamble, Gossip, Haggle, Leadership, Lore (Altdorf), 																				
-		Melee (Basic), Perform (Any), Sleight of Hand																				
+		Bribery, Charm, Cool, Evaluate, Gamble, Gossip, Haggle, Leadership, Lore (Altdorf), Melee (Basic), Perform (Any), Sleight of Hand																				
 	Talents:																					
 		Doomed, Savvy or Suave, 3 Random Talents																				
 																						
 	• Averland •																					
 																						
 	Skills:																					
-		Animal Care, Animal Training (Horse), Cool, Evaluate, Gossip, Haggle, Lore (Averland), 																				
-		Melee (Basic), Navigation, Ranged (Bow), Ride (Horse), Trade (Miner)																				
+		Animal Care, Animal Training (Horse), Cool, Evaluate, Gossip, Haggle, Lore (Averland), Melee (Basic), Navigation, Ranged (Bow), Ride (Horse), Trade (Miner)																				
 	Talents:																					
 		Doomed, Animal Affinity or Coolheaded, 3 Random Talents																				
 																						
 	• Drakenwald •																					
 																						
 	Skills:																					
-		Athletics, Charm Animal, Climb, Cool, Endurance, Gossip, Intuition, Lore (Drakenwald),																				
-		Melee (Basic), Navigation, Ranged (Bow), Track																				
+		Athletics, Charm Animal, Climb, Cool, Endurance, Gossip, Intuition, Lore (Drakenwald), Melee (Basic), Navigation, Ranged (Bow), Track																				
 	Talents:																					
 		Doomed or Additional Random Talent, Very Strong or Very Resilient, 3 Random Talents																				
 																						
 	• Hochland •																					
 																						
 	Skills:																					
-		Athletics, Climb, Cool, Endurance, Intuition, Lore (Hochland), Melee (Basic), Navigation,																				
-		Ranged (Bow), Set Trap, Stealth, Trade (Lumberjack)																				
+		Athletics, Climb, Cool, Endurance, Intuition, Lore (Hochland), Melee (Basic), Navigation, Ranged (Bow), Set Trap, Stealth (Rural), Trade (Lumberjack)																				
 	Talents:																					
 		Doomed or Additional Random Talent, Marksman or Sharp, 3 Random Talents																				
 																						
 	• Middenheim •																					
 																						
 	Skills:																					
-		Bribery, Charm, Cool, Entertain (Any), Evaluate, Gossip, Haggle, Leadership,																				
-		Lore (Middenheim), Melee (Basic), Ranged (Bow), Trade (Any)																				
+		Bribery, Charm, Cool, Entertain (Any), Evaluate, Gossip, Haggle, Leadership, Lore (Middenheim), Melee (Basic), Ranged (Bow), Trade (Any)																				
 	Talents:																					
 		Doomed, Etiquette or Strong Back, 3 Random Talents																				
 																						
 	• Middenland •																					
 																						
 	Skills:																					
-		Animal Care, Cool, Evaluate, Gossip, Haggle, Intimidate, Language (Wastelander),																				
-		Leadership, Lore (Middenland), Melee (Basic), Outdoor Survival, Ranged (Bow)																				
+		Animal Care, Cool, Evaluate, Gossip, Haggle, Intimidate, Language (Wastelander), Leadership, Lore (Middenland), Melee (Basic), Outdoor Survival, Ranged (Bow)																				
 	Talents:																					
 		Doomed or Additional Random Talent, Menacing or Warrior Born, 3 Random Talents																				
 																						
 	• Nordland •																					
 																						
 	Skills:																					
-		Consume Alcohol, Evaluate, Gossip, Haggle, Language (Norscan), Language (Wastelander),																				
-		Lore (Nordland), Melee (Basic), Ranged (Bow), Sail (Any), Swim, Trade (Any)																				
+		Consume Alcohol, Evaluate, Gossip, Haggle, Language (Norscan), Language (Wastelander), Lore (Nordland), Melee (Basic), Ranged (Bow), Sail (Any), Swim, Trade (Any)																				
 	Talents:																					
-		Doomed or Additional Random Talent, Fisherman or Rover, Stout-hearted or Very																				
-		Resilient, 2 Random Talents																				
+		Doomed or Additional Random Talent, Fisherman or Rover, Stout-hearted or Very Resilient, 2 Random Talents																				
 																						
 	• Nuln •																					
 																						
 	Skills:																					
-		Bribery, Charm, Cool, Evaluate, Gamble, Gossip, Haggle, Leadership, Lore (Nuln), Melee (Basic),																				
-		Perform (Any), Trade (Any)																				
+		Bribery, Charm, Cool, Evaluate, Gamble, Gossip, Haggle, Leadership, Lore (Nuln), Melee (Basic), Perform (Any), Trade (Any)																				
 	Talents:																					
 		Doomed, Savvy or Suave, 3 Random Talents																				
 																						
 	• Ostland •																					
 																						
 	Skills:																					
-		Consume Alcohol, Cool, Endurance, Intuition, Language (Kislevite), Lore (Kislev) or (Ostland),																				
-		Melee (Basic), Navigation, Outdoor Survival, Ranged (Bow), Sail (Any), Swim																				
+		Consume Alcohol, Cool, Endurance, Intuition, Language (Kislevite), Lore (Kislev), Lore (Ostland), Melee (Basic), Navigation, Outdoor Survival, Ranged (Bow), Sail (Any), Swim																				
 	Talents:																					
 		Doomed, Coolheaded or Very Resilient, 3 Random Talents																				
 																						
 	• Ostmark •																					
 																						
 	Skills:																					
-		Consume Alcohol, Cool, Endurance, Intuition, Language (Kislevite), Lore (Ostmark), Melee (Basic),																				
-		Navigation, Outdoor Survival, Ranged (Bow), Set Trap, Track																				
+		Consume Alcohol, Cool, Endurance, Intuition, Language (Kislevite), Lore (Ostmark), Melee (Basic), Navigation, Outdoor Survival, Ranged (Bow), Set Trap, Track																				
 	Talents:																					
 		Doomed, Coolheaded or Warrior Born, 3 Random Talents																				
 																						
 	• Reikland •																					
 																						
 	Skills:																					
-		Charm, Cool, Evaluate, Gossip, Intuition, Haggle, Language (Bretonnian), Language (Wastelander),																				
-		Lore (Reikland), Melee (Basic), Ranged (Bow), Trade (Farmer)																				
+		Charm, Cool, Evaluate, Gossip, Intuition, Haggle, Language (Bretonnian), Language (Wastelander), Lore (Reikland), Melee (Basic), Ranged (Bow), Trade (Farmer)																				
 	Talents:																					
 		Doomed, Sharp or Suave, 3 Random Talents																				
 																						
 	• Salzenmund •																					
 																						
 	Skills:																					
-		Charm, Cool, Entertain (Storytelling), Evaluate, Gossip, Haggle, Language (Norscan),																				
-		Leadership, Lore (Nordland), Melee (Basic), Ranged (Bow), Trade (Any)																				
+		Charm, Cool, Entertain (Storytelling), Evaluate, Gossip, Haggle, Language (Norscan), Leadership, Lore (Nordland), Melee (Basic), Ranged (Bow), Trade (Any)																				
 	Talents:																					
 		Doomed, Savvy or Suave, 3 Random Talents																				
 																						
 	• Solland •																					
 																						
 	Skills:																					
-		Animal Care, Animal Training (Horse), Cool, Gossip, Haggle, Lore (Solland), Melee (Basic),																				
-		 Outdoor Survival, Ranged (Bow), Ride (Horse), Trade (Farmer), Trade (Miner)																				
+		Animal Care, Animal Training (Horse), Cool, Gossip, Haggle, Lore (Solland), Melee (Basic), Outdoor Survival, Ranged (Bow), Ride (Horse), Trade (Farmer), Trade (Miner)																				
 	Talents:																					
 		Doomed, Coolheaded or Marksman, 3 Random Talents																				
 																						
 	• Stirland •																					
 																						
 	Skills:																					
-		Animal Care, Animal Training (Horse), Cool, Drive, Evaluate, Gossip, Haggle, Lore (Stirland),																				
-		Melee (Basic), Navigation, Ranged (Bow), Ride (Horse)																				
+		Animal Care, Animal Training (Horse), Cool, Drive, Evaluate, Gossip, Haggle, Lore (Stirland), Melee (Basic), Navigation, Ranged (Bow), Ride (Horse)																				
 	Talents:																					
 		Doomed, Sharp or Lightning Reflexes, 3 Random Talents																				
 																						
 	• Strigany •																					
 																						
 	Skills:																					
-		Animal Care, Consume Alcohol, Cool, Drive, Gossip, Haggle, Language (Reikspiel), Lore (Strigany),																				
-		Melee (Basic), Ranged (Bow), Sail (Barge), Swim																				
+		Animal Care, Consume Alcohol, Cool, Drive, Gossip, Haggle, Language (Reikspiel), Language (Strigany), Lore (Strigany), Lore (Vampires), Melee (Basic), Ranged (Bow), Sail (Barge), Swim																				
 	Talents:																					
 		Doomed or Fast Hands, Seasoned Traveller or Nimble Fingered, 3 Random Talents																				
 																						
 	• Sylvania •																					
 																						
 	Skills:																					
-		Cool, Endurance, Intimidate, Intuition, Language (Reikspiel), Language (Sylvanian), Lore (Stirland),																				
-		Lore (Sylvania), Lore (Vampires), Melee (Basic), Navigation, Outdoor Survival, Perception																				
+		Cool, Endurance, Intimidate, Intuition, Language (Reikspiel), Language (Sylvanian), Lore (Stirland), Lore (Sylvania), Lore (Vampires), Melee (Basic), Navigation, Outdoor Survival, Perception																				
 	Talents:																					
 		Doomed or Fearless (Undead), Coolheaded or Very Resilient, 3 Random Talents																				
 																						
 	• Talabecland •																					
 																						
 	Skills:																					
-		Animal Care, Animal Training (Horse), Athletics, Cool, Endurance, Lore (Talabecland),																				
-		Melee (Basic), Ranged (Bow), Ride (Horse), Set Trap, Stealth, Track																				
+		Animal Care, Animal Training (Horse), Athletics, Cool, Endurance, Lore (Talabecland), Melee (Basic), Ranged (Bow), Ride (Horse), Set Trap, Stealth (Rural), Track																				
 	Talents:																					
 		Doomed, Marksman or Sharp, 3 Random Talents																				
 																						
 	• Talabheim •																					
 																						
 	Skills:																					
-		Animal Care, Animal Training (Horse), Bribery, Cool, Evaluate, Gossip, Haggle, Leadership,																				
-		Lore (Talabheim), Melee (Basic), Ride (Horse), Track																				
+		Animal Care, Animal Training (Horse), Bribery, Cool, Evaluate, Gossip, Haggle, Leadership, Lore (Talabheim), Melee (Basic), Ride (Horse), Track																				
 	Talents:																					
 		Doomed, Sharp or Very Resilient, 3 Random Talents																				
 																						
 	• Wasteland •																					
 																						
 	Skills:																					
-		Bribery, Gamble, Gossip, Haggle, Language (Reikspiel), Language (Bretonnian), Lore (Wasteland),																				
-		Melee (Basic), Row, Sail (Any), Swim, Trade (Merchant)																				
+		Bribery, Gamble, Gossip, Haggle, Language (Reikspiel), Language (Bretonnian), Lore (Wasteland), Melee (Basic), Row, Sail (Any), Swim, Trade (Merchant)																				
 	Talents:																					
 		Doomed or Additional Random Talent, Savvy or Sharp, 3 Random Talents																				
 																						
 	• Wissenland •																					
 																						
 	Skills:																					
-		Climb, Consume Alcohol, Cool, Endurance, Lore (Dwarfs), Lore (Wissenland), Melee (Basic),																				
-		Melee (Polearm), Navigation, Ranged (Bow), Track, Trade (Miner)																				
+		Climb, Consume Alcohol, Cool, Endurance, Lore (Dwarfs), Lore (Wissenland), Melee (Basic), Melee (Polearm), Navigation, Ranged (Bow), Track, Trade (Miner)																				
 	Talents:																					
 		Doomed, Lightning Reflexes or Marksman, 3 Random Talents																				
 																						
