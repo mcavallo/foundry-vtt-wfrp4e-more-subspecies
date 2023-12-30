@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: "16.x"
       - uses: ./.github/local-actions/yarn-install-and-cache
 
   lint:
@@ -36,10 +36,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: "16.x"
       - uses: ./.github/local-actions/yarn-install-and-cache
       - name: Lint
-        shell: 'bash'
+        shell: bash
         run: |
           yarn lint-ci
 
@@ -52,9 +52,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: "16.x"
       - uses: ./.github/local-actions/yarn-install-and-cache
       - name: Test
-        shell: 'bash'
+        shell: bash
         run: |
           yarn test-ci
