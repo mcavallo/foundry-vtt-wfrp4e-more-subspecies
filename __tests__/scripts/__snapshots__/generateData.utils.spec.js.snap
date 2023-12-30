@@ -12,7 +12,7 @@ Animal Care, Cool, Endurance, Evaluate, Intuition, Lore (Bretonnia), Melee (Basi
 Noble Blood or Beneath Notice, Sharp or Strider (Forests), 3 Random Talents",
   "Bastonne
 Animal Care, Cool, Endurance, Gossip, Leadership, Lore (Bretonnia), Lore (Genealogy), Melee (Basic), Melee (Cavalry), Outdoor Survival, Perception, Ride (Horse)
-Noble Blood or Beneath Notice, Luck or Stout-Hearted, 3 Random Talents",
+Noble Blood or Beneath Notice, Luck or Stout-hearted, 3 Random Talents",
   "Bordeleaux
 Animal Care, Consume Alcohol, Gossip, Haggle, Intuition, Melee (Basic), Melee (Cavalry), Ride (Horse), Ranged (Bow), Row, Swim, Sail (Any)
 Noble Blood or Beneath Notice, Carouser or Sea Legs, 3 Random Talents",
@@ -193,7 +193,7 @@ Object {
       ],
       "talents": Array [
         "Noble Blood, Beneath Notice",
-        "Luck, Stout-Hearted",
+        "Luck, Stout-hearted",
         3,
       ],
     },
@@ -452,7 +452,7 @@ Object {
       ],
     },
   ],
-  "hash": "adf1ad730e6a",
+  "hash": "91670bb415c2",
   "id": "bretonnian-humans",
 }
 `;
