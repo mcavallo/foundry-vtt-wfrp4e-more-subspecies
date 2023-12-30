@@ -61,7 +61,7 @@ Doomed, Animal Affinity or Coolheaded, 3 Random Talents",
 Athletics, Charm Animal, Climb, Cool, Endurance, Gossip, Intuition, Lore (Drakenwald), Melee (Basic), Navigation, Ranged (Bow), Track
 Doomed or Additional Random Talent, Very Strong or Very Resilient, 3 Random Talents",
   "Hochland
-Athletics, Climb, Cool, Endurance, Intuition, Lore (Hochland), Melee (Basic), Navigation, Ranged (Bow), Set Traps, Stealth, Trade (Lumberjack)
+Athletics, Climb, Cool, Endurance, Intuition, Lore (Hochland), Melee (Basic), Navigation, Ranged (Bow), Set Trap, Stealth, Trade (Lumberjack)
 Doomed or Additional Random Talent, Marksman or Sharp, 3 Random Talents",
   "Middenheim
 Bribery, Charm, Cool, Entertain (Any), Evaluate, Gossip, Haggle, Leadership, Lore (Middenheim), Melee (Basic), Ranged (Bow), Trade (Any)
@@ -79,7 +79,7 @@ Doomed, Savvy or Suave, 3 Random Talents",
 Consume Alcohol, Cool, Endurance, Intuition, Language (Kislevite), Lore (Kislev) or (Ostland), Melee (Basic), Navigation, Outdoor Survival, Ranged (Bow), Sail (Any), Swim
 Doomed, Coolheaded or Very Resilient, 3 Random Talents",
   "Ostmark
-Consume Alcohol, Cool, Endurance, Intuition, Language (Kislevite), Lore (Ostmark), Melee (Basic), Navigation, Outdoor Survival, Ranged (Bow), Set Traps, Track
+Consume Alcohol, Cool, Endurance, Intuition, Language (Kislevite), Lore (Ostmark), Melee (Basic), Navigation, Outdoor Survival, Ranged (Bow), Set Trap, Track
 Doomed, Coolheaded or Warrior Born, 3 Random Talents",
   "Reikland
 Charm, Cool, Evaluate, Gossip, Intuition, Haggle, Language (Bretonnian), Language (Wastelander), Lore (Reikland), Melee (Basic), Ranged (Bow), Trade (Farmer)
@@ -94,10 +94,10 @@ Doomed, Sharp or Lighting Reflexes, 3 Random Talents",
 Animal Care, Consume Alcohol, Cool, Drive, Gossip, Haggle, Language (Reikspiel), Lore (Strigany), Melee (Basic), Ranged (Bow), Sail (Barge), Swim
 Doomed or Fast Hands, Seasoned Traveller or Nimble Fingered, 3 Random Talents",
   "Sylvania
-Cool, Endurance, Intimidate, Intuition, Language (Reikspiel), Language (Sylvanian), Lore (Stirland), Lore (Sylvania), Lore (Vampires), Melee (Basic), Navigation, Outdoor Surival, Perception
+Cool, Endurance, Intimidate, Intuition, Language (Reikspiel), Language (Sylvanian), Lore (Stirland), Lore (Sylvania), Lore (Vampires), Melee (Basic), Navigation, Outdoor Survival, Perception
 Doomed or Fearless (Undead), Coolheaded or Very Resilient, 3 Random Talents",
   "Talabecland
-Animal Care, Animal Training (Horse), Athletics, Cool, Endurance, Lore (Talabecland), Melee (Basic), Ranged (Bow), Ride (Horse), Set Traps, Stealth, Track
+Animal Care, Animal Training (Horse), Athletics, Cool, Endurance, Lore (Talabecland), Melee (Basic), Ranged (Bow), Ride (Horse), Set Trap, Stealth, Track
 Doomed, Marksman or Sharp, 3 Random Talents",
   "Talabheim
 Animal Care, Animal Training (Horse), Bribery, Cool, Evaluate, Gossip, Haggle, Leadership, Lore (Talabheim), Melee (Basic), Ride (Horse), Track
@@ -542,7 +542,7 @@ Object {
         "Melee (Basic)",
         "Navigation",
         "Ranged (Bow)",
-        "Set Traps",
+        "Set Trap",
         "Stealth",
         "Trade (Lumberjack)",
       ],
@@ -682,7 +682,7 @@ Object {
         "Navigation",
         "Outdoor Survival",
         "Ranged (Bow)",
-        "Set Traps",
+        "Set Trap",
         "Track",
       ],
       "talents": Array [
@@ -798,7 +798,7 @@ Object {
         "Lore (Vampires)",
         "Melee (Basic)",
         "Navigation",
-        "Outdoor Surival",
+        "Outdoor Survival",
         "Perception",
       ],
       "talents": Array [
@@ -820,7 +820,7 @@ Object {
         "Melee (Basic)",
         "Ranged (Bow)",
         "Ride (Horse)",
-        "Set Traps",
+        "Set Trap",
         "Stealth",
         "Track",
       ],
@@ -900,7 +900,7 @@ Object {
       ],
     },
   ],
-  "hash": "a5d1d1452437",
+  "hash": "30374d43f92b",
   "id": "imperial-humans",
 }
 `;
