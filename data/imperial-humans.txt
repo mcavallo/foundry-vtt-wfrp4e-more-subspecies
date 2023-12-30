@@ -29,7 +29,7 @@
 																						
 	Skills:																					
 		Athletics, Climb, Cool, Endurance, Intuition, Lore (Hochland), Melee (Basic), Navigation,																				
-		Ranged (Bow), Set Traps, Stealth, Trade (Lumberjack)																				
+		Ranged (Bow), Set Trap, Stealth, Trade (Lumberjack)																				
 	Talents:																					
 		Doomed or Additional Random Talent, Marksman or Sharp, 3 Random Talents																				
 																						
@@ -78,7 +78,7 @@
 																						
 	Skills:																					
 		Consume Alcohol, Cool, Endurance, Intuition, Language (Kislevite), Lore (Ostmark), Melee (Basic),																				
-		Navigation, Outdoor Survival, Ranged (Bow), Set Traps, Track																				
+		Navigation, Outdoor Survival, Ranged (Bow), Set Trap, Track																				
 	Talents:																					
 		Doomed, Coolheaded or Warrior Born, 3 Random Talents																				
 																						
@@ -126,7 +126,7 @@
 																						
 	Skills:																					
 		Animal Care, Animal Training (Horse), Athletics, Cool, Endurance, Lore (Talabecland),																				
-		Melee (Basic), Ranged (Bow), Ride (Horse), Set Traps, Stealth, Track																				
+		Melee (Basic), Ranged (Bow), Ride (Horse), Set Trap, Stealth, Track																				
 	Talents:																					
 		Doomed, Marksman or Sharp, 3 Random Talents																				
 																						
