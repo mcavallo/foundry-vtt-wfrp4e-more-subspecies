@@ -1,5 +1,5 @@
 language: en-GB
 files:
-  - data/*.txt
+  - src/data/*.txt
 dictionaries:
-  - data/_dictionary.txt
+  - customDictionary.txt

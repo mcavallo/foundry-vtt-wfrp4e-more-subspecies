@@ -1,23 +1,72 @@
 import prettier from 'prettier';
-import bretonnianHumans from '../../data/bretonnian-humans.txt';
-import imperialHumans from '../../data/imperial-humans.txt';
-import kisleviteHumans from '../../data/kislevite-humans.txt';
 import {
+  chooseOneToAny,
   formatDatasetFilename,
+  formatDatasetId,
   formatEntryId,
   formatEntryName,
   formatJsonContent,
+  formatSkill,
   formatTalent,
-  keepRelevantDataFiles,
   log,
+  parseCSVName,
+  parseDatasetCSV,
+  parseName,
   parseRandomTalentValue,
-  parseRawContent,
-  prepareDatasetPayload,
   prepareManifestPayload,
+  titleCase,
   transformNameWithSuffix,
 } from '../../scripts/generateData.utils';
+import csvData from '../fixtures/csvData.txt';
+import incompleteCsvData from '../fixtures/incompleteCsvData.txt';
 
 let stdoutWriteSpy;
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
+describe('titleCase', () => {
+  const cases = [
+    ['Foo Bar Baz', 'fooBarBaz'],
+    ['Foo Bar Baz', 'FooBarBaz'],
+    ['Foo Bar Baz', 'fooBARbaz'],
+    ['Foo 9', 'foo9'],
+    ['Foo 99', 'foo99'],
+    ['9 Foo', '9foo'],
+    ['99 Foo', '99foo'],
+    ['Foo (Bar)', 'FOO(BAR)'],
+    ['Foo (Bar)', 'foo(bar)'],
+    ['Foo (Bar)', 'foo   ( bar ) '],
+    ['Foo (Bar Baz)', 'foo(barBaz)'],
+    ['Foo [Bar]', 'FOO[BAR]'],
+    ['Foo [Bar]', 'foo[bar]'],
+    ['Foo [Bar]', 'foo   [ bar ] '],
+    ['Foo [Bar Baz]', 'foo[barBaz]'],
+    [`Foo'Bar`, `foo'bar`],
+    [`Foo'Bar`, `Foo'Bar`],
+    [`Foo-bar`, `foo-bar`],
+    [`Foo-Bar`, `Foo-Bar`],
+  ];
+
+  test.each(cases)('case %#', (expected, input) => {
+    expect(titleCase(input)).toEqual(expected);
+  });
+});
+
+describe('chooseOneToAny', () => {
+  const cases = [
+    ['Lore (Any)', 'Lore (chooseone)'],
+    ['Lore (Any)', 'Lore (choose one)'],
+    ['Lore (Any)', 'Lore (  choose  one  )'],
+    ['Lore (Any)', 'Lore (  ChooseOne  )'],
+    ['Lore (Any)', 'Lore (CHOOSEONE)'],
+  ];
+
+  test.each(cases)('case %#', (expected, input) => {
+    expect(chooseOneToAny(input)).toEqual(expected);
+  });
+});
 
 describe('log', () => {
   beforeEach(() => {
@@ -35,21 +84,6 @@ describe('log', () => {
   });
 });
 
-describe('keepRelevantDataFiles', () => {
-  const cases = [
-    [true, 'path/to/file.txt'],
-    [false, 'path/to/_file.txt'],
-    [false, 'path/to/file.json'],
-    [false, 'path/to/_file.json'],
-    [false, 'path/to/file'],
-    [false, 'path/to/_file'],
-  ];
-
-  test.each(cases)('case %#', (expected, input) => {
-    expect(keepRelevantDataFiles(input)).toEqual(expected);
-  });
-});
-
 describe('formatJsonContent', () => {
   it('formats the json payload using prettier', async () => {
     const formatSpy = jest.spyOn(prettier, 'format').mockResolvedValue('');
@@ -63,17 +97,31 @@ describe('formatJsonContent', () => {
   });
 });
 
-describe('parseRawContent', () => {
-  it('parses imperial-humans correctly', () => {
-    expect(parseRawContent(imperialHumans)).toMatchSnapshot();
-  });
+describe('formatDatasetId', () => {
+  const cases = [
+    ['imperial-humans', 'Imperial Humans'],
+    ['imperial-humans', '    Imperial  HUMANS   '],
+  ];
 
-  it('parses bretonnian-humans correctly', () => {
-    expect(parseRawContent(bretonnianHumans)).toMatchSnapshot();
+  test.each(cases)('case %#', (expected, input) => {
+    expect(formatDatasetId(input)).toEqual(expected);
   });
+});
 
-  it('parses kislevite-humans correctly', () => {
-    expect(parseRawContent(kisleviteHumans)).toMatchSnapshot();
+describe('parseCSVName', () => {
+  it('parses the name column', () => {
+    expect(parseCSVName(['', '• Foo •'])).toEqual('Foo');
+  });
+});
+
+describe('parseName', () => {
+  const cases = [
+    ['Foo', '• Foo •'],
+    ['Foo Bar', '  •  Foo   Bar  • '],
+  ];
+
+  test.each(cases)('case %#', (expected, input) => {
+    expect(parseName(input)).toEqual(expected);
   });
 });
 
@@ -101,13 +149,32 @@ describe('formatEntryName', () => {
 
 describe('formatTalent', () => {
   const cases = [
-    ['Rover', 'Rover  '],
-    ['Warrior Born', '  Warrior Born'],
+    ['Rover', ' Rover  '],
+    ['Warrior Born', '  Warrior   Born  '],
+    ['Strider (Any)', 'Strider (Choose One)'],
+    ['Stout-hearted', 'Stout-hearted'],
+    ['Witch!', 'Witch!'],
+    ['Read/Write', 'Read/Write'],
     ['', ''],
   ];
 
   test.each(cases)('case %#', (expected, input) => {
     expect(formatTalent(input)).toEqual(expected);
+  });
+});
+
+describe('formatSkill', () => {
+  const cases = [
+    ['Lore (Aquitaine)', '   Lore (Aquitaine)  '],
+    ['Lore (Aquitaine)', '   Lore (Aquitaine)  '],
+    ['Lore (Any)', '   Lore     ( Choose  One )  '],
+    ['Endurance', 'endurance'],
+    ['Consume Alcohol', 'ConsumeAlcohol'],
+    ['', ''],
+  ];
+
+  test.each(cases)('case %#', (expected, input) => {
+    expect(formatSkill(input)).toEqual(expected);
   });
 });
 
@@ -166,6 +233,7 @@ describe('transformNameWithSuffix', () => {
       ['Mousillonian', 'Mousillon'],
       ['Parravonese', 'Parravon'],
       ['Riversider', 'Riverside'],
+      ['Fooer', 'Foo'],
     ];
 
     test.each(cases)('case %#', (expected, input) => {
@@ -174,24 +242,34 @@ describe('transformNameWithSuffix', () => {
   });
 });
 
-describe('prepareDatasetPayload', () => {
-  const cases = [
-    [['bretonnian-humans', bretonnianHumans]],
-    [['imperial-humans', imperialHumans]],
-    [['kislevite-humans', kisleviteHumans]],
-  ];
-
-  test.each(cases)('case %#', ([id, data]) => {
-    const parsed = parseRawContent(data);
-    expect(prepareDatasetPayload(id, parsed)).toMatchSnapshot();
-  });
-});
-
 describe('formatDatasetFilename', () => {
   const cases = [[['first-hash', { id: 'first', hash: 'hash' }]]];
 
   test.each(cases)('case %#', ([id, data]) => {
     expect(formatDatasetFilename(id, data)).toMatchSnapshot();
+  });
+});
+
+describe('parseDatasetCSV', () => {
+  beforeEach(() => {
+    stdoutWriteSpy = jest.spyOn(process.stdout, 'write').mockImplementation(() => {});
+  });
+
+  it('parses the Google Sheets CSV and turns it into a dataset', () => {
+    expect(parseDatasetCSV('Sheet Name', csvData)).toMatchSnapshot();
+  });
+
+  it('exits if the CSV data is malformed', () => {
+    const exitSpy = jest.spyOn(process, 'exit').mockImplementation(() => {
+      throw 'process.exit';
+    });
+
+    const t = () => {
+      parseDatasetCSV('Incomplete Data', incompleteCsvData);
+    };
+
+    expect(t).toThrow('process.exit');
+    expect(exitSpy).toHaveBeenCalledWith(1);
   });
 });
 
