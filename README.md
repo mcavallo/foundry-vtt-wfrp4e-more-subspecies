@@ -30,6 +30,9 @@ If you have suggestions please [open an issue](https://github.com/mcavallo/found
 
 1. Install the package following the [standard Foundry procedure](https://foundryvtt.wiki/en/basics/Modules).
 2. Go to the [module settings](https://github.com/mcavallo/foundry-vtt-wfrp4e-more-subspecies/wiki/Settings#enabled-datasets) and choose the subspecies you want to allow in your game.
+3. Start a new character generation with the `/char` command to use the enabled subspecies.
+
+**IMPORTANT:** The WFRP4E character generator requires either a GM to be present (from the very start of the process) or players to have the `Create New Actors` permission.
 
 # Settings
 
