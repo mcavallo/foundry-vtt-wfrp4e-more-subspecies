@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   prepare:
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'ci:skip-pr-checks') }}
     name: Prepare
     runs-on: ubuntu-latest
     outputs:
