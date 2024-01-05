@@ -20,8 +20,7 @@ export const blue = chalk.blueBright;
  * @async
  */
 export async function readPackageJson() {
-  const rawContents = await fs.readFile('package.json', 'utf8');
-  return JSON.parse(rawContents);
+  return await fs.readJson('package.json');
 }
 
 /**
@@ -37,9 +36,11 @@ export function assertPackageJsonProperties(packageJson) {
   const requiredProperties = [
     'author',
     'authors',
-    'foundryModule.description',
     'foundryModule.name',
     'foundryModule.title',
+    'foundryModule.description',
+    'foundryModule.compatibilityMinimum',
+    'foundryModule.compatibilityVerified',
     'repository.url',
     'license',
   ];
@@ -176,9 +177,17 @@ export function buildManifest({
     rawManifest
       .replaceAll('__AUTHOR__', releaseData.package.author)
       .replaceAll('__LICENSE__', releaseData.package.license)
-      .replaceAll('__MODULE_DESCRIPTION__', releaseData.package.foundryModule.description)
       .replaceAll('__MODULE_NAME__', releaseData.package.foundryModule.name)
       .replaceAll('__MODULE_TITLE__', releaseData.package.foundryModule.title)
+      .replaceAll('__MODULE_DESCRIPTION__', releaseData.package.foundryModule.description)
+      .replaceAll(
+        '__MODULE_COMPATIBILITY_MINIMUM__',
+        releaseData.package.foundryModule.compatibilityMinimum
+      )
+      .replaceAll(
+        '__MODULE_COMPATIBILITY_VERIFIED__',
+        releaseData.package.foundryModule.compatibilityVerified
+      )
       .replaceAll('__RELEASE__', releaseData.release)
       .replaceAll('__REPO_URL__', releaseData.package.repository.url)
       .replaceAll('__VERSION__', releaseData.version)

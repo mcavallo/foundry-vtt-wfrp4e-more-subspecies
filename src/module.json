@@ -6,11 +6,9 @@
   "author": "__AUTHOR__",
   "authors": [],
   "compatibility": {
-    "minimum": "11",
-    "verified": "11.315"
+    "minimum": "__MODULE_COMPATIBILITY_MINIMUM__",
+    "verified": "__MODULE_COMPATIBILITY_VERIFIED__"
   },
-  "minimumCoreVersion": 11,
-  "compatibleCoreVersion": 11,
   "license": "__LICENSE__",
   "relationships": {
     "systems": [
@@ -27,6 +25,6 @@
   "packs": [],
   "media": [],
   "url": "__REPO_URL__",
-  "manifest": "__REPO_URL__/releases/latest/download/module.json",
+  "manifest": "__REPO_URL__/releases/download/__RELEASE__/module.json",
   "download": "__REPO_URL__/releases/download/__RELEASE__/__MODULE_NAME_____RELEASE__.zip"
 }
