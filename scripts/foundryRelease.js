@@ -12,33 +12,35 @@ async function sendRequest(payload, isDryRun = true) {
     console.log(`\nSending request...`);
   }
 
-  console.log(JSON.stringify(body, null, 2));
-
   const response = await fetch(
     'https://api.foundryvtt.com/_api/packages/release_version/',
     {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: process.env.FOUNDRY_RELEASE_TOKEN,
+        Authorization: `${process.env.FOUNDRY_RELEASE_TOKEN}`,
       },
       method: 'POST',
       body: JSON.stringify(body),
     }
   );
-  return await response.json();
-}
 
-function printErrors(response) {
-  const errorKeys = Object.keys(response.errors);
+  const responseText = await response.text();
 
-  for (const errorKey of errorKeys) {
-    for (const error of response.errors[errorKey]) {
-      console.log(`Error (${errorKey}): ${error.message} (${error.code})`);
-    }
+  if (!response.ok) {
+    console.log(`Error: Request failed with status ${response.status}`);
+    console.log('Response:', responseText);
+    process.exit(1);
+  } else {
+    console.log('Response:', responseText);
   }
 }
 
 const run = async () => {
+  if (!process.env.FOUNDRY_RELEASE_TOKEN) {
+    console.log(`Error: FOUNDRY_RELEASE_TOKEN is missing.`);
+    process.exit(1);
+  }
+
   const moduleJsonPath = path.resolve(process.cwd(), 'dist/module.json');
   const moduleJson = await fs.readJson(moduleJsonPath);
   const payload = {
@@ -51,26 +53,11 @@ const run = async () => {
     },
   };
 
-  const dryRunResponse = await sendRequest(payload, true);
+  await sendRequest(payload, true);
+  console.log(`Dry run OK.`);
 
-  if (dryRunResponse.status === 'error') {
-    console.log(`\nDry run failed.`);
-    printErrors(dryRunResponse);
-    return;
-  }
-
-  console.log(`\nDry run OK.`);
-
-  const response = await sendRequest(payload, false);
-
-  if (response.status === 'error') {
-    console.log(`\nRelease failed.`);
-    printErrors(response);
-    return;
-  }
-
-  console.log(`\nRelease OK.`);
-  console.log(JSON.stringify(response, null, 2));
+  await sendRequest(payload, false);
+  console.log(`Release OK.`);
 };
 
 run();
