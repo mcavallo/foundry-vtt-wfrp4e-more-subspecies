@@ -1,45 +1,60 @@
 import fs from 'fs-extra';
-import path from 'path';
+import { JWT } from 'google-auth-library';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
 import {
   formatDatasetFilename,
   formatJsonContent,
-  keepRelevantDataFiles,
   log,
-  parseRawContent,
-  prepareDatasetPayload,
+  parseDatasetCSV,
   prepareManifestPayload,
 } from './generateData.utils.js';
 
-const SRC_DIR = './data/';
 const DEST_DIR = './src/data/';
 
-const sourceFiles = await fs.readdir(SRC_DIR);
-const textFiles = sourceFiles.filter(keepRelevantDataFiles);
-const datasets = [];
+const run = async () => {
+  const datasets = [];
+  const serviceAccountAuth = new JWT({
+    email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+    key: process.env.GOOGLE_PRIVATE_KEY,
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+  });
 
-log(`Preparing...`, true);
-fs.ensureDirSync(DEST_DIR);
-fs.emptyDirSync(DEST_DIR);
+  const doc = new GoogleSpreadsheet(process.env.DATA_SPREADSHEET_ID, serviceAccountAuth);
 
-for (const fileName of textFiles) {
-  log(`Processing '${fileName}'... `);
-  const fileBaseName = path.basename(fileName, '.txt');
-  const data = await fs.readFile(`${SRC_DIR}${fileName}`, 'utf-8');
-  const dataset = prepareDatasetPayload(fileBaseName, parseRawContent(data));
-  const formattedDataset = await formatJsonContent(dataset);
-  const outputName = formatDatasetFilename(dataset);
+  log(`Fetching... `);
+  await doc.loadInfo();
 
-  log(`Writing... `);
-  await fs.writeFile(`${DEST_DIR}${outputName}.json`, formattedDataset);
+  log(`${doc.sheetCount} sheets found.`, true);
 
-  datasets.push(dataset);
+  log(`Preparing...`, true);
+  fs.ensureDirSync(DEST_DIR);
+  fs.emptyDirSync(DEST_DIR);
+
+  for (const sheet of doc.sheetsByIndex) {
+    log(`Downloading '${sheet.title}'... `);
+    const csvBuffer = await sheet.downloadAsCSV();
+
+    log(`Processing... `);
+    const rawCSV = csvBuffer.toString('utf-8');
+    const dataset = parseDatasetCSV(sheet.title, rawCSV);
+    const outputName = formatDatasetFilename(dataset);
+    const formattedDataset = await formatJsonContent(dataset);
+
+    log(`Writing... `);
+    await fs.writeFile(`${DEST_DIR}${outputName}.txt`, rawCSV);
+    await fs.writeFile(`${DEST_DIR}${outputName}.json`, formattedDataset);
+
+    datasets.push(dataset);
+    log('Done.', true);
+  }
+
+  log(`Writing manifest with ${datasets.length} datasets... `);
+  const manifest = prepareManifestPayload(datasets);
+  const formattedManifest = await formatJsonContent(manifest);
+  await fs.writeFile(`${DEST_DIR}manifest.json`, formattedManifest);
   log('Done.', true);
-}
 
-log(`Writing manifest with ${datasets.length} datasets... `);
-const manifest = prepareManifestPayload(datasets);
-const formattedManifest = await formatJsonContent(manifest);
-await fs.writeFile(`${DEST_DIR}manifest.json`, formattedManifest);
-log('Done.', true);
+  log('All done!', true);
+};
 
-log('All done!', true);
+run();

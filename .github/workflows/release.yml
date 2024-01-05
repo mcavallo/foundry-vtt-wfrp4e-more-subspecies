@@ -46,8 +46,11 @@ jobs:
       - name: Create .env file
         shell: bash
         run: |
-          touch .env
+          echo -n "" > .env
+          echo DATA_SPREADSHEET_ID=${{ secrets.DATA_SPREADSHEET_ID }} >> .env
           echo GH_API_TOKEN=${{ secrets.GH_API_TOKEN }} >> .env
+          echo GOOGLE_PRIVATE_KEY="\"${{ secrets.GOOGLE_PRIVATE_KEY }}\"" >> .env
+          echo GOOGLE_SERVICE_ACCOUNT_EMAIL=${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }} >> .env
       - name: Build
         shell: bash
         run: |

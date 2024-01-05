@@ -1,9 +1,9 @@
+import { parse } from 'csv-parse/sync';
 import hasha from 'hasha';
 import lodash from 'lodash/fp.js';
-import path from 'path';
 import prettier from 'prettier';
 
-const { flow, replace, trim, split, map } = lodash;
+const { flow, replace, trim, split, map, kebabCase } = lodash;
 
 export const SUFFIXES_EDGE_CASES = {
   // Tribe names
@@ -20,29 +20,47 @@ export const SUFFIXES_EDGE_CASES = {
   Quenelles: 'Queneller',
 };
 
-export function log(content, newLine = false) {
-  process.stdout.write(content + (newLine ? '\n' : ''));
+export function titleCase(str) {
+  return flow(
+    trim,
+    replace(/([^\d]+)*(\d+)([^\d]+)*/g, '$1 $2 $3'), // numbers
+    replace(/[A-Z]{2,}/g, match => ` ${match.toLowerCase()} `), // upper words
+    replace(/[^A-Z-/][A-Z]/g, match => `${match[0]} ${match[1]}`), // alternating case
+    replace(/\s*'\s*/g, ` ' `), // space around apostrophes
+    replace(/\s*(\(|\[)\s*([^({[]+)\s*(\)|\])\s*/, ' $1 $2 $3'), // space around parens or square brackets
+    replace(/\s+./g, match => match.toUpperCase()), // first and space+letter to upper
+    replace(/^./g, match => match.toUpperCase()), // first and space+letter to upper
+    replace(/\s+/g, ' '), // keep single space
+    replace(/\s*'\s*/g, `'`), // ' spacing
+    replace(/\s*(\(|\[)\s*/g, ' $1'), // ([ spacing
+    replace(/\s*(\)|\])\s*/g, '$1 '), // )] spacing
+    trim
+  )(str);
 }
 
-export function keepRelevantDataFiles(fileName) {
-  const lowerCase = fileName.toLowerCase();
-  return !path.basename(lowerCase).startsWith('_') && path.extname(lowerCase) === '.txt';
+export function chooseOneToAny(str) {
+  return replace(/\(\s*choose\s*one\s*\)/i, '(Any)', str);
+}
+
+export function log(content, newLine = false) {
+  process.stdout.write(content + (newLine ? '\n' : ''));
 }
 
 export async function formatJsonContent(raw) {
   return await prettier.format(JSON.stringify(raw), { semi: false, parser: 'json' });
 }
 
-export function parseRawContent(raw) {
-  return raw
-    .replace(/^([^•]+)/g, '')
-    .replace(/\s{2,}/g, ' ')
-    .replace(/\s*•\s*([^•\s]+)\s*•\s*/g, '\n---\n[Location] $1')
-    .replace(/(?:(Skills|Talents):)/gi, '\n[$1]')
-    .replace(/(\s*\n\s*)/g, '\n')
-    .replace(/\[.+\]\s+/g, '')
-    .split('\n---\n')
-    .slice(1);
+export function formatDatasetId(raw) {
+  return flow(trim, kebabCase)(raw);
+}
+
+export function parseCSVName(line) {
+  return parseName(line[1]);
+}
+
+export function parseName(raw) {
+  const match = raw.match(/\s*•\s*([^•]+)•/i);
+  return match[1].trim().replace(/\s+/, ' ');
 }
 
 export function formatEntryId(name) {
@@ -58,11 +76,11 @@ export function formatEntryName(name) {
 }
 
 export function formatTalent(value) {
-  return value.trim();
+  return flow(trim, chooseOneToAny, titleCase)(value);
 }
 
 export function formatSkill(value) {
-  return value.trim();
+  return flow(trim, chooseOneToAny, titleCase)(value);
 }
 
 export function parseRandomTalentValue(value) {
@@ -104,8 +122,16 @@ export function transformNameWithSuffix(raw) {
   }
 }
 
+export function parseCSVSkills(line) {
+  return parseSkills(line[2]);
+}
+
 export function parseSkills(raw) {
   return flow(trim, split(/\s*,\s*/), map(formatSkill), val => val.sort())(raw);
+}
+
+export function parseCSVTalents(line) {
+  return parseTalents(line[2]);
 }
 
 export function parseTalents(raw) {
@@ -131,25 +157,54 @@ export function parseTalents(raw) {
     .filter(Boolean);
 }
 
-export function prepareDatasetPayload(id, raw) {
-  const entries = raw.map(entry => {
-    const parts = entry.split('\n');
-    const name = transformNameWithSuffix(parts[0]);
+export function parseDatasetCSV(sheetName, rawCSVData) {
+  const id = formatDatasetId(sheetName);
+  const records = parse(rawCSVData, {
+    skip_empty_lines: true,
+    skip_records_with_empty_values: true,
+    trim: true,
+  }).slice(1);
 
-    return {
-      id: formatEntryId(name),
-      name: formatEntryName(name),
-      skills: parseSkills(parts[1]),
-      talents: parseTalents(parts[2]),
-    };
-  });
+  if (records.length % 5) {
+    log(`Error: '${id}' seems to be an incomplete dataset.`, true);
+    process.exit(1);
+  }
 
-  const hash = hasha(JSON.stringify(entries), { algorithm: 'sha1' });
+  const entries = [];
+
+  for (let entryIndex = 0; entryIndex < records.length; entryIndex += 5) {
+    entries.push(
+      prepareEntryPayload(
+        records[entryIndex],
+        records[entryIndex + 2],
+        records[entryIndex + 4]
+      )
+    );
+  }
+
+  const dataset = {
+    id,
+    entries,
+  };
+
+  const hash = hasha(JSON.stringify(dataset), { algorithm: 'sha1' });
 
   return {
-    id,
     hash: hash.substring(0, 12),
-    entries,
+    ...dataset,
+  };
+}
+
+export function prepareEntryPayload(nameRow, skillsRow, talentsRow) {
+  const name = transformNameWithSuffix(parseCSVName(nameRow));
+  const skills = parseCSVSkills(skillsRow);
+  const talents = parseCSVTalents(talentsRow);
+
+  return {
+    id: formatEntryId(name),
+    name: formatEntryName(name),
+    skills,
+    talents,
   };
 }
 

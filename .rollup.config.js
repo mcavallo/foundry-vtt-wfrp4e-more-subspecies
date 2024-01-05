@@ -70,7 +70,10 @@ export default async () => {
       copy({
         targets: [
           {
-            src: ['src/data/*.json', '!**/manifest.json'],
+            src: [
+              'src/data/*.json',
+              '!**/manifest.json', // Manifest will be imported directly from js
+            ],
             dest: 'dist/data',
           },
           {
