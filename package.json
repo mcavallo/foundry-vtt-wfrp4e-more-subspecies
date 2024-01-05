@@ -69,6 +69,7 @@
   "scripts": {
     "foundry:link": "node -r dotenv/config scripts/foundryLink.js",
     "foundry:unlink": "node -r dotenv/config scripts/foundryUnlink.js",
+    "foundry:release": "node -r dotenv/config scripts/foundryRelease.js",
     "generateData": "node -r dotenv/config scripts/generateData.js",
     "prebuild": "yarn generateData",
     "build": "rimraf --glob dist/** && rollup --config .rollup.config.js",
