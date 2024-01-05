@@ -2,7 +2,7 @@
 
 This module adds a collection of new homebrew subspecies to choose from in the WFRP4E character generation.
 
-![Species selection box](.github/docs/cover.jpg)
+![Species selection box](https://raw.githubusercontent.com/mcavallo/foundry-vtt-wfrp4e-more-subspecies/master/.github/docs/cover.jpg)
 
 # Supported species
 
@@ -14,7 +14,7 @@ At the moment, the module supports the following human subspecies:
 
 All subspecies added by this module are prefixed with `*`.
 
-![Species selection box](.github/docs/prefixed-subspecies.jpg)
+![Species selection box](https://raw.githubusercontent.com/mcavallo/foundry-vtt-wfrp4e-more-subspecies/master/.github/docs/prefixed-subspecies.jpg)
 
 ## Source Data
 
