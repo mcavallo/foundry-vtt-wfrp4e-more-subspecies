@@ -1,6 +1,22 @@
+import 'dotenv/config';
+
 import fs from 'fs-extra';
 import fetch from 'node-fetch';
 import path from 'path';
+
+function getTokenMask() {
+  try {
+    return process.env.FOUNDRY_RELEASE_TOKEN &&
+      process.env.FOUNDRY_RELEASE_TOKEN.length === 30
+      ? process.env.FOUNDRY_RELEASE_TOKEN.replace(
+          /(\w{6})(.{18})(\w{6})/i,
+          (_match, p1, p2, p3) => `${p1}${'*'.repeat(p2.length)}${p3}`
+        )
+      : '???';
+  } catch {
+    return 'unknown';
+  }
+}
 
 async function sendRequest(payload, isDryRun = true) {
   let body = Object.assign({}, payload);
@@ -36,13 +52,11 @@ async function sendRequest(payload, isDryRun = true) {
 }
 
 const run = async () => {
-  if (!process.env.FOUNDRY_RELEASE_TOKEN) {
-    console.log(`Error: FOUNDRY_RELEASE_TOKEN is missing.`);
-    process.exit(1);
-  }
-
   const moduleJsonPath = path.resolve(process.cwd(), 'dist/module.json');
   const moduleJson = await fs.readJson(moduleJsonPath);
+
+  console.log(`\nReleasing '%s' using token '%s'...`, moduleJson.name, getTokenMask());
+
   const payload = {
     id: moduleJson.name,
     release: {
@@ -54,10 +68,10 @@ const run = async () => {
   };
 
   await sendRequest(payload, true);
-  console.log(`Dry run OK.`);
+  console.log(`\nDry run OK.`);
 
   await sendRequest(payload, false);
-  console.log(`Release OK.`);
+  console.log(`\nRelease OK.`);
 };
 
 run();
