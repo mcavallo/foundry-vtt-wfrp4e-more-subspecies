@@ -73,6 +73,9 @@ jobs:
           artifacts: "./dist/module.json,${{ steps.module_name.outputs.out }}_${{ needs.versioning.outputs.new_tag }}.zip"
           body: ${{ needs.versioning.outputs.changelog }}
       - name: Release module
+        secrets: inherit
         shell: bash
         run: |
+          echo -n "" > .env
+          echo FOUNDRY_RELEASE_TOKEN="\"${{ secrets.FOUNDRY_RELEASE_TOKEN }}\"" >> .env
           yarn foundry:release
