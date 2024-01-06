@@ -1,5 +1,3 @@
-import 'dotenv/config';
-
 import fs from 'fs-extra';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
