@@ -36,7 +36,7 @@ If you have suggestions please [open an issue](https://github.com/mcavallo/found
 
 # Settings
 
-The module has a settings page that you can use to customize the experience to your liking. Read more about it [here](https://github.com/mcavallo/foundry-vtt-random-target/wiki/Settings).
+The module has a settings page that you can use to customize the experience to your liking. Read more about it [here](https://github.com/mcavallo/foundry-vtt-wfrp4e-more-subspecies/wiki/Settings).
 
 # Support the Project
 
