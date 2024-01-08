@@ -1,6 +1,13 @@
 ,,,,
 ,,,,BRETONNIAN HUMANS
 ,,,,
+,• Bretonnian •,,,
+,,,,
+,Skills:,,,
+,,"Animal Care, Animal Training (Horse), Cool, Endurance, Gossip, Language (Reikspiel), Leadership, Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ranged (Bow), Ride (Horse)",,
+,Talents:,,,
+,,"Noble Blood or Beneath Notice, Coolheaded or Relentless, 3 Random Talents",,
+,,,,
 ,• Aquitaine •,,,
 ,,,,
 ,Skills:,,,
