@@ -104,4 +104,4 @@
 ,Skills:,,,
 ,,"Lore ( Choose  One ),  Lore  (L'Anguille) ,  Consume    Alcohol    ,endurance",,
 ,Talents:,,,
-,,"Noble Blood or 2 Random Talents, Stout-hearted, Witch!, Read/Write, Additional Random Talent, 3 Random Talents",,
+,,"Doomed or Noble Blood or 2 Random Talents, Stout-hearted, Witch!, Read/Write, Additional Random Talent, 3 Random Talents",,

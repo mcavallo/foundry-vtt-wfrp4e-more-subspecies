@@ -345,7 +345,7 @@ Object {
       ],
     },
     Object {
-      "id": "ms_edgecaseser",
+      "id": "ms_edge_caseser",
       "name": "*Edge Caseser",
       "skills": Array [
         "Consume Alcohol",
@@ -354,7 +354,7 @@ Object {
         "Lore (L'Anguille)",
       ],
       "talents": Array [
-        "Noble Blood, random[2]",
+        "Doomed, Noble Blood, random[2]",
         "Stout-hearted",
         "Witch!",
         "Read/Write",
@@ -363,7 +363,7 @@ Object {
       ],
     },
   ],
-  "hash": "130ea7e1b9a0",
+  "hash": "f82e2a233d0a",
   "id": "sheet-name",
 }
 `;

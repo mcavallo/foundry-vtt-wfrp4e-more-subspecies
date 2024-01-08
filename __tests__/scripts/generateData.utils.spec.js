@@ -13,6 +13,7 @@ import {
   parseDatasetCSV,
   parseName,
   parseRandomTalentValue,
+  parseTalents,
   prepareManifestPayload,
   titleCase,
   transformNameWithSuffix,
@@ -129,6 +130,8 @@ describe('formatEntryId', () => {
   const cases = [
     ['ms_altdorfer', 'Altdorfer'],
     ['ms_languillian', "L'Anguillian"],
+    ['ms_imperial_bretonnian', 'Imperial Bretonnian'],
+    ['ms_inconsistent_spacing', '  Inconsistent   Spacing  '],
   ];
 
   test.each(cases)('case %#', (expected, input) => {
@@ -223,6 +226,10 @@ describe('transformNameWithSuffix', () => {
     });
   });
 
+  it('handles names that contain imperial prefix', () => {
+    expect(transformNameWithSuffix('Imperial Bretonnian')).toEqual('Imperial Bretonnian');
+  });
+
   describe('handles common scenarios', () => {
     const cases = [
       ["L'Anguillian", "L'Anguille"],
@@ -239,6 +246,44 @@ describe('transformNameWithSuffix', () => {
     test.each(cases)('case %#', (expected, input) => {
       expect(transformNameWithSuffix(input)).toEqual(expected);
     });
+  });
+});
+
+describe('parseTalents', () => {
+  it('handles single talents', () => {
+    expect(parseTalents('Foo')).toMatchInlineSnapshot(`
+      Array [
+        "Foo",
+      ]
+    `);
+  });
+
+  it('handles multiple talents', () => {
+    expect(parseTalents('Foo, Bar, Baz')).toMatchInlineSnapshot(`
+      Array [
+        "Foo",
+        "Bar",
+        "Baz",
+      ]
+    `);
+  });
+
+  it('handles multiple talents with optional choices', () => {
+    expect(parseTalents('Foo or Bar or Baz, Foo, Bar')).toMatchInlineSnapshot(`
+      Array [
+        "Foo, Bar, Baz",
+        "Foo",
+        "Bar",
+      ]
+    `);
+  });
+
+  it('handles optional choices with inconsistent casing and spacing', () => {
+    expect(parseTalents('Foo Or   Bar   or    Baz Baz')).toMatchInlineSnapshot(`
+      Array [
+        "Foo, Bar, Baz Baz",
+      ]
+    `);
   });
 });
 

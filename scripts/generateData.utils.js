@@ -65,8 +65,10 @@ export function parseName(raw) {
 
 export function formatEntryId(name) {
   return flow(
-    replace(/[^\w]+/i, ''),
-    val => val.toLowerCase(),
+    trim,
+    replace(/[']+/, ''),
+    replace(/\s+/g, '_'),
+    str => str.toLowerCase(),
     val => `ms_${val}`
   )(name);
 }
@@ -103,6 +105,8 @@ export function transformNameWithSuffix(raw) {
   switch (true) {
     case Object.keys(SUFFIXES_EDGE_CASES).includes(name):
       return SUFFIXES_EDGE_CASES[name];
+    case name.startsWith('Imperial'):
+      return name;
     case name.endsWith('lle'):
       return name.replace(/lle$/i, 'llian');
     case name.endsWith('nia'):
@@ -139,11 +143,11 @@ export function parseTalents(raw) {
     .trim()
     .split(/\s*,\s*/)
     .map(value => {
-      const optionMatch = value.match(/(.*)\s+or\s+(.*)*/i);
+      const hasOr = value.match(/\s+or\s+/i);
 
-      if (optionMatch) {
-        const [, first, second] = optionMatch;
-        return [first, second]
+      if (hasOr) {
+        const talents = value.split(/\s+or\s+/i);
+        return talents
           .map(value => {
             const randomValue = parseRandomTalentValue(value);
             return randomValue ? `random[${randomValue}]` : formatTalent(value);
