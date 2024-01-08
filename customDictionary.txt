@@ -38,6 +38,10 @@ Sylvania
 Talabecland
 Talabheim
 Wissenland
+Bretonnian
+Estalian
+Tilean
+Kislevite
 
 KISLEVITE
 Gospodar
