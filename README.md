@@ -8,9 +8,12 @@ This module adds a collection of new homebrew subspecies to choose from in the W
 
 At the moment, the module supports the following human subspecies:
 
-- Imperial Humans
-- Bretonnian Humans
-- Kislevite Humans
+<!-- prettier-ignore -->
+| Dataset | Subspecies |
+| --- | --- |
+| **Bretonnian Humans** | Aquitainian, Artoin, Bastonnian, Bordelen, Brionnian, Carcassonnian, Couronnian, Gisoren, L'Anguillian, Lyonen, Montfortian, Mousillonian, Parravonese, Queneller |
+| **Imperial Humans** | Altdorfer, Averlander, Drakenwalder, Hochlander, Imperial Bretonnian, Imperial Estalian, Imperial Tilean, Imperial Kislevite, Middenheimer, Middenlander, Nordlander, Nulner, Ostlander, Ostmarker, Reiklander, Salzenmunder, Sollander, Stirlander, Strigany, Sylvanian, Talabeclander, Talabheimer, Wastelander, Wissenlander |
+| **Kislevite Humans** | Gospodar, Ropsmenn, Ungol |
 
 All subspecies added by this module are prefixed with `*`.
 
