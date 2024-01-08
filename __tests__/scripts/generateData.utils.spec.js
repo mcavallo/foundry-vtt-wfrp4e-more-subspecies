@@ -130,7 +130,7 @@ describe('formatEntryId', () => {
   const cases = [
     ['ms_altdorfer', 'Altdorfer'],
     ['ms_languillian', "L'Anguillian"],
-    ['ms_imperial_bretonnian', 'Imperial Bretonnian'],
+    ['ms_bretonnian', 'Bretonnian'],
     ['ms_inconsistent_spacing', '  Inconsistent   Spacing  '],
   ];
 
@@ -226,8 +226,17 @@ describe('transformNameWithSuffix', () => {
     });
   });
 
-  it('handles names that contain imperial prefix', () => {
-    expect(transformNameWithSuffix('Imperial Bretonnian')).toEqual('Imperial Bretonnian');
+  describe('handles generic cases', () => {
+    const cases = [
+      ['Bretonnian', 'Bretonnian'],
+      ['Estalian', 'Estalian'],
+      ['Kislevite', 'Kislevite'],
+      ['Tilean', 'Tilean'],
+    ];
+
+    test.each(cases)('case %#', (expected, input) => {
+      expect(transformNameWithSuffix(input)).toEqual(expected);
+    });
   });
 
   describe('handles common scenarios', () => {

@@ -6,6 +6,29 @@ exports[`parseDatasetCSV parses the Google Sheets CSV and turns it into a datase
 Object {
   "entries": Array [
     Object {
+      "id": "ms_bretonnian",
+      "name": "*Bretonnian",
+      "skills": Array [
+        "Animal Care",
+        "Animal Training (Horse)",
+        "Cool",
+        "Endurance",
+        "Gossip",
+        "Language (Reikspiel)",
+        "Leadership",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Coolheaded, Relentless",
+        3,
+      ],
+    },
+    Object {
       "id": "ms_aquitainian",
       "name": "*Aquitainian",
       "skills": Array [
@@ -363,7 +386,7 @@ Object {
       ],
     },
   ],
-  "hash": "f82e2a233d0a",
+  "hash": "5a59f07fa4b6",
   "id": "sheet-name",
 }
 `;

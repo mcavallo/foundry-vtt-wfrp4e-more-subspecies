@@ -5,6 +5,7 @@ Roughrider
 Dealmaker
 
 BRETONNIAN
+Bretonnian
 Artois
 Bastonne
 Bordeleaux
@@ -18,6 +19,9 @@ Montfort
 Mousillon
 Parravon
 Quenelles
+
+ESTALIAN
+Estalian
 
 Altdorf
 Averland
@@ -38,12 +42,12 @@ Sylvania
 Talabecland
 Talabheim
 Wissenland
-Bretonnian
-Estalian
-Tilean
-Kislevite
 
 KISLEVITE
+Kislevite
 Gospodar
 Ropsmenn
 Ungol
+
+TILEAN
+Tilean

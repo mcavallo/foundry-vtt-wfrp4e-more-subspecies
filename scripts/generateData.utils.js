@@ -20,6 +20,8 @@ export const SUFFIXES_EDGE_CASES = {
   Quenelles: 'Queneller',
 };
 
+export const GENERIC_CASES = ['Bretonnian', 'Estalian', 'Kislevite', 'Tilean'];
+
 export function titleCase(str) {
   return flow(
     trim,
@@ -105,7 +107,7 @@ export function transformNameWithSuffix(raw) {
   switch (true) {
     case Object.keys(SUFFIXES_EDGE_CASES).includes(name):
       return SUFFIXES_EDGE_CASES[name];
-    case name.startsWith('Imperial'):
+    case GENERIC_CASES.includes(name):
       return name;
     case name.endsWith('lle'):
       return name.replace(/lle$/i, 'llian');
