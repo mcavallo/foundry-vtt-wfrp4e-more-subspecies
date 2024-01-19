@@ -33,6 +33,8 @@ If you have suggestions please [open an issue](https://github.com/mcavallo/found
 
 # Installation / Usage
 
+This module requires the [WFRP4E System](https://foundryvtt.com/packages/wfrp4e) and the [Core Module](https://cubicle7games.com/warhammer-fantasy-roleplay-foundry-core-module).
+
 1. Install the package following the [standard Foundry procedure](https://foundryvtt.wiki/en/basics/Modules).
 2. Go to the [module settings](https://github.com/mcavallo/foundry-vtt-wfrp4e-more-subspecies/wiki/Settings#enabled-datasets) and choose the subspecies you want to allow in your game.
 3. Start a new character generation with the `/char` command to use the enabled subspecies.
