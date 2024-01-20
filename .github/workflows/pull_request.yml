@@ -39,13 +39,12 @@ jobs:
         with:
           node-version: "16.x"
       - uses: ./.github/local-actions/yarn-install-and-cache
-      - name: Create .env file
+      - name: Create .env and credentials files
         shell: bash
         run: |
           echo -n "" > .env
           echo DATA_SPREADSHEET_ID=${{ secrets.DATA_SPREADSHEET_ID }} >> .env
-          echo GOOGLE_PRIVATE_KEY="\"${{ secrets.GOOGLE_PRIVATE_KEY }}\"" >> .env
-          echo GOOGLE_SERVICE_ACCOUNT_EMAIL=${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }} >> .env
+          echo "${{ secrets.BASE64_GOOGLE_CREDENTIALS }}" | base64 --decode | jq > credentials.json
       - name: Spellcheck
         shell: bash
         run: |
