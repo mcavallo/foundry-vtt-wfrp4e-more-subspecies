@@ -9,22 +9,35 @@ import {
   formatSkill,
   formatTalent,
   log,
-  parseCSVName,
-  parseDatasetCSV,
   parseName,
+  parseNameRow,
   parseRandomTalentValue,
   parseTalents,
   prepareManifestPayload,
   titleCase,
   transformNameWithSuffix,
 } from '../../scripts/generateData.utils';
-import csvData from '../fixtures/csvData.txt';
-import incompleteCsvData from '../fixtures/incompleteCsvData.txt';
 
 let stdoutWriteSpy;
 
 afterEach(() => {
   jest.clearAllMocks();
+});
+
+describe('log', () => {
+  beforeEach(() => {
+    stdoutWriteSpy = jest.spyOn(process.stdout, 'write').mockImplementation(() => {});
+  });
+
+  it('writes to stdout', () => {
+    log('foo');
+    expect(stdoutWriteSpy).toHaveBeenCalledWith('foo');
+  });
+
+  it('writes adding a new line', () => {
+    log('foo', true);
+    expect(stdoutWriteSpy).toHaveBeenCalledWith('foo\n');
+  });
 });
 
 describe('titleCase', () => {
@@ -69,22 +82,6 @@ describe('chooseOneToAny', () => {
   });
 });
 
-describe('log', () => {
-  beforeEach(() => {
-    stdoutWriteSpy = jest.spyOn(process.stdout, 'write').mockImplementation(() => {});
-  });
-
-  it('writes to stdout', () => {
-    log('foo');
-    expect(stdoutWriteSpy).toHaveBeenCalledWith('foo');
-  });
-
-  it('writes adding a new line', () => {
-    log('foo', true);
-    expect(stdoutWriteSpy).toHaveBeenCalledWith('foo\n');
-  });
-});
-
 describe('formatJsonContent', () => {
   it('formats the json payload using prettier', async () => {
     const formatSpy = jest.spyOn(prettier, 'format').mockResolvedValue('');
@@ -98,6 +95,8 @@ describe('formatJsonContent', () => {
   });
 });
 
+test.todo('formatTextContent');
+
 describe('formatDatasetId', () => {
   const cases = [
     ['imperial-humans', 'Imperial Humans'],
@@ -109,9 +108,9 @@ describe('formatDatasetId', () => {
   });
 });
 
-describe('parseCSVName', () => {
+describe('parseNameRow', () => {
   it('parses the name column', () => {
-    expect(parseCSVName(['', '• Foo •'])).toEqual('Foo');
+    expect(parseNameRow(['', '• Foo •'])).toEqual('Foo');
   });
 });
 
@@ -301,29 +300,6 @@ describe('formatDatasetFilename', () => {
 
   test.each(cases)('case %#', ([id, data]) => {
     expect(formatDatasetFilename(id, data)).toMatchSnapshot();
-  });
-});
-
-describe('parseDatasetCSV', () => {
-  beforeEach(() => {
-    stdoutWriteSpy = jest.spyOn(process.stdout, 'write').mockImplementation(() => {});
-  });
-
-  it('parses the Google Sheets CSV and turns it into a dataset', () => {
-    expect(parseDatasetCSV('Sheet Name', csvData)).toMatchSnapshot();
-  });
-
-  it('exits if the CSV data is malformed', () => {
-    const exitSpy = jest.spyOn(process, 'exit').mockImplementation(() => {
-      throw 'process.exit';
-    });
-
-    const t = () => {
-      parseDatasetCSV('Incomplete Data', incompleteCsvData);
-    };
-
-    expect(t).toThrow('process.exit');
-    expect(exitSpy).toHaveBeenCalledWith(1);
   });
 });
 

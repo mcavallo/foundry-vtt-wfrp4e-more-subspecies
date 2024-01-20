@@ -1,5 +1,6 @@
 *.log
 .env
+credentials.json
 
 coverage/
 dist/

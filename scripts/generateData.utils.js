@@ -1,9 +1,12 @@
-import { parse } from 'csv-parse/sync';
+import fs from 'fs-extra';
+import { google } from 'googleapis';
 import hasha from 'hasha';
 import lodash from 'lodash/fp.js';
 import prettier from 'prettier';
 
 const { flow, replace, trim, split, map, kebabCase } = lodash;
+
+const CREDENTIALS_FILE = './credentials.json';
 
 export const SUFFIXES_EDGE_CASES = {
   // Tribe names
@@ -21,6 +24,44 @@ export const SUFFIXES_EDGE_CASES = {
 };
 
 export const GENERIC_CASES = ['Bretonnian', 'Estalian', 'Kislevite', 'Tilean'];
+
+export function log(content, newLine = false) {
+  process.stdout.write(content + (newLine ? '\n' : ''));
+}
+
+export async function setupSheetsClient() {
+  if (!fs.pathExistsSync(CREDENTIALS_FILE)) {
+    log(`Error: Credentials file missing.`, true);
+    process.exit(1);
+  }
+
+  const auth = new google.auth.GoogleAuth({
+    keyFile: CREDENTIALS_FILE,
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+  });
+  const authClient = await auth.getClient();
+  return google.sheets({
+    version: 'v4',
+    auth: authClient,
+  });
+}
+
+export async function fetchSheetNames(client) {
+  const res = await client.spreadsheets.get({
+    spreadsheetId: process.env.DATA_SPREADSHEET_ID,
+  });
+
+  return res.data.sheets.map(sheet => sheet.properties.title.trim());
+}
+
+export async function fetchSheetData(name, client) {
+  const res = await client.spreadsheets.values.get({
+    spreadsheetId: process.env.DATA_SPREADSHEET_ID,
+    range: `${name}!A1:C`,
+  });
+
+  return res.data.values.filter(val => val.length > 0);
+}
 
 export function titleCase(str) {
   return flow(
@@ -44,19 +85,29 @@ export function chooseOneToAny(str) {
   return replace(/\(\s*choose\s*one\s*\)/i, '(Any)', str);
 }
 
-export function log(content, newLine = false) {
-  process.stdout.write(content + (newLine ? '\n' : ''));
-}
-
 export async function formatJsonContent(raw) {
   return await prettier.format(JSON.stringify(raw), { semi: false, parser: 'json' });
+}
+
+export async function formatTextContent(raw) {
+  return raw.entries
+    .map(entry => {
+      const out = [];
+
+      out.push(entry.name + `\n`);
+      out.push(entry.skills.join(`\n`));
+      out.push(entry.talents.join(`\n`));
+
+      return out;
+    })
+    .join(`\n\n`);
 }
 
 export function formatDatasetId(raw) {
   return flow(trim, kebabCase)(raw);
 }
 
-export function parseCSVName(line) {
+export function parseNameRow(line) {
   return parseName(line[1]);
 }
 
@@ -128,7 +179,7 @@ export function transformNameWithSuffix(raw) {
   }
 }
 
-export function parseCSVSkills(line) {
+export function parseSkillsRow(line) {
   return parseSkills(line[2]);
 }
 
@@ -136,7 +187,7 @@ export function parseSkills(raw) {
   return flow(trim, split(/\s*,\s*/), map(formatSkill), val => val.sort())(raw);
 }
 
-export function parseCSVTalents(line) {
+export function parseTalentsRow(line) {
   return parseTalents(line[2]);
 }
 
@@ -163,13 +214,8 @@ export function parseTalents(raw) {
     .filter(Boolean);
 }
 
-export function parseDatasetCSV(sheetName, rawCSVData) {
+export function prepareDatasetPayload(sheetName, records) {
   const id = formatDatasetId(sheetName);
-  const records = parse(rawCSVData, {
-    skip_empty_lines: true,
-    skip_records_with_empty_values: true,
-    trim: true,
-  }).slice(1);
 
   if (records.length % 5) {
     log(`Error: '${id}' seems to be an incomplete dataset.`, true);
@@ -202,9 +248,9 @@ export function parseDatasetCSV(sheetName, rawCSVData) {
 }
 
 export function prepareEntryPayload(nameRow, skillsRow, talentsRow) {
-  const name = transformNameWithSuffix(parseCSVName(nameRow));
-  const skills = parseCSVSkills(skillsRow);
-  const talents = parseCSVTalents(talentsRow);
+  const name = transformNameWithSuffix(parseNameRow(nameRow));
+  const skills = parseSkillsRow(skillsRow);
+  const talents = parseTalentsRow(talentsRow);
 
   return {
     id: formatEntryId(name),
