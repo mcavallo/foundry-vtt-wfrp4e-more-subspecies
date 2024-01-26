@@ -27,6 +27,15 @@ You can find more information about each subspecies skills and talents in this [
 
 This homebrew compilation was based on this [Google Sheet](https://docs.google.com/spreadsheets/d/1ehSmNG95dfgvZm1PxrzC5gCiPzBIbq2VwllN-APT3kc/edit#gid=0) that I found online and later refined to use in my groups. If you are the original author, please reach out so I can give you proper attribution for your work.
 
+## Homebrew design choices
+
+- All non-imperials are assumed to be proficient in their native language, but not in Reikspiel.
+- Some subspecies have access to Lore skills relevant to local threats and neighboring provinces.
+- Strigany are assumed to speak both Reikspiel and Strigany proficiently.
+- Sylvanians are assumed to speak both Reikspiel and Sylvanian proficiently.
+- Estalian, Tileans and Bretonnians have access to signature Melee/Ranged skills inspired by their army books.
+- Kislevites have access to several physical talents to emphasize their heritage (GM discretion is advised)
+
 ## Contributions
 
 If you have suggestions please [open an issue](https://github.com/mcavallo/foundry-vtt-wfrp4e-more-subspecies/issues/new).
