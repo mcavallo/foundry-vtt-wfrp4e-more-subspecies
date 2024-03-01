@@ -3,14 +3,21 @@ import { MODULE, SETTING_IDS } from '../../../src/constants';
 import { consoleLog } from '../../../src/lib/dev-utils';
 import {
   backupAndSetAsInitialized,
+  customDataToFlatCollection,
   debounce,
   fetchModuleData,
+  flatCollectionToRawData,
+  getTotalSubspecies,
+  getUniqueSpeciesIds,
   isCoreAvailable,
   log,
+  mergeCollections,
   overrideSubspecies,
+  rawDataToFlatCollection,
   sortAlphabetically,
   waitForCore,
 } from '../../../src/lib/utils';
+import { CUSTOM_DATA, RAW_DATA } from '../../fixtures/data';
 
 const { set } = lodash;
 
@@ -292,24 +299,395 @@ describe('backupAndSetAsInitialized', () => {
   });
 });
 
+describe('rawDataToFlatCollection', () => {
+  it('works', () => {
+    expect(rawDataToFlatCollection(RAW_DATA)).toMatchInlineSnapshot(`
+      Object {
+        "dwarf": Array [
+          Object {
+            "id": "dwarf_core",
+            "name": "Dwarf Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        ],
+        "halfling": Array [
+          Object {
+            "id": "halfling_core",
+            "name": "Halfling Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        ],
+        "helf": Array [
+          Object {
+            "id": "helf_core",
+            "name": "Helf Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        ],
+        "human": Array [
+          Object {
+            "id": "human_core",
+            "name": "Human Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        ],
+        "welf": Array [
+          Object {
+            "id": "welf_core",
+            "name": "Welf Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        ],
+      }
+    `);
+  });
+});
+
+describe('customDataToFlatCollection', () => {
+  it('works', () => {
+    expect(customDataToFlatCollection(CUSTOM_DATA)).toMatchInlineSnapshot(`
+      Object {
+        "dwarf": Array [
+          Object {
+            "id": "dwarf_custom_1",
+            "name": "Dwarf Custom 1",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        ],
+        "human": Array [
+          Object {
+            "id": "human_custom_2",
+            "name": "Human Custom 2",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+          Object {
+            "id": "human_custom_1",
+            "name": "Human Custom 1",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        ],
+      }
+    `);
+  });
+});
+
+describe('getUniqueSpeciesIds', () => {
+  it('works', () => {
+    const rawCollection = rawDataToFlatCollection(RAW_DATA);
+    const customCollection = customDataToFlatCollection(CUSTOM_DATA);
+
+    expect(getUniqueSpeciesIds(rawCollection, customCollection)).toMatchInlineSnapshot(`
+      Array [
+        "dwarf",
+        "halfling",
+        "helf",
+        "human",
+        "welf",
+      ]
+    `);
+  });
+});
+
+describe('getTotalSubspecies', () => {
+  it('works', () => {
+    const customCollection = customDataToFlatCollection(CUSTOM_DATA);
+    expect(getTotalSubspecies(customCollection)).toEqual(3);
+  });
+});
+
+describe('mergeCollections', () => {
+  it('works', () => {
+    const rawCollection = rawDataToFlatCollection(RAW_DATA);
+    const customCollection = customDataToFlatCollection(CUSTOM_DATA);
+
+    expect(mergeCollections(rawCollection, customCollection)).toMatchInlineSnapshot(`
+      Object {
+        "dwarf": Array [
+          Object {
+            "id": "dwarf_core",
+            "name": "Dwarf Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+          Object {
+            "id": "dwarf_custom_1",
+            "name": "Dwarf Custom 1",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        ],
+        "halfling": Array [
+          Object {
+            "id": "halfling_core",
+            "name": "Halfling Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        ],
+        "helf": Array [
+          Object {
+            "id": "helf_core",
+            "name": "Helf Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        ],
+        "human": Array [
+          Object {
+            "id": "human_core",
+            "name": "Human Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+          Object {
+            "id": "human_custom_1",
+            "name": "Human Custom 1",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+          Object {
+            "id": "human_custom_2",
+            "name": "Human Custom 2",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        ],
+        "welf": Array [
+          Object {
+            "id": "welf_core",
+            "name": "Welf Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        ],
+      }
+    `);
+  });
+});
+
+describe('flatCollectionToRawData', () => {
+  it('works', () => {
+    const rawCollection = rawDataToFlatCollection(RAW_DATA);
+    const customCollection = customDataToFlatCollection(CUSTOM_DATA);
+    const merged = mergeCollections(rawCollection, customCollection);
+
+    expect(flatCollectionToRawData(merged)).toMatchInlineSnapshot(`
+      Object {
+        "dwarf": Object {
+          "dwarf_core": Object {
+            "name": "Dwarf Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+          "dwarf_custom_1": Object {
+            "name": "Dwarf Custom 1",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        },
+        "halfling": Object {
+          "halfling_core": Object {
+            "name": "Halfling Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        },
+        "helf": Object {
+          "helf_core": Object {
+            "name": "Helf Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        },
+        "human": Object {
+          "human_core": Object {
+            "name": "Human Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+          "human_custom_1": Object {
+            "name": "Human Custom 1",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+          "human_custom_2": Object {
+            "name": "Human Custom 2",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        },
+        "welf": Object {
+          "welf_core": Object {
+            "name": "Welf Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        },
+      }
+    `);
+  });
+});
+
 describe('overrideSubspecies', () => {
   beforeEach(() => {
     set(game, 'wfrp4e.config.subspecies.human', {});
 
     global.window[MODULE.NAMESPACE] = {
       ...windowObjectDefaults,
-      rawData: {
-        human: { bar: { id: 'bar' } },
-      },
-      data: {
-        foo: {
-          id: 'foo',
-          entries: [
-            { id: 'foo_2', name: 'foo_2' },
-            { id: 'foo_1', name: 'foo_1' },
-          ],
-        },
-      },
+      rawData: RAW_DATA,
+      data: CUSTOM_DATA,
       settings: {
         ...windowObjectDefaults.settings,
         [SETTING_IDS.ENABLED_DATASETS]: ['foo'],
@@ -320,19 +698,106 @@ describe('overrideSubspecies', () => {
   it('recreates the subspecies config, appending the sorted homebrew entries', () => {
     overrideSubspecies();
 
-    expect(consoleLog).toHaveBeenCalledWith('2 subspecies loaded');
-    expect(game.wfrp4e.config.subspecies.human).toMatchInlineSnapshot(`
+    expect(consoleLog).toHaveBeenCalledWith('3 subspecies loaded');
+    expect(game.wfrp4e.config.subspecies).toMatchInlineSnapshot(`
       Object {
-        "bar": Object {
-          "id": "bar",
+        "dwarf": Object {
+          "dwarf_core": Object {
+            "name": "Dwarf Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+          "dwarf_custom_1": Object {
+            "name": "Dwarf Custom 1",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
         },
-        "foo_1": Object {
-          "id": "foo_1",
-          "name": "foo_1",
+        "halfling": Object {
+          "halfling_core": Object {
+            "name": "Halfling Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
         },
-        "foo_2": Object {
-          "id": "foo_2",
-          "name": "foo_2",
+        "helf": Object {
+          "helf_core": Object {
+            "name": "Helf Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        },
+        "human": Object {
+          "human_core": Object {
+            "name": "Human Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+          "human_custom_1": Object {
+            "name": "Human Custom 1",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+          "human_custom_2": Object {
+            "name": "Human Custom 2",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+        },
+        "welf": Object {
+          "welf_core": Object {
+            "name": "Welf Core",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
         },
       }
     `);
@@ -344,33 +809,56 @@ describe('overrideSubspecies', () => {
     overrideSubspecies();
 
     expect(consoleLog).toHaveBeenCalledWith('Overriding RAW data');
-    expect(consoleLog).toHaveBeenCalledWith('2 subspecies loaded');
-    expect(game.wfrp4e.config.subspecies.human).toMatchInlineSnapshot(`
+    expect(consoleLog).toHaveBeenCalledWith('3 subspecies loaded');
+    expect(game.wfrp4e.config.subspecies).toMatchInlineSnapshot(`
       Object {
-        "foo_1": Object {
-          "id": "foo_1",
-          "name": "foo_1",
+        "dwarf": Object {
+          "dwarf_custom_1": Object {
+            "name": "Dwarf Custom 1",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
         },
-        "foo_2": Object {
-          "id": "foo_2",
-          "name": "foo_2",
+        "human": Object {
+          "human_custom_1": Object {
+            "name": "Human Custom 1",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
+          "human_custom_2": Object {
+            "name": "Human Custom 2",
+            "skills": Array [
+              "skill1",
+              "skill2",
+            ],
+            "talents": Array [
+              "talent1",
+              "talent2",
+            ],
+          },
         },
       }
     `);
   });
 
-  it('does nothing if no subspecies have been enabled and loaded', () => {
+  it('uses the RAW data if no subspecies have been enabled and loaded', () => {
     global.window[MODULE.NAMESPACE].data = {};
 
     overrideSubspecies();
 
-    expect(consoleLog).toHaveBeenCalledWith('0 subspecies loaded');
-    expect(game.wfrp4e.config.subspecies.human).toMatchInlineSnapshot(`
-      Object {
-        "bar": Object {
-          "id": "bar",
-        },
-      }
-    `);
+    expect(consoleLog).toHaveBeenCalledWith('Using only RAW subspecies');
+    expect(game.wfrp4e.config.subspecies).toEqual(RAW_DATA);
   });
 });

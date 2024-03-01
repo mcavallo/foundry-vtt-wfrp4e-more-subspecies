@@ -4,7 +4,7 @@ import hasha from 'hasha';
 import lodash from 'lodash/fp.js';
 import prettier from 'prettier';
 
-const { flow, replace, trim, split, map, kebabCase } = lodash;
+const { flow, replace, trim, split, map, kebabCase, compact, uniq } = lodash;
 
 const CREDENTIALS_FILE = './credentials.json';
 
@@ -47,6 +47,11 @@ export async function setupSheetsClient() {
 }
 
 export async function fetchSheetNames(client) {
+  if (!process.env.DATA_SPREADSHEET_ID) {
+    log(`Error: DATA_SPREADSHEET_ID missing.`, true);
+    process.exit(1);
+  }
+
   const res = await client.spreadsheets.get({
     spreadsheetId: process.env.DATA_SPREADSHEET_ID,
   });
@@ -55,6 +60,11 @@ export async function fetchSheetNames(client) {
 }
 
 export async function fetchSheetData(name, client) {
+  if (!process.env.DATA_SPREADSHEET_ID) {
+    log(`Error: DATA_SPREADSHEET_ID missing.`, true);
+    process.exit(1);
+  }
+
   const res = await client.spreadsheets.values.get({
     spreadsheetId: process.env.DATA_SPREADSHEET_ID,
     range: `${name}!A1:C`,
@@ -94,17 +104,25 @@ export async function formatTextContent(raw) {
     .map(entry => {
       const out = [];
 
-      out.push(entry.name + `\n`);
+      out.push(entry.name);
       out.push(entry.skills.join(`\n`));
       out.push(entry.talents.join(`\n`));
 
-      return out;
+      return out.join('\n');
     })
     .join(`\n\n`);
 }
 
 export function formatDatasetId(raw) {
   return flow(trim, kebabCase)(raw);
+}
+
+export function getSpeciesFromDatasetId(id) {
+  if (id.includes('human')) {
+    return 'human';
+  }
+
+  return null;
 }
 
 export function parseNameRow(line) {
@@ -184,7 +202,9 @@ export function parseSkillsRow(line) {
 }
 
 export function parseSkills(raw) {
-  return flow(trim, split(/\s*,\s*/), map(formatSkill), val => val.sort())(raw);
+  return flow(trim, split(/\s*,\s*/), compact, map(formatSkill), uniq, val => val.sort())(
+    raw
+  );
 }
 
 export function parseTalentsRow(line) {
@@ -192,10 +212,11 @@ export function parseTalentsRow(line) {
 }
 
 export function parseTalents(raw) {
-  return raw
-    .trim()
-    .split(/\s*,\s*/)
-    .map(value => {
+  return flow(
+    trim,
+    split(/\s*,\s*/),
+    compact,
+    map(value => {
       const hasOr = value.match(/\s+or\s+/i);
 
       if (hasOr) {
@@ -210,12 +231,14 @@ export function parseTalents(raw) {
         const randomValue = parseRandomTalentValue(value);
         return randomValue ? randomValue : formatTalent(value);
       }
-    })
-    .filter(Boolean);
+    }),
+    uniq
+  )(raw);
 }
 
 export function prepareDatasetPayload(sheetName, records) {
   const id = formatDatasetId(sheetName);
+  const species = getSpeciesFromDatasetId(id);
 
   if (records.length % 5) {
     log(`Error: '${id}' seems to be an incomplete dataset.`, true);
@@ -236,6 +259,7 @@ export function prepareDatasetPayload(sheetName, records) {
 
   const dataset = {
     id,
+    species,
     entries,
   };
 
