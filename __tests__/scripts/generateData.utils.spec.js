@@ -1,6 +1,10 @@
+import fs from 'fs-extra';
+import { google } from 'googleapis';
 import prettier from 'prettier';
 import {
   chooseOneToAny,
+  fetchSheetData,
+  fetchSheetNames,
   formatDatasetFilename,
   formatDatasetId,
   formatEntryId,
@@ -8,27 +12,57 @@ import {
   formatJsonContent,
   formatSkill,
   formatTalent,
+  formatTextContent,
+  getSpeciesFromDatasetId,
   log,
   parseName,
   parseNameRow,
   parseRandomTalentValue,
+  parseSkills,
   parseTalents,
+  prepareDatasetPayload,
   prepareManifestPayload,
+  setupSheetsClient,
   titleCase,
   transformNameWithSuffix,
 } from '../../scripts/generateData.utils';
+import { CUSTOM_DATA, INVALID_RECORDS_FIXTURE, RECORDS_FIXTURE } from '../fixtures/data';
 
-let stdoutWriteSpy;
+let stdoutWriteSpy, exitSpy;
+
+jest.mock('googleapis', () => ({
+  google: {
+    auth: {
+      GoogleAuth: jest.fn().mockImplementation(function () {
+        this.getClient = () => Promise.resolve('AUTH_CLIENT');
+      }),
+    },
+    sheets: jest.fn().mockReturnValue('SHEETS_CLIENT'),
+  },
+}));
+
+jest.mock('fs-extra', () => ({
+  pathExistsSync: jest.fn(),
+}));
+
+beforeEach(() => {
+  process.env = {
+    DATA_SPREADSHEET_ID: 'DATA_SPREADSHEET_ID',
+  };
+
+  exitSpy = jest.spyOn(process, 'exit').mockImplementation(code => {
+    throw new Error('process.exit: ' + code);
+  });
+  stdoutWriteSpy = jest.spyOn(process.stdout, 'write').mockImplementation(() => {});
+});
 
 afterEach(() => {
   jest.clearAllMocks();
+  exitSpy.mockRestore();
+  stdoutWriteSpy.mockRestore();
 });
 
 describe('log', () => {
-  beforeEach(() => {
-    stdoutWriteSpy = jest.spyOn(process.stdout, 'write').mockImplementation(() => {});
-  });
-
   it('writes to stdout', () => {
     log('foo');
     expect(stdoutWriteSpy).toHaveBeenCalledWith('foo');
@@ -37,6 +71,103 @@ describe('log', () => {
   it('writes adding a new line', () => {
     log('foo', true);
     expect(stdoutWriteSpy).toHaveBeenCalledWith('foo\n');
+  });
+});
+
+describe('setupSheetsClient', () => {
+  it('logs an error and exits with status 1', async () => {
+    fs.pathExistsSync.mockReturnValue(false);
+
+    await expect(setupSheetsClient).rejects.toThrow();
+
+    expect(exitSpy).toHaveBeenCalledWith(1);
+    expect(stdoutWriteSpy).toHaveBeenCalledWith(`Error: Credentials file missing.\n`);
+  });
+
+  it('returns a Google Sheets client', async () => {
+    fs.pathExistsSync.mockReturnValue(true);
+
+    const result = await setupSheetsClient();
+
+    expect(google.auth.GoogleAuth).toHaveBeenCalledWith({
+      keyFile: './credentials.json',
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    });
+
+    expect(google.sheets).toHaveBeenCalledWith({
+      version: 'v4',
+      auth: 'AUTH_CLIENT',
+    });
+
+    expect(result).toEqual('SHEETS_CLIENT');
+  });
+});
+
+describe('fetchSheetNames', () => {
+  const client = {
+    spreadsheets: {
+      get: jest.fn().mockResolvedValue({
+        data: {
+          sheets: [
+            { properties: { title: 'foo' } },
+            { properties: { title: '  bar' } },
+            { properties: { title: 'baz   ' } },
+          ],
+        },
+      }),
+    },
+  };
+
+  it('when the DATA_SPREADSHEET_ID is missing it logs the error and exits with status 1', async () => {
+    process.env.DATA_SPREADSHEET_ID = undefined;
+
+    await expect(fetchSheetNames(client)).rejects.toThrow();
+
+    expect(exitSpy).toHaveBeenCalledWith(1);
+    expect(stdoutWriteSpy).toHaveBeenCalledWith(`Error: DATA_SPREADSHEET_ID missing.\n`);
+  });
+
+  it('fetches the spreadsheet and returns the list of sheet titles', async () => {
+    const out = await fetchSheetNames(client);
+
+    expect(client.spreadsheets.get).toHaveBeenCalledWith({
+      spreadsheetId: process.env.DATA_SPREADSHEET_ID,
+    });
+    expect(out).toEqual(['foo', 'bar', 'baz']);
+  });
+});
+
+describe('fetchSheetData', () => {
+  const SHEET_NAME = 'SHEET_NAME';
+  const client = {
+    spreadsheets: {
+      values: {
+        get: jest.fn().mockResolvedValue({
+          data: {
+            values: ['', 'foo', '', 'bar', 'baz'],
+          },
+        }),
+      },
+    },
+  };
+
+  it('when the DATA_SPREADSHEET_ID is missing it logs the error and exits with status 1', async () => {
+    process.env.DATA_SPREADSHEET_ID = undefined;
+
+    await expect(fetchSheetData(SHEET_NAME, client)).rejects.toThrow();
+
+    expect(exitSpy).toHaveBeenCalledWith(1);
+    expect(stdoutWriteSpy).toHaveBeenCalledWith(`Error: DATA_SPREADSHEET_ID missing.\n`);
+  });
+
+  it('given a sheet name, it returns all the non-empty values from the right range', async () => {
+    const out = await fetchSheetData(SHEET_NAME, client);
+
+    expect(client.spreadsheets.values.get).toHaveBeenCalledWith({
+      spreadsheetId: process.env.DATA_SPREADSHEET_ID,
+      range: `${SHEET_NAME}!A1:C`,
+    });
+    expect(out).toEqual(['foo', 'bar', 'baz']);
   });
 });
 
@@ -95,7 +226,25 @@ describe('formatJsonContent', () => {
   });
 });
 
-test.todo('formatTextContent');
+describe('formatTextContent', () => {
+  it('formats the text payload', async () => {
+    const out = await formatTextContent(CUSTOM_DATA.human_custom_1);
+
+    expect(out).toMatchInlineSnapshot(`
+      "Human Custom 2
+      skill1
+      skill2
+      talent1
+      talent2
+
+      Human Custom 1
+      skill1
+      skill2
+      talent1
+      talent2"
+    `);
+  });
+});
 
 describe('formatDatasetId', () => {
   const cases = [
@@ -105,6 +254,21 @@ describe('formatDatasetId', () => {
 
   test.each(cases)('case %#', (expected, input) => {
     expect(formatDatasetId(input)).toEqual(expected);
+  });
+});
+
+describe('getSpeciesFromDatasetId', () => {
+  const cases = [
+    ['human', 'bretonnian-humans'],
+    ['human', 'estalian-humans'],
+    ['human', 'imperial-humans'],
+    ['human', 'kislevite-humans'],
+    ['human', 'tilean-humans'],
+    [null, 'something-else'],
+  ];
+
+  test.each(cases)('case %#', (expected, input) => {
+    expect(getSpeciesFromDatasetId(input)).toEqual(expected);
   });
 });
 
@@ -257,9 +421,41 @@ describe('transformNameWithSuffix', () => {
   });
 });
 
+describe('parseSkills', () => {
+  it('parses a comma separated list of skills, formats and sorts them keeping only unique values', () => {
+    expect(parseSkills('foo,bar,foo,baz,foo,qux')).toMatchInlineSnapshot(`
+      Array [
+        "Bar",
+        "Baz",
+        "Foo",
+        "Qux",
+      ]
+    `);
+  });
+
+  it('handles inconsistent casing and spacing', () => {
+    expect(parseSkills('foo,   BAR,baz  ,,Qux ')).toMatchInlineSnapshot(`
+      Array [
+        "Bar",
+        "Baz",
+        "Foo",
+        "Qux",
+      ]
+    `);
+  });
+
+  it('handles a single skill', () => {
+    expect(parseSkills('foo')).toMatchInlineSnapshot(`
+      Array [
+        "Foo",
+      ]
+    `);
+  });
+});
+
 describe('parseTalents', () => {
   it('handles single talents', () => {
-    expect(parseTalents('Foo')).toMatchInlineSnapshot(`
+    expect(parseTalents('foo')).toMatchInlineSnapshot(`
       Array [
         "Foo",
       ]
@@ -267,7 +463,7 @@ describe('parseTalents', () => {
   });
 
   it('handles multiple talents', () => {
-    expect(parseTalents('Foo, Bar, Baz')).toMatchInlineSnapshot(`
+    expect(parseTalents('foo,bar,baz')).toMatchInlineSnapshot(`
       Array [
         "Foo",
         "Bar",
@@ -292,6 +488,23 @@ describe('parseTalents', () => {
         "Foo, Bar, Baz Baz",
       ]
     `);
+  });
+});
+
+describe('prepareDatasetPayload', () => {
+  it('generates a dataset payload', () => {
+    expect(prepareDatasetPayload('Bretonnian Humans', RECORDS_FIXTURE)).toMatchSnapshot();
+  });
+
+  it('errors out for invalid data', () => {
+    expect(() => {
+      prepareDatasetPayload('Bretonnian Humans', INVALID_RECORDS_FIXTURE);
+    }).toThrow();
+
+    expect(exitSpy).toHaveBeenCalledWith(1);
+    expect(stdoutWriteSpy).toHaveBeenCalledWith(
+      `Error: 'bretonnian-humans' seems to be an incomplete dataset.\n`
+    );
   });
 });
 

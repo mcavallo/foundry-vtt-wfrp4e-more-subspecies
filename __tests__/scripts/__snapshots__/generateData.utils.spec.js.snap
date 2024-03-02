@@ -2,6 +2,87 @@
 
 exports[`formatDatasetFilename case 0 1`] = `"undefined-undefined"`;
 
+exports[`prepareDatasetPayload generates a dataset payload 1`] = `
+Object {
+  "entries": Array [
+    Object {
+      "id": "ms_bretonnian",
+      "name": "*Bretonnian",
+      "skills": Array [
+        "Animal Care",
+        "Animal Training (Horse)",
+        "Cool",
+        "Endurance",
+        "Gossip",
+        "Language (Reikspiel)",
+        "Leadership",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Coolheaded, Relentless",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_aquitainian",
+      "name": "*Aquitainian",
+      "skills": Array [
+        "Animal Care",
+        "Cool",
+        "Gossip",
+        "Intimidate",
+        "Leadership",
+        "Lore (Aquitaine)",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+        "Sail (Any)",
+        "Swim",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice",
+        "Coolheaded, Relentless",
+        3,
+      ],
+    },
+    Object {
+      "id": "ms_artoin",
+      "name": "*Artoin",
+      "skills": Array [
+        "Animal Care",
+        "Cool",
+        "Endurance",
+        "Evaluate",
+        "Intuition",
+        "Lore (Artois)",
+        "Lore (Bretonnia)",
+        "Melee (Basic)",
+        "Melee (Cavalry)",
+        "Outdoor Survival",
+        "Perception",
+        "Ride (Horse)",
+        "Track",
+      ],
+      "talents": Array [
+        "Noble Blood, Beneath Notice, random[2]",
+        "Sharp, Strider (Forests)",
+        3,
+      ],
+    },
+  ],
+  "hash": "a27e78f8c03a",
+  "id": "bretonnian-humans",
+  "species": "human",
+}
+`;
+
 exports[`prepareManifestPayload case 0 1`] = `
 Object {
   "entries": Array [],
