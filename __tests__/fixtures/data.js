@@ -28,3 +28,48 @@ export const CUSTOM_DATA = {
     ],
   },
 };
+
+export const INVALID_RECORDS_FIXTURE = [
+  ['', '• Bretonnian •'],
+  ['', 'Skills:'],
+  [
+    '',
+    '',
+    'Animal Care, Animal Training (Horse), Cool, Endurance, Gossip, Language (Reikspiel), Leadership, Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ranged (Bow), Ride (Horse)',
+  ],
+  ['', 'Talents:'],
+];
+
+export const RECORDS_FIXTURE = [
+  ['', '• Bretonnian •'],
+  ['', 'Skills:'],
+  [
+    '',
+    '',
+    'Animal Care, Animal Training (Horse), Cool, Endurance, Gossip, Language (Reikspiel), Leadership, Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ranged (Bow), Ride (Horse)',
+  ],
+  ['', 'Talents:'],
+  ['', '', 'Noble Blood or Beneath Notice, Coolheaded or Relentless, 3 Random Talents'],
+  ['', '• Aquitaine •'],
+  ['', 'Skills:'],
+  [
+    '',
+    '',
+    'Animal Care, Cool, Gossip, Intimidate, Leadership, Lore (Aquitaine), Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Ranged (Bow), Ride (Horse), Sail (Any), Swim',
+  ],
+  ['', 'Talents:'],
+  ['', '', 'Noble Blood or Beneath Notice, Coolheaded or Relentless, 3 Random Talents'],
+  ['', '• Artois •'],
+  ['', 'Skills:'],
+  [
+    '',
+    '',
+    'Animal Care, Cool, Endurance, Evaluate, Intuition, Lore (Artois), Lore (Bretonnia), Melee (Basic), Melee (Cavalry), Outdoor Survival, Perception, Ride (Horse), Track',
+  ],
+  ['', 'Talents:'],
+  [
+    '',
+    '',
+    'Noble Blood or Beneath Notice or 2 Random Talents, Sharp or Strider (Forests), 3 Random Talents',
+  ],
+];

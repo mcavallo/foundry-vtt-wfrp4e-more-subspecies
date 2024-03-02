@@ -39,6 +39,7 @@ export async function setupSheetsClient() {
     keyFile: CREDENTIALS_FILE,
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
+
   const authClient = await auth.getClient();
   return google.sheets({
     version: 'v4',
@@ -236,6 +237,19 @@ export function parseTalents(raw) {
   )(raw);
 }
 
+export function prepareEntryPayload(nameRow, skillsRow, talentsRow) {
+  const name = transformNameWithSuffix(parseNameRow(nameRow));
+  const skills = parseSkillsRow(skillsRow);
+  const talents = parseTalentsRow(talentsRow);
+
+  return {
+    id: formatEntryId(name),
+    name: formatEntryName(name),
+    skills,
+    talents,
+  };
+}
+
 export function prepareDatasetPayload(sheetName, records) {
   const id = formatDatasetId(sheetName);
   const species = getSpeciesFromDatasetId(id);
@@ -268,19 +282,6 @@ export function prepareDatasetPayload(sheetName, records) {
   return {
     hash: hash.substring(0, 12),
     ...dataset,
-  };
-}
-
-export function prepareEntryPayload(nameRow, skillsRow, talentsRow) {
-  const name = transformNameWithSuffix(parseNameRow(nameRow));
-  const skills = parseSkillsRow(skillsRow);
-  const talents = parseTalentsRow(talentsRow);
-
-  return {
-    id: formatEntryId(name),
-    name: formatEntryName(name),
-    skills,
-    talents,
   };
 }
 

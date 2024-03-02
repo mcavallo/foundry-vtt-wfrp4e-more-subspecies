@@ -1,4 +1,5 @@
 import fs from 'fs-extra';
+import { google } from 'googleapis';
 import prettier from 'prettier';
 import {
   chooseOneToAny,
@@ -19,14 +20,26 @@ import {
   parseRandomTalentValue,
   parseSkills,
   parseTalents,
+  prepareDatasetPayload,
   prepareManifestPayload,
   setupSheetsClient,
   titleCase,
   transformNameWithSuffix,
 } from '../../scripts/generateData.utils';
-import { CUSTOM_DATA } from '../fixtures/data';
+import { CUSTOM_DATA, INVALID_RECORDS_FIXTURE, RECORDS_FIXTURE } from '../fixtures/data';
 
 let stdoutWriteSpy, exitSpy;
+
+jest.mock('googleapis', () => ({
+  google: {
+    auth: {
+      GoogleAuth: jest.fn().mockImplementation(function () {
+        this.getClient = () => Promise.resolve('AUTH_CLIENT');
+      }),
+    },
+    sheets: jest.fn().mockReturnValue('SHEETS_CLIENT'),
+  },
+}));
 
 jest.mock('fs-extra', () => ({
   pathExistsSync: jest.fn(),
@@ -37,13 +50,16 @@ beforeEach(() => {
     DATA_SPREADSHEET_ID: 'DATA_SPREADSHEET_ID',
   };
 
-  exitSpy = jest.spyOn(process, 'exit').mockImplementation(() => {});
+  exitSpy = jest.spyOn(process, 'exit').mockImplementation(code => {
+    throw new Error('process.exit: ' + code);
+  });
   stdoutWriteSpy = jest.spyOn(process.stdout, 'write').mockImplementation(() => {});
 });
 
 afterEach(() => {
   jest.clearAllMocks();
   exitSpy.mockRestore();
+  stdoutWriteSpy.mockRestore();
 });
 
 describe('log', () => {
@@ -62,13 +78,29 @@ describe('setupSheetsClient', () => {
   it('logs an error and exits with status 1', async () => {
     fs.pathExistsSync.mockReturnValue(false);
 
-    await setupSheetsClient();
+    await expect(setupSheetsClient).rejects.toThrow();
 
     expect(exitSpy).toHaveBeenCalledWith(1);
     expect(stdoutWriteSpy).toHaveBeenCalledWith(`Error: Credentials file missing.\n`);
   });
 
-  it.todo('Test the creation of the Google client');
+  it('returns a Google Sheets client', async () => {
+    fs.pathExistsSync.mockReturnValue(true);
+
+    const result = await setupSheetsClient();
+
+    expect(google.auth.GoogleAuth).toHaveBeenCalledWith({
+      keyFile: './credentials.json',
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    });
+
+    expect(google.sheets).toHaveBeenCalledWith({
+      version: 'v4',
+      auth: 'AUTH_CLIENT',
+    });
+
+    expect(result).toEqual('SHEETS_CLIENT');
+  });
 });
 
 describe('fetchSheetNames', () => {
@@ -89,7 +121,7 @@ describe('fetchSheetNames', () => {
   it('when the DATA_SPREADSHEET_ID is missing it logs the error and exits with status 1', async () => {
     process.env.DATA_SPREADSHEET_ID = undefined;
 
-    await fetchSheetNames(client);
+    await expect(fetchSheetNames(client)).rejects.toThrow();
 
     expect(exitSpy).toHaveBeenCalledWith(1);
     expect(stdoutWriteSpy).toHaveBeenCalledWith(`Error: DATA_SPREADSHEET_ID missing.\n`);
@@ -122,7 +154,7 @@ describe('fetchSheetData', () => {
   it('when the DATA_SPREADSHEET_ID is missing it logs the error and exits with status 1', async () => {
     process.env.DATA_SPREADSHEET_ID = undefined;
 
-    await fetchSheetData(SHEET_NAME, client);
+    await expect(fetchSheetData(SHEET_NAME, client)).rejects.toThrow();
 
     expect(exitSpy).toHaveBeenCalledWith(1);
     expect(stdoutWriteSpy).toHaveBeenCalledWith(`Error: DATA_SPREADSHEET_ID missing.\n`);
@@ -456,6 +488,23 @@ describe('parseTalents', () => {
         "Foo, Bar, Baz Baz",
       ]
     `);
+  });
+});
+
+describe('prepareDatasetPayload', () => {
+  it('generates a dataset payload', () => {
+    expect(prepareDatasetPayload('Bretonnian Humans', RECORDS_FIXTURE)).toMatchSnapshot();
+  });
+
+  it('errors out for invalid data', () => {
+    expect(() => {
+      prepareDatasetPayload('Bretonnian Humans', INVALID_RECORDS_FIXTURE);
+    }).toThrow();
+
+    expect(exitSpy).toHaveBeenCalledWith(1);
+    expect(stdoutWriteSpy).toHaveBeenCalledWith(
+      `Error: 'bretonnian-humans' seems to be an incomplete dataset.\n`
+    );
   });
 });
 
