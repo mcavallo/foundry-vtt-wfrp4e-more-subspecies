@@ -149,12 +149,12 @@ describe('fetchModuleData', () => {
 
     await Promise.allSettled([barPromise, bazPromise]).then(() => {
       expect(foundry.utils.fetchJsonWithTimeout).toHaveBeenCalledWith(
-        '/modules/wfrp4e-more-subspecies/data/bar-hash.json'
+        'modules/wfrp4e-more-subspecies/data/bar-hash.json'
       );
       expect(consoleLog).toHaveBeenCalledWith('Loaded bar');
 
       expect(foundry.utils.fetchJsonWithTimeout).toHaveBeenCalledWith(
-        '/modules/wfrp4e-more-subspecies/data/baz-hash.json'
+        'modules/wfrp4e-more-subspecies/data/baz-hash.json'
       );
       expect(consoleLog).toHaveBeenCalledWith('Loaded baz');
 
@@ -225,7 +225,7 @@ describe('fetchModuleData', () => {
 
     await Promise.allSettled([barPromise]).then(() => {
       expect(foundry.utils.fetchJsonWithTimeout).toHaveBeenCalledWith(
-        '/modules/wfrp4e-more-subspecies/data/bar-hash.json'
+        'modules/wfrp4e-more-subspecies/data/bar-hash.json'
       );
       expect(consoleLog).toHaveBeenCalledWith('Failed to load bar');
 

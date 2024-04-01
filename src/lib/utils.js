@@ -81,7 +81,7 @@ export async function fetchModuleData() {
 
   const responses = await Promise.allSettled(
     missingFiles.map(filename =>
-      foundry.utils.fetchJsonWithTimeout(`/modules/${MODULE.ID}/data/${filename}.json`)
+      foundry.utils.fetchJsonWithTimeout(`modules/${MODULE.ID}/data/${filename}.json`)
     )
   );
 
