@@ -16,8 +16,8 @@
     "name": "wfrp4e-more-subspecies",
     "title": "WFRP4E: More Subspecies",
     "description": "Adds a collection of new homebrew subspecies to choose from in the WFRP4E character generation.",
-    "compatibilityMinimum": "11",
-    "compatibilityVerified": "11.315"
+    "compatibilityMinimum": "12",
+    "compatibilityVerified": "12.328"
   },
   "private": true,
   "type": "module",
