@@ -27,6 +27,16 @@ export const CUSTOM_DATA = {
       { id: 'human_custom_1', name: 'Human Custom 1', ...DUMMY_SKILLS_AND_TALENTS },
     ],
   },
+  // Edge case for duplicated entries sharing the same `species` attribute
+  human_custom_2: {
+    id: 'human_custom_2',
+    species: 'human',
+    entries: [],
+  },
+  // Edge case for missing `species` attribute
+  bad_entry_with_missing_species: {
+    id: 'bad_entry_with_missing_species',
+  },
 };
 
 export const INVALID_RECORDS_FIXTURE = [

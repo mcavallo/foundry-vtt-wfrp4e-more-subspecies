@@ -23,6 +23,7 @@ import {
   prepareDatasetPayload,
   prepareManifestPayload,
   setupSheetsClient,
+  skillNameOverrides,
   titleCase,
   transformNameWithSuffix,
 } from '../../scripts/generateData.utils';
@@ -196,6 +197,14 @@ describe('titleCase', () => {
 
   test.each(cases)('case %#', (expected, input) => {
     expect(titleCase(input)).toEqual(expected);
+  });
+});
+
+describe('skillNameOverrides', () => {
+  const cases = [['Sleight of Hand', 'Sleight Of Hand']];
+
+  test.each(cases)('case %#', (expected, input) => {
+    expect(skillNameOverrides(input)).toEqual(expected);
   });
 });
 

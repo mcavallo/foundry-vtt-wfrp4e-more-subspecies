@@ -92,6 +92,12 @@ export function titleCase(str) {
   )(str);
 }
 
+export function skillNameOverrides(str) {
+  return flow(
+    replace(' Of ', ' of ') // "Sleight of Hand" override
+  )(str);
+}
+
 export function chooseOneToAny(str) {
   return replace(/\(\s*choose\s*one\s*\)/i, '(Any)', str);
 }
@@ -154,7 +160,7 @@ export function formatTalent(value) {
 }
 
 export function formatSkill(value) {
-  return flow(trim, chooseOneToAny, titleCase)(value);
+  return flow(trim, chooseOneToAny, titleCase, skillNameOverrides)(value);
 }
 
 export function parseRandomTalentValue(value) {
