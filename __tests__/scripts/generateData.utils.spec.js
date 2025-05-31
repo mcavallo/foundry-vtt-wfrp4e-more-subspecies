@@ -433,7 +433,7 @@ describe('transformNameWithSuffix', () => {
 describe('parseSkills', () => {
   it('parses a comma separated list of skills, formats and sorts them keeping only unique values', () => {
     expect(parseSkills('foo,bar,foo,baz,foo,qux')).toMatchInlineSnapshot(`
-      Array [
+      [
         "Bar",
         "Baz",
         "Foo",
@@ -444,7 +444,7 @@ describe('parseSkills', () => {
 
   it('handles inconsistent casing and spacing', () => {
     expect(parseSkills('foo,   BAR,baz  ,,Qux ')).toMatchInlineSnapshot(`
-      Array [
+      [
         "Bar",
         "Baz",
         "Foo",
@@ -455,7 +455,7 @@ describe('parseSkills', () => {
 
   it('handles a single skill', () => {
     expect(parseSkills('foo')).toMatchInlineSnapshot(`
-      Array [
+      [
         "Foo",
       ]
     `);
@@ -465,7 +465,7 @@ describe('parseSkills', () => {
 describe('parseTalents', () => {
   it('handles single talents', () => {
     expect(parseTalents('foo')).toMatchInlineSnapshot(`
-      Array [
+      [
         "Foo",
       ]
     `);
@@ -473,7 +473,7 @@ describe('parseTalents', () => {
 
   it('handles multiple talents', () => {
     expect(parseTalents('foo,bar,baz')).toMatchInlineSnapshot(`
-      Array [
+      [
         "Foo",
         "Bar",
         "Baz",
@@ -483,7 +483,7 @@ describe('parseTalents', () => {
 
   it('handles multiple talents with optional choices', () => {
     expect(parseTalents('Foo or Bar or Baz, Foo, Bar')).toMatchInlineSnapshot(`
-      Array [
+      [
         "Foo, Bar, Baz",
         "Foo",
         "Bar",
@@ -493,7 +493,7 @@ describe('parseTalents', () => {
 
   it('handles optional choices with inconsistent casing and spacing', () => {
     expect(parseTalents('Foo Or   Bar   or    Baz Baz')).toMatchInlineSnapshot(`
-      Array [
+      [
         "Foo, Bar, Baz Baz",
       ]
     `);
