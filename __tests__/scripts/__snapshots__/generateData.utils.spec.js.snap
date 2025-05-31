@@ -3,12 +3,12 @@
 exports[`formatDatasetFilename case 0 1`] = `"undefined-undefined"`;
 
 exports[`prepareDatasetPayload generates a dataset payload 1`] = `
-Object {
-  "entries": Array [
-    Object {
+{
+  "entries": [
+    {
       "id": "ms_bretonnian",
       "name": "*Bretonnian",
-      "skills": Array [
+      "skills": [
         "Animal Care",
         "Animal Training (Horse)",
         "Cool",
@@ -22,16 +22,16 @@ Object {
         "Ranged (Bow)",
         "Ride (Horse)",
       ],
-      "talents": Array [
+      "talents": [
         "Noble Blood, Beneath Notice",
         "Coolheaded, Relentless",
         3,
       ],
     },
-    Object {
+    {
       "id": "ms_aquitainian",
       "name": "*Aquitainian",
-      "skills": Array [
+      "skills": [
         "Animal Care",
         "Cool",
         "Gossip",
@@ -46,16 +46,16 @@ Object {
         "Sail (Any)",
         "Swim",
       ],
-      "talents": Array [
+      "talents": [
         "Noble Blood, Beneath Notice",
         "Coolheaded, Relentless",
         3,
       ],
     },
-    Object {
+    {
       "id": "ms_artoin",
       "name": "*Artoin",
-      "skills": Array [
+      "skills": [
         "Animal Care",
         "Cool",
         "Endurance",
@@ -70,7 +70,7 @@ Object {
         "Ride (Horse)",
         "Track",
       ],
-      "talents": Array [
+      "talents": [
         "Noble Blood, Beneath Notice, random[2]",
         "Sharp, Strider (Forests)",
         3,
@@ -84,20 +84,20 @@ Object {
 `;
 
 exports[`prepareManifestPayload case 0 1`] = `
-Object {
-  "entries": Array [],
+{
+  "entries": [],
 }
 `;
 
 exports[`prepareManifestPayload case 1 1`] = `
-Object {
-  "entries": Array [
-    Object {
+{
+  "entries": [
+    {
       "filename": "first-hash",
       "hash": "hash",
       "id": "first",
     },
-    Object {
+    {
       "filename": "second-hash",
       "hash": "hash",
       "id": "second",

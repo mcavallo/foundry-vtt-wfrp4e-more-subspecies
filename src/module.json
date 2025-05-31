@@ -1,4 +1,5 @@
 {
+  "id": "__MODULE_NAME__",
   "name": "__MODULE_NAME__",
   "title": "__MODULE_TITLE__",
   "description": "__MODULE_DESCRIPTION__",
@@ -15,7 +16,12 @@
       {
         "id": "wfrp4e",
         "type": "system",
-        "manifest": "https://github.com/moo-man/WFRP4e-FoundryVTT/releases/latest/download/system.json"
+        "manifest": "https://github.com/moo-man/WFRP4e-FoundryVTT/releases/download/8.5.1/system.json",
+        "compatibility": {
+          "minimum": 7,
+          "verified": "8.5.1",
+          "maximum": "8.5.1"
+        }
       }
     ]
   },

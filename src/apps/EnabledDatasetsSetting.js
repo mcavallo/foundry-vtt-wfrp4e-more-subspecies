@@ -1,4 +1,5 @@
 import { MODULE, SETTING_IDS } from '../constants';
+const { mergeObject } = foundry.utils;
 
 export class EnabledDatasetsSetting extends FormApplication {
   constructor() {
