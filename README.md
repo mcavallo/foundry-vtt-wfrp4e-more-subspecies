@@ -36,10 +36,17 @@ This homebrew compilation was based on this [Google Sheet](https://docs.google.c
 - Estalian, Tileans and Bretonnians have access to signature Melee/Ranged skills inspired by their army books.
 - Kislevites have access to several physical talents to emphasize their heritage (GM discretion is advised)
 
-## Contributions
-
 If you have suggestions please [open an issue](https://github.com/mcavallo/foundry-vtt-wfrp4e-more-subspecies/issues/new).
 
+# Compatibility
+
+This module supports `Foundry v12 (12.343)` and the `WFRP4E system v8 (v8.5.1)`.
+
+### Notes
+
+- The update to `Foundry v13` is planned.
+- The update to support the latest `WFRP system v9+` is planned
+ 
 # Installation / Usage
 
 This module requires the [WFRP4E System](https://foundryvtt.com/packages/wfrp4e) and the [Core Module](https://cubicle7games.com/warhammer-fantasy-roleplay-foundry-core-module).
