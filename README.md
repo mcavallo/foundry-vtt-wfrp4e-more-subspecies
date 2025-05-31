@@ -13,7 +13,7 @@ At the moment, the module supports the following human subspecies:
 | --- | --- |
 | **Bretonnian Humans** | Bretonnian (Generic), Aquitainian, Artoin, Bastonnian, Bordelen, Brionnian, Carcassonnian, Couronnian, Gisoren, L'Anguillian, Lyonen, Montfortian, Mousillonian, Parravonese, Queneller |
 | **Estalian Humans** | Estalian (Generic) |
-| **Imperial Humans** | Altdorfer, Averlander, Drakenwalder, Hochlander, Middenheimer, Middenlander, Nordlander, Nulner, Ostlander, Ostmarker, Reiklander, Salzenmunder, Sollander, Stirlander, Strigany, Sylvanian, Talabeclander, Talabheimer, Wastelander, Wissenlander |
+| **Imperial Humans** | Altdorfer, Averlander, Drakenwalder, Hochlander, Middenheimer, Middenlander, Nordlander, Nulner, Ostlander, Ostermarker, Reiklander, Salzenmunder, Sollander, Stirlander, Strigany, Sylvanian, Talabeclander, Talabheimer, Wastelander, Wissenlander |
 | **Kislevite Humans** | Kislevite (Generic), Gospodar, Ropsmenn, Ungol |
 | **Tilean Humans** | Tilean (Generic) |
 
