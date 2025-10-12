@@ -1,0 +1,408 @@
+$module: 'wfrp4e-more-subspecies';
+$subspecies_id_prefix: 'ms_';
+
+$color-subspecies-select: #790000;
+$datasets-window-max-height: 75vh;
+$datasets-empty-ph-estimated-height: 57px;
+
+@mixin flex-container {
+  display: flex;
+  overflow: hidden;
+}
+
+:root {
+  --color-cool-4-50: rgba(48, 40, 49, 0.5);
+  --color-cool-4-75: rgba(48, 40, 49, 0.75);
+}
+
+body.#{$module}-hide-raw {
+  .app.wfrp4e.chargen {
+    .select-subspecies {
+      li:not(:has([data-subspecies^='#{$subspecies_id_prefix}'])) {
+        display: none;
+      }
+    }
+  }
+}
+
+body.#{$module}-custom-styles {
+  .app.wfrp4e.chargen {
+    .select-subspecies {
+      ul {
+        padding: 0;
+      }
+
+      li {
+        list-style-type: none;
+        position: relative;
+
+        &::before {
+          content: '\f013';
+          color: inherit;
+          font-family: var(--fa-style-family, 'Font Awesome 6 Pro');
+          font-weight: var(--fa-style, 900);
+          font-style: normal;
+          font-variant: normal;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          display: inline-block;
+          position: absolute;
+          font-size: 12px;
+          left: 0;
+          width: 12px;
+          margin-left: 4px;
+          pointer-events: none;
+        }
+
+        a {
+          padding: 0 0 0 1.5em;
+
+          &::after {
+            content: 'RAW';
+            position: absolute;
+            background: rgba(black, 0.75);
+            color: white;
+            padding: 4px 4px 3px 4px;
+            font-size: 13px;
+            border-radius: 3px;
+            margin-top: -1px;
+            margin-left: 0.5em;
+            top: 50%;
+            right: 100%;
+            transform: translateY(-50%);
+            font-weight: 300;
+            opacity: 0;
+            line-height: 1;
+            pointer-events: none;
+            transition: all 150ms ease-in-out;
+            box-shadow: 0 0 10px rgba(black, 0.5);
+            text-shadow: none;
+          }
+
+          &:hover::after {
+            opacity: 1;
+          }
+        }
+
+        &:has([data-subspecies^='#{$subspecies_id_prefix}']) {
+          color: $color-subspecies-select;
+
+          &::before {
+            content: '\f0c3';
+            color: $color-subspecies-select;
+          }
+
+          a {
+            &::after {
+              content: 'Homebrew';
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.#{$module}-datasets-setting {
+  .window-content {
+    max-height: $datasets-window-max-height;
+    padding-bottom: 1.5rem;
+  }
+
+  .dataset-categories-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .dataset-category {
+    padding: 0;
+    gap: 0;
+    flex: 1;
+
+    legend {
+      margin-left: 1rem;
+      pointer-events: none;
+    }
+
+    &__wrapper {
+      @include flex-container;
+      flex-direction: column;
+      margin-top: -0.5rem;
+
+      & > * {
+        border-top: 1px solid var(--color-border);
+
+        &:first-child {
+          border-top: 0;
+          padding-top: 1rem;
+        }
+
+        &:last-child {
+          padding-bottom: .75rem;
+        }
+      }
+    }
+
+    &__empty-placeholder {
+      text-align: center;
+      color: var(--color-text-subtle);
+      padding: 0.5rem;
+      min-height: $datasets-empty-ph-estimated-height;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__buttons {
+      border-top: 1px solid var(--color-border);
+      padding: .5rem .5rem .75rem .5rem;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .dataset {
+    @include flex-container;
+    gap: .75rem;
+    cursor: var(--cursor-default);
+    padding: .5rem .5rem .5rem 1rem;
+    transition: all 100ms ease;
+    background: transparent;
+
+    &:hover {
+      background: rgba(255, 255, 255, .03);
+    }
+
+    &__input {
+      flex: 0;
+      display: flex;
+      align-items: center;
+
+      input {
+        margin: 3px 0 0 0
+      }
+
+      &:has(input:checked) ~ .dataset-tags .dataset-tags__active {
+        display: block !important;
+      }
+    }
+
+    &__info {
+      @include flex-container;
+      flex-direction: column;
+      flex: 1;
+      gap: 0.25rem;
+    }
+
+    &__controls {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .dataset-name {
+    display: flex;
+    align-items: center;
+
+    &__text {
+      font-size: var(--font-size-15);
+      color: var(--color-text-primary);
+      line-height: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .dataset-id {
+    display: flex;
+    align-items: center;
+
+    &__text {
+      font-size: var(--font-size-14);
+      color: var(--color-text-subtle);
+      font-family: monospace;
+      line-height: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .dataset-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .dataset-tags {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-light-2);
+    font-weight: 300;
+    line-height: 1;
+
+    & > * {
+      border-radius: 2px;
+      padding: 0.25rem 0.35rem;
+      text-shadow: 1px 1px var(--color-dark-2);
+    }
+
+    &__active {
+      display: none;
+      background: var(--color-level-success-bg);
+    }
+
+    &__species {
+      background: var(--color-cool-4);
+    }
+
+    &__subspecies {
+      background: var(--color-cool-4-75);
+    }
+  }
+}
+
+@mixin card {
+  padding: 0 24px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.2s;
+  border-width: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  height: 128px;
+}
+
+.#{$module}-dataset-import {
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .window-content {
+    .drop-zone {
+      display: block;
+    }
+
+    .selection, .errorDisplay {
+      display: none;
+    }
+
+    &.with-selection {
+      .drop-zone {
+        display: none;
+      }
+
+      .selection {
+        display: block;
+      }
+    }
+
+    &.with-errors {
+      .errorDisplay {
+        display: block;
+      }
+    }
+  }
+
+  .errorDisplay {
+    border-radius: 8px;
+    background: var(--color-warm-half);
+    border: 2px solid var(--color-level-error);
+    color: var(--color-text-primary);
+    padding: 0.75rem;
+    margin-top: 1rem;
+
+    .heading {
+      font-size: var(--font-size-14);
+      font-weight: bold;
+    }
+
+    ul {
+      margin: 8px 0 0 0;
+      font-weight: 300;
+    }
+  }
+
+  .selection {
+    @include card;
+    color: var(--color-form-hint);
+    background: var(--color-warm-half);
+    border-style: solid;
+    border-color: var(--color-light-5);
+
+    .file {
+      color: var(--color-text-primary);
+      font-size: var(--font-size-16);
+      margin-bottom: 8px;
+      padding-top: 4px;
+    }
+  }
+
+  .intro {
+    margin-bottom: 0.75rem;
+  }
+
+  .drop-zone {
+    @include card;
+    border-style: dashed;
+    border-color: var(--color-light-6);
+    color: var(--color-form-hint);
+
+    .drag-text, .default-text {
+      pointer-events: none;
+    }
+
+    .drag-text {
+      display: none;
+    }
+
+    .default-text {
+      display: inline;
+    }
+
+    .selection-text {
+      display: none;
+    }
+
+    &.dragover {
+      .drag-text {
+        display: inline;
+      }
+
+      .default-text {
+        display: none;
+      }
+    }
+
+    &.with-selection {
+      .drag-text, .default-text {
+        display: none;
+      }
+
+    }
+  }
+
+  .drop-zone:hover,
+  .drop-zone.dragover {
+    background: var(--color-warm-half);
+    border-color: var(--color-light-5);
+    color: var(--color-text-primary);
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .form-footer {
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

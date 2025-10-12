@@ -1,0 +1,62 @@
+{
+  "projectName": "foundry-vtt-wfrp4e-more-subspecies",
+  "projectOwner": "mcavallo",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": ["CREDITS.md"],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "none",
+  "types": {
+    "testing": {
+      "symbol": "🧪",
+      "description": "QA/Testing"
+    }
+  },
+  "contributorTemplate": "<% if (contributor.profile) {%><a href=\"<%= contributor.profile %>\"><img src=\"<%= contributor.avatar_url %>\" width=\"<%= options.imageSize %>px;\" alt=\"\"/><br /><sub><b><%= contributor.login %></b></sub></a><% } else { %><img src=\"https://placedog.net/256/256\" width=\"<%= options.imageSize %>px;\" alt=\"\"/><br /><sub><b><%= contributor.name %></b></sub><% } %><br /><%= contributions %>",
+  "contributors": [
+    {
+      "name": "Harrison Walton",
+      "avatar_url": "https://placehold.co/100?text=%3C3&font=roboto",
+      "contributions": ["ideas", "data", "testing"]
+    },
+    {
+      "login": "nyoung",
+      "name": "Neil Young",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4152009?v=4",
+      "profile": "https://github.com/nyoung",
+      "contributions": ["data", "testing"]
+    },
+    {
+      "login": "HW52X",
+      "name": "HW52X",
+      "avatar_url": "https://avatars.githubusercontent.com/u/156934160?v=4",
+      "profile": "https://github.com/HW52X",
+      "contributions": ["bug"]
+    },
+    {
+      "login": "grz0",
+      "name": "grz0",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3605541?v=4",
+      "profile": "https://github.com/grz0",
+      "contributions": ["bug"]
+    },
+    {
+      "login": "o0mpALoompA",
+      "name": "o0mpALoompA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/182122919?v=4",
+      "profile": "https://github.com/o0mpALoompA",
+      "contributions": ["bug"]
+    },
+    {
+      "login": "Dzamber",
+      "name": "Sebastian Wróblewski",
+      "avatar_url": "https://avatars.githubusercontent.com/u/27745955?v=4",
+      "profile": "https://github.com/Dzamber",
+      "contributions": ["bug", "ideas"]
+    }
+  ],
+  "contributorsPerLine": 5,
+  "linkToUsage": false
+}
+

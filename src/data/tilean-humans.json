@@ -1,0 +1,30 @@
+{
+  "id": "core.tilean-humans",
+  "name": "Tilean Humans",
+  "species": "human",
+  "entries": [
+    {
+      "id": "tilean",
+      "name": "Tilean",
+      "skills": [
+        "Charm",
+        "Cool",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Language (Estalian)",
+        "Language (Reikspiel)",
+        "Lore (Tilea)",
+        "Melee (Basic)",
+        "Melee (Fencing)",
+        "Ranged (Crossbow)",
+        "Sail (Any)"
+      ],
+      "talents": [
+        "Doomed, Argumentative, Strong-minded",
+        "Coolheaded, Suave",
+        3
+      ]
+    }
+  ]
+}

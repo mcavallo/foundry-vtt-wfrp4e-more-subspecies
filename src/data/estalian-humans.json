@@ -1,0 +1,27 @@
+{
+  "id": "core.estalian-humans",
+  "name": "Estalian Humans",
+  "species": "human",
+  "entries": [
+    {
+      "id": "estalian",
+      "name": "Estalian",
+      "skills": [
+        "Bribery",
+        "Charm",
+        "Cool",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Language (Reikspiel)",
+        "Language (Tilean)",
+        "Lore (Estalia)",
+        "Melee (Basic)",
+        "Ranged (Blackpowder)",
+        "Sail (Any)",
+        "Swim"
+      ],
+      "talents": ["Impassioned Zeal, Strong-minded", "Coolheaded, Suave", 3]
+    }
+  ]
+}
