@@ -1,0 +1,408 @@
+{
+  "id": "core.imperial-humans",
+  "name": "Imperial Humans",
+  "species": "human",
+  "entries": [
+    {
+      "id": "altdorfer",
+      "name": "Altdorfer",
+      "skills": [
+        "Bribery",
+        "Charm",
+        "Cool",
+        "Evaluate",
+        "Gamble",
+        "Gossip",
+        "Haggle",
+        "Leadership",
+        "Lore (Altdorf)",
+        "Melee (Basic)",
+        "Perform (Any)",
+        "Sleight of Hand"
+      ],
+      "talents": ["Doomed", "Savvy, Suave", 3]
+    },
+    {
+      "id": "averlander",
+      "name": "Averlander",
+      "skills": [
+        "Animal Care",
+        "Animal Training (Horse)",
+        "Cool",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Lore (Averland)",
+        "Lore (Greenskins)",
+        "Lore (Mootland)",
+        "Melee (Basic)",
+        "Navigation",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+        "Trade (Miner)"
+      ],
+      "talents": ["Doomed", "Animal Affinity, Coolheaded", 3]
+    },
+    {
+      "id": "drakenwalder",
+      "name": "Drakenwalder",
+      "skills": [
+        "Athletics",
+        "Charm Animal",
+        "Climb",
+        "Cool",
+        "Endurance",
+        "Gossip",
+        "Intuition",
+        "Lore (Beastmen)",
+        "Lore (Drakenwald)",
+        "Melee (Basic)",
+        "Navigation",
+        "Ranged (Bow)",
+        "Track"
+      ],
+      "talents": ["Doomed, random[1]", "Very Strong, Very Resilient", 3]
+    },
+    {
+      "id": "hochlander",
+      "name": "Hochlander",
+      "skills": [
+        "Athletics",
+        "Climb",
+        "Cool",
+        "Endurance",
+        "Intuition",
+        "Lore (Hochland)",
+        "Melee (Basic)",
+        "Navigation",
+        "Ranged (Bow)",
+        "Set Trap",
+        "Stealth (Rural)",
+        "Trade (Lumberjack)"
+      ],
+      "talents": ["Doomed, random[1]", "Marksman, Sharp", 3]
+    },
+    {
+      "id": "middenheimer",
+      "name": "Middenheimer",
+      "skills": [
+        "Bribery",
+        "Charm",
+        "Cool",
+        "Entertain (Any)",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Leadership",
+        "Lore (Middenheim)",
+        "Melee (Basic)",
+        "Ranged (Bow)",
+        "Trade (Any)"
+      ],
+      "talents": ["Doomed", "Etiquette, Strong Back", 3]
+    },
+    {
+      "id": "middenlander",
+      "name": "Middenlander",
+      "skills": [
+        "Animal Care",
+        "Cool",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Intimidate",
+        "Language (Wastelander)",
+        "Leadership",
+        "Lore (Middenland)",
+        "Melee (Basic)",
+        "Outdoor Survival",
+        "Ranged (Bow)"
+      ],
+      "talents": ["Doomed, random[1]", "Menacing, Warrior Born", 3]
+    },
+    {
+      "id": "nordlander",
+      "name": "Nordlander",
+      "skills": [
+        "Consume Alcohol",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Language (Norscan)",
+        "Language (Wastelander)",
+        "Lore (Nordland)",
+        "Lore (Norsca)",
+        "Melee (Basic)",
+        "Ranged (Bow)",
+        "Sail (Any)",
+        "Swim",
+        "Trade (Any)"
+      ],
+      "talents": [
+        "Doomed, random[1]",
+        "Fisherman, Rover",
+        "Stout-hearted, Very Resilient",
+        2
+      ]
+    },
+    {
+      "id": "nulner",
+      "name": "Nulner",
+      "skills": [
+        "Bribery",
+        "Charm",
+        "Cool",
+        "Evaluate",
+        "Gamble",
+        "Gossip",
+        "Haggle",
+        "Leadership",
+        "Lore (Nuln)",
+        "Melee (Basic)",
+        "Perform (Any)",
+        "Ranged (Blackpowder)",
+        "Trade (Any)"
+      ],
+      "talents": ["Doomed", "Savvy, Suave", 3]
+    },
+    {
+      "id": "ostlander",
+      "name": "Ostlander",
+      "skills": [
+        "Consume Alcohol",
+        "Cool",
+        "Endurance",
+        "Intuition",
+        "Language (Kislevite)",
+        "Lore (Kislev)",
+        "Lore (Ostland)",
+        "Melee (Basic)",
+        "Navigation",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+        "Sail (Any)",
+        "Swim"
+      ],
+      "talents": ["Doomed", "Coolheaded, Very Resilient", 3]
+    },
+    {
+      "id": "ostermarker",
+      "name": "Ostermarker",
+      "skills": [
+        "Consume Alcohol",
+        "Cool",
+        "Endurance",
+        "Intuition",
+        "Language (Kislevite)",
+        "Lore (Ostermark)",
+        "Lore (Vampires)",
+        "Melee (Basic)",
+        "Navigation",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+        "Set Trap",
+        "Track"
+      ],
+      "talents": ["Doomed", "Coolheaded, Warrior Born", 3]
+    },
+    {
+      "id": "reiklander",
+      "name": "Reiklander",
+      "skills": [
+        "Charm",
+        "Cool",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Intuition",
+        "Language (Bretonnian)",
+        "Language (Wastelander)",
+        "Lore (Reikland)",
+        "Melee (Basic)",
+        "Ranged (Bow)",
+        "Trade (Farmer)"
+      ],
+      "talents": ["Doomed", "Sharp, Suave", 3]
+    },
+    {
+      "id": "salzenmunder",
+      "name": "Salzenmunder",
+      "skills": [
+        "Charm",
+        "Cool",
+        "Entertain (Storytelling)",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Language (Norscan)",
+        "Leadership",
+        "Lore (Nordland)",
+        "Melee (Basic)",
+        "Ranged (Bow)",
+        "Trade (Any)"
+      ],
+      "talents": ["Doomed", "Savvy, Suave", 3]
+    },
+    {
+      "id": "sollander",
+      "name": "Sollander",
+      "skills": [
+        "Animal Care",
+        "Animal Training (Horse)",
+        "Cool",
+        "Gossip",
+        "Haggle",
+        "Lore (Solland)",
+        "Melee (Basic)",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+        "Trade (Farmer)",
+        "Trade (Miner)"
+      ],
+      "talents": ["Doomed", "Coolheaded, Marksman", 3]
+    },
+    {
+      "id": "stirlander",
+      "name": "Stirlander",
+      "skills": [
+        "Animal Care",
+        "Animal Training (Horse)",
+        "Cool",
+        "Drive",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Lore (Mootland)",
+        "Lore (Stirland)",
+        "Melee (Basic)",
+        "Navigation",
+        "Ranged (Bow)",
+        "Ride (Horse)"
+      ],
+      "talents": ["Doomed", "Sharp, Lightning Reflexes", 3]
+    },
+    {
+      "id": "strigany",
+      "name": "Strigany",
+      "skills": [
+        "Animal Care",
+        "Consume Alcohol",
+        "Cool",
+        "Drive",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Lore (Strigany)",
+        "Lore (Vampires)",
+        "Melee (Basic)",
+        "Ranged (Bow)",
+        "Sail (Barge)",
+        "Swim"
+      ],
+      "talents": [
+        "Doomed, Fast Hands",
+        "Seasoned Traveller, Nimble Fingered",
+        3
+      ]
+    },
+    {
+      "id": "sylvanian",
+      "name": "Sylvanian",
+      "skills": [
+        "Cool",
+        "Endurance",
+        "Gossip",
+        "Intimidate",
+        "Intuition",
+        "Lore (Stirland)",
+        "Lore (Sylvania)",
+        "Lore (Undead)",
+        "Lore (Vampires)",
+        "Melee (Basic)",
+        "Navigation",
+        "Outdoor Survival",
+        "Perception"
+      ],
+      "talents": ["Doomed, Fearless (Undead)", "Coolheaded, Very Resilient", 3]
+    },
+    {
+      "id": "talabeclander",
+      "name": "Talabeclander",
+      "skills": [
+        "Animal Care",
+        "Animal Training (Horse)",
+        "Athletics",
+        "Cool",
+        "Endurance",
+        "Lore (Talabecland)",
+        "Melee (Basic)",
+        "Ranged (Bow)",
+        "Ride (Horse)",
+        "Set Trap",
+        "Stealth (Rural)",
+        "Track"
+      ],
+      "talents": ["Doomed", "Marksman, Sharp", 3]
+    },
+    {
+      "id": "talabheimer",
+      "name": "Talabheimer",
+      "skills": [
+        "Animal Care",
+        "Animal Training (Horse)",
+        "Bribery",
+        "Consume Alcohol",
+        "Cool",
+        "Evaluate",
+        "Gossip",
+        "Haggle",
+        "Leadership",
+        "Lore (Talabheim)",
+        "Melee (Basic)",
+        "Ride (Horse)",
+        "Track"
+      ],
+      "talents": ["Doomed", "Sharp, Very Resilient", 3]
+    },
+    {
+      "id": "wastelander",
+      "name": "Wastelander",
+      "skills": [
+        "Bribery",
+        "Gamble",
+        "Gossip",
+        "Haggle",
+        "Language (Bretonnian)",
+        "Lore (Norsca)",
+        "Lore (Wasteland)",
+        "Melee (Basic)",
+        "Row",
+        "Sail (Any)",
+        "Swim",
+        "Trade (Merchant)"
+      ],
+      "talents": ["Doomed, random[1]", "Savvy, Sharp", 3]
+    },
+    {
+      "id": "wissenlander",
+      "name": "Wissenlander",
+      "skills": [
+        "Climb",
+        "Consume Alcohol",
+        "Cool",
+        "Endurance",
+        "Language (Khazalid)",
+        "Lore (Dwarfs)",
+        "Lore (Wissenland)",
+        "Melee (Basic)",
+        "Melee (Polearm)",
+        "Navigation",
+        "Ranged (Bow)",
+        "Track",
+        "Trade (Miner)"
+      ],
+      "talents": ["Doomed", "Lightning Reflexes, Marksman", 3]
+    }
+  ]
+}

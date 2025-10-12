@@ -1,0 +1,91 @@
+{
+  "id": "core.kislevite-humans",
+  "name": "Kislevite Humans",
+  "species": "human",
+  "entries": [
+    {
+      "id": "kislevite",
+      "name": "Kislevite",
+      "skills": [
+        "Animal Care",
+        "Athletics",
+        "Consume Alcohol",
+        "Cool",
+        "Endurance",
+        "Intimidate",
+        "Language (Reikspiel)",
+        "Lore (Kislev)",
+        "Melee (Basic)",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+        "Ride (Horse)"
+      ],
+      "talents": ["Hardy, Strong Back", "Very Resilient, Very Strong", 3]
+    },
+    {
+      "id": "gospodar",
+      "name": "Gospodar",
+      "skills": [
+        "Animal Care",
+        "Consume Alcohol",
+        "Cool",
+        "Endurance",
+        "Gossip",
+        "Haggle",
+        "Language (Reikspiel)",
+        "Language (Ungol)",
+        "Lore (Gospodar)",
+        "Lore (Kislev)",
+        "Melee (Basic)",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+        "Ride (Horse)"
+      ],
+      "talents": ["Coolheaded, Carouser", "Dealmaker, Embezzle", 3]
+    },
+    {
+      "id": "ropsmenn",
+      "name": "Ropsmenn",
+      "skills": [
+        "Athletics",
+        "Climb",
+        "Consume Alcohol",
+        "Cool",
+        "Endurance",
+        "Language (Reikspiel)",
+        "Language (Ungol)",
+        "Lore (Ropsmenn)",
+        "Lore (Trolllands)",
+        "Melee (Basic)",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+        "Stealth (Rural)"
+      ],
+      "talents": [
+        "Fearless (Trolls), Strider (Tundra)",
+        "Very Resilient, Very Strong",
+        3
+      ]
+    },
+    {
+      "id": "ungol",
+      "name": "Ungol",
+      "skills": [
+        "Animal Care",
+        "Cool",
+        "Endurance",
+        "Gossip",
+        "Haggle",
+        "Language (Gospodarinyi)",
+        "Language (Reikspiel)",
+        "Lore (Kislev)",
+        "Lore (Ungol)",
+        "Melee (Basic)",
+        "Outdoor Survival",
+        "Ranged (Bow)",
+        "Ride (Horse)"
+      ],
+      "talents": ["Iron Will, Trick Riding", "Very Strong, Roughrider", 3]
+    }
+  ]
+}

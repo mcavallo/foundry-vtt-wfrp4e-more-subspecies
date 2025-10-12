@@ -1,0 +1,79 @@
+{{#*inline "dataset"}}
+  <label class="dataset">
+    <div class="dataset__input">
+      <input
+        type='checkbox'
+        name='selectedDatasets'
+        value={{id}}
+        id='{{concat "selectedDatasets." id}}'
+        data-dtype='String'
+        {{checked enabled}}
+      />
+    </div>
+    <div class="dataset__info">
+      <div class="dataset-name">
+        <div class="dataset-name__text">{{ name }}</div>
+      </div>
+      <div class="dataset-details">
+        <div class="dataset-id">
+          <div class="dataset-id__text">{{ id }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="dataset-tags">
+      <div class="dataset-tags__active">active</div>
+      <div class="dataset-tags__species">{{ species }}</div>
+      <div class="dataset-tags__subspecies">{{ totalEntries }} subspecies</div>
+    </div>
+    {{#if custom}}
+      <div class="dataset__controls">
+        <button
+          type="button"
+          class="inline-control icon fa-solid fa-solid fa-trash"
+          data-action="removeCustomDataset"
+          data-id="{{ id }}"
+        ></button>
+      </div>
+    {{/if}}
+  </label>
+{{/inline}}
+
+<div class="scrollable standard-form">
+  <div class="notification warning">
+    <p><strong>Warning:</strong> Changing your datasets during character generation can cause issues. Please make sure to <u>do it beforehand</u></p>
+    <span class="pct"></span>
+  </div>
+
+  <div>Use this form to manage your active datasets and import custom ones. You can find more information about datasets in the <a href="https://github.com/mcavallo/foundry-vtt-wfrp4e-more-subspecies/wiki/Datasets" target="_blank">wiki</a>.</div>
+
+  <div class="dataset-categories-layout">
+    <fieldset class="dataset-category">
+      <legend>Core Datasets</legend>
+      <div class="dataset-category__wrapper">
+        {{#if (gt coreDatasets.length 0)}}
+          {{#each coreDatasets}}
+            {{> dataset}}
+          {{/each}}
+        {{else}}
+          <div class="dataset-category__empty-placeholder">There are no core datasets.</div>
+        {{/if}}
+      </div>
+    </fieldset>
+
+    <fieldset class="dataset-category">
+      <legend>Custom Datasets</legend>
+      <div class="dataset-category__wrapper">
+        {{#if (gt customDatasets.length 0)}}
+          {{#each customDatasets}}
+            {{> dataset}}
+          {{/each}}
+        {{else}}
+          <div class="dataset-category__empty-placeholder">There are no custom datasets.</div>
+        {{/if}}
+        <div class="dataset-category__buttons">
+          <button data-action="importCustomDataset">Import</button>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

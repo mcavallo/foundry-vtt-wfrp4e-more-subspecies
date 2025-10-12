@@ -1,6 +1,6 @@
 {
-  "id": "__MODULE_NAME__",
-  "name": "__MODULE_NAME__",
+  "id": "__MODULE_ID__",
+  "name": "__MODULE_ID__",
   "title": "__MODULE_TITLE__",
   "description": "__MODULE_DESCRIPTION__",
   "version": "__VERSION__",
@@ -16,11 +16,10 @@
       {
         "id": "wfrp4e",
         "type": "system",
-        "manifest": "https://github.com/moo-man/WFRP4e-FoundryVTT/releases/download/8.5.1/system.json",
+        "manifest": "https://github.com/moo-man/WFRP4e-FoundryVTT/releases/download/9.2.2/system.json",
         "compatibility": {
-          "minimum": 7,
-          "verified": "8.5.1",
-          "maximum": "8.5.1"
+          "minimum": 9,
+          "verified": "9.2.2"
         }
       }
     ]
@@ -32,5 +31,6 @@
   "media": [],
   "url": "__REPO_URL__",
   "manifest": "__REPO_URL__/releases/download/__RELEASE__/module.json",
-  "download": "__REPO_URL__/releases/download/__RELEASE__/__MODULE_NAME_____RELEASE__.zip"
+  "download": "__REPO_URL__/releases/download/__RELEASE__/__MODULE_NAME_____RELEASE__.zip",
+  "languages": []
 }

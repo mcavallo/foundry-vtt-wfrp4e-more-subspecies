@@ -2,7 +2,8 @@
 .env
 credentials.json
 
-coverage/
 dist/
 node_modules/
-src/data/
+tsconfig.tsbuildinfo
+
+src/data/custom*
